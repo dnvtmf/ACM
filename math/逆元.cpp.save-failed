@@ -12,7 +12,7 @@ LL getInv(LL x, LL MOD)
 	return -1;
 }
 
-//方法二：@:费马小定理 $a^{(p-1)} = 1(% p)$, 其中p是质数, 所以a的逆元是$a^{(p - 2)} % MOD$ :@
+//方法二：@:费马小定理 $a^(p-1) = 1(% p)$, 其中p是质数, 所以a的逆元是$a^(p - 2) % MOD$ @
 //O(log n)(配合快速幂), 预处理inv[1-n]：O（nlog n)
 LL qpow(LL x, LL k, LL MOD){....}
 LL getInv(LL x, LL MOD)
@@ -21,7 +21,7 @@ LL getInv(LL x, LL MOD)
 }
 
 //方法三：扩展欧几里得算法
-//扩展欧几里得算法可解决 @: $ax + by = gcd(a, b)$ :@@@@@@@@@@
+//扩展欧几里得算法可解决 @: $ax + by = gcd(a, b)$ @
 //所以a * x % MOD = gcd(a, b) % MOD (b = MOD)
 //O(log n), 预处理inv[1-n]：O(nlog n)
 LL exgcd(LL a, LL b, LL &x, LL &y){

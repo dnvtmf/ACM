@@ -1,16 +1,18 @@
 MKDIR=pdfmake
-FILE=$(MKDIR)/main.tex
-PDF=$(MKDIR)/main.pdf
+FILE=main.tex
+PDF=main.pdf
 PDFFILE=ACMtemplastes.pdf
+all:
+	(cd $(MKDIR);make;cp $(PDF) ../$(PDFFILE))
 
-all: $(PDF)
+edit: $(MKDIR)/$(FILE)
+	vim $(MKDIR)/$(FILE)
 
-$(PDF): $(FILE)
-	xelatex -output-directory=$(MKDIR) $(FILE)
-	cp $(PDF) $(PDFFILE)
+texmaker:
+	texmaker $(MKDIR)/$(FILE)
 
-edit: $(FILE)
-	vim $(FILE)
-
-view: $(PDFFILE)
+view:
 	evince $(PDFFILE)
+
+clean:
+	(cd $(MKDIR); make clean)

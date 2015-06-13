@@ -1,0 +1,28 @@
+\documentclass[nofonts,a4paper]{ctexart}
+%页面尺寸设置
+%页边距
+\usepackage[top=10mm, bottom=20mm, left=25mm, right=20mm]{geometry}
+%正文宽度
+\textwidth 160mm
+%正文高度
+%\textheight 160mm
+
+%页面风格设置 plain,empty, heading, myheading \markboth{left page}{right page}
+\pagestyle{plain}
+%每一段落第一行文字前面的空白的大小
+\parindent 5mm
+%段落间距
+\parskip 3mm
+
+%设置字体
+%\usepackage{xltxtra,fontspec,xunicode}
+%\usepackage[slantfont,boldfont]{XeCJK}
+\setCJKmainfont{STSong}
+\setCJKmonofont{STSong}
+\setCJKsansfont{STSong}
+\setmainfont{Droid Sans Mono}
+\setmonofont{Droid Sans Mono}
+\setsansfont{Droid Sans}
+
+%使用自定义的代码高亮
+\usepackage{CodeStyle}

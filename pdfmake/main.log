@@ -1,12 +1,12 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.9)  10 JUN 2015 21:42
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  12 JUN 2015 19:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**pdfmake/main.tex
-(./pdfmake/main.tex
+**main.tex
+(./main.tex
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/ctexart.cls
+(./PageSet.tex (/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/ctexart.cls
 Document Class: ctexart 2014/06/09 v1.02d ctexart document class
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/opt/ctex-common-opts.def)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/opt/ctex-caption-opts.def
@@ -850,32 +850,52 @@ File: xeCJK.cfg 2014/12/26 v3.3.0 Configuration file for xeCJK package
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/cfg/ctexcap.cfg
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/cfg/ctexcap-utf8.cfg))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ctex/cfg/ctex.cfg)
-\g__fontspec_family_SimSun_int=\count133
+(/usr/local/texlive/2014/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count133
+\Gm@cntv=\count134
+\c@Gm@tempcnt=\count135
+\Gm@bindingoffset=\dimen164
+\Gm@wd@mp=\dimen165
+\Gm@odd@mp=\dimen166
+\Gm@even@mp=\dimen167
+\Gm@layoutwidth=\dimen168
+\Gm@layoutheight=\dimen169
+\Gm@layouthoffset=\dimen170
+\Gm@layoutvoffset=\dimen171
+\Gm@dimlist=\toks17
+)
+\g__fontspec_family_STSong_int=\count136
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font SimSun/I (it probably doesn't exist).
+. Could not resolve font STSong/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font SimSun/BI (it probably doesn't exist).
+. Could not resolve font STSong/BI (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font SimSun/I (it probably doesn't exist).
+. Could not resolve font STSong/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'SimSun(0)' created for font 'SimSun' with options
+. Font family 'STSong(0)' created for font 'STSong' with options
 . [Ligatures=TeX,Script={CJK},AutoFakeBold={4}].
 . 
 . This font family consists of the following shapes:
 . 
 . * 'normal' with NFSS spec.:
-. <->"SimSun/OT:script=hani;language=DFLT;mapping=tex-text;"
+. <->"STSong/OT:script=hani;language=DFLT;mapping=tex-text;"
 . 
 . * 'small caps' with NFSS spec.:
 . 
@@ -883,32 +903,150 @@ File: xeCJK.cfg 2014/12/26 v3.3.0 Configuration file for xeCJK package
 . 
 . 
 . * 'bold' with NFSS spec.:
-. <->"SimSun/OT:script=hani;language=DFLT;mapping=tex-text;embolden=4;"
+. <->"STSong/OT:script=hani;language=DFLT;mapping=tex-text;embolden=4;"
 . 
 . * 'bold small caps' with NFSS spec.:
 . 
 . and font adjustment code:
 . 
 .................................................
+.................................................
+. fontspec info: "no-scripts"
+. 
+. Font Droid Sans Mono does not contain any OpenType `Script' information.
+.................................................
+\g__fontspec_family_DroidSansMono_int=\count137
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans Mono/BI (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans Mono/B (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans Mono/I (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'DroidSansMono(0)' created for font 'Droid Sans Mono' with
+. options [Ligatures=TeX,Ligatures=TeX].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Droid Sans Mono/OT:mapping=tex-text;mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+.................................................
+.................................................
+. fontspec info: "no-scripts"
+. 
+. Font Droid Sans Mono does not contain any OpenType `Script' information.
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans Mono/BI (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans Mono/B (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans Mono/I (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'DroidSansMono(1)' created for font 'Droid Sans Mono' with
+. options [Ligatures=TeX,WordSpace={1,0,0},PunctuationSpace=WordSpace].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Droid Sans Mono/OT:mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+.................................................
+\g__fontspec_family_DroidSans_int=\count138
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font Droid Sans/I (it probably doesn't exist).
+.................................................
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'DroidSans(0)' created for font 'Droid Sans' with options
+. [Ligatures=TeX,Ligatures=TeX].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Droid
+. Sans/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold' with NFSS spec.:
+. <->"Droid
+. Sans/B/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+. 
+. * 'bold italic' with NFSS spec.:
+. <->"Droid
+. Sans/BI/OT:script=latn;language=DFLT;mapping=tex-text;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. 
+.................................................
+)
+(./CodeStyle.sty
+Package: CodeStyle 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count134
+\lst@mode=\count139
 \lst@gtempboxa=\box44
-\lst@token=\toks17
-\lst@length=\count135
-\lst@currlwidth=\dimen164
-\lst@column=\count136
-\lst@pos=\count137
-\lst@lostspace=\dimen165
-\lst@width=\dimen166
-\lst@newlines=\count138
-\lst@lineno=\count139
-\lst@maxwidth=\dimen167
+\lst@token=\toks18
+\lst@length=\count140
+\lst@currlwidth=\dimen172
+\lst@column=\count141
+\lst@pos=\count142
+\lst@lostspace=\dimen173
+\lst@width=\dimen174
+\lst@newlines=\count143
+\lst@lineno=\count144
+\lst@maxwidth=\dimen175
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-\c@lstnumber=\count140
-\lst@skipnumbers=\count141
+\c@lstnumber=\count145
+\lst@skipnumbers=\count146
 \lst@framebox=\box45
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
@@ -940,36 +1078,36 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-)
+))
 (/usr/local/texlive/2014/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2014/12/26 v3.3.0 xeCJK patch file for listings
-\l__xeCJK_listings_flag_int=\count142
+\l__xeCJK_listings_flag_int=\count147
 )
-(pdfmake/main.aux)
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 89.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 89.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 4.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 4.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    ... okay on input line 4.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -977,83 +1115,168 @@ LaTeX Font Info:    ... okay on input line 89.
 .................................................
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 89.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 89.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 89.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 89.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 89.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 89.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 89.
-LaTeX Font Info:    Redeclaring math accent \check on input line 89.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 89.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 89.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 89.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 89.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 89.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 4.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 4.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 4.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 4.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 4.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 4.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 4.
+LaTeX Font Info:    Redeclaring math accent \check on input line 4.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 4.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 4.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 4.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 4.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 4.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 89.
+(Font)              `operators' in the math version `normal' on input line 4.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/lmr/m/n on input line 89.
+(Font)                  OT1/cmr/m/n --> EU1/DroidSansMono(0)/m/n on input line 
+4.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 89.
+(Font)              `operators' in the math version `bold' on input line 4.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> EU1/lmr/m/n on input line 89.
+(Font)                  OT1/cmr/bx/n --> EU1/DroidSansMono(0)/m/n on input line
+ 4.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/m/n on input line 89.
+(Font)                  EU1/DroidSansMono(0)/m/n --> EU1/DroidSansMono(0)/m/n o
+n input line 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> EU1/lmr/m/it on input line 89.
+(Font)                  OT1/cmr/m/it --> EU1/DroidSansMono(0)/m/it on input lin
+e 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> EU1/lmr/bx/n on input line 89.
+(Font)                  OT1/cmr/bx/n --> EU1/DroidSansMono(0)/bx/n on input lin
+e 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 89.
+(Font)                  OT1/cmss/m/n --> EU1/DroidSans(0)/m/n on input line 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 89.
+(Font)                  OT1/cmtt/m/n --> EU1/DroidSansMono(1)/m/n on input line
+ 4.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU1/lmr/m/n --> EU1/lmr/bx/n on input line 89.
+(Font)                  EU1/DroidSansMono(0)/m/n --> EU1/DroidSansMono(0)/bx/n 
+on input line 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> EU1/lmr/bx/it on input line 89.
+(Font)                  OT1/cmr/bx/it --> EU1/DroidSansMono(0)/bx/it on input l
+ine 4.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 89.
+(Font)                  OT1/cmss/bx/n --> EU1/DroidSans(0)/bx/n on input line 4
+.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 89.
-\c@lstlisting=\count143
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 91.
+(Font)                  OT1/cmtt/m/n --> EU1/DroidSansMono(1)/bx/n on input lin
+e 4.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/euenc/eu1lmtt.fd
-File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (./math/逆元.cpp
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 469.47049pt, 56.9055pt)
+* v-part:(T,H,B)=(28.45274pt, 759.6886pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24408pt
+* \textheight=759.6886pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-80.81725pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Warning: Font shape `EU1/SimSun(0)/m/it' undefined
-(Font)              using `EU1/SimSun(0)/m/n' instead on input line 1.
+\c@lstlisting=\count148
+(../dataStruct/pdf_dataStruct.tex) (../DP/pdf_DP.tex) (../graph/pdf_graph.tex)
+(../math/pdf_math.tex (../math/逆元.cpp
 
-LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <7.53> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 2.
-[1
+LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/m/it' undefined
+(Font)              using `EU1/DroidSansMono(0)/m/n' instead on input line 1.
 
-]) [2] (pdfmake/main.aux)
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+LaTeX Font Warning: Font shape `EU1/STSong(0)/m/it' undefined
+(Font)              using `EU1/STSong(0)/m/n' instead on input line 1.
 
- ) 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.53> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 6.
+
+LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/bx/n' undefined
+(Font)              using `EU1/DroidSansMono(0)/m/n' instead on input line 7.
+
+Missing character: There is no 配 in font cmmi7!
+Missing character: There is no 合 in font cmmi7!
+Missing character: There is no 快 in font cmmi7!
+Missing character: There is no 速 in font cmmi7!
+Missing character: There is no 幂 in font cmmi7!
+Missing character: There is no 预 in font cmmi7!
+Missing character: There is no 处 in font cmmi7!
+Missing character: There is no 理 in font cmmi7!
+Missing character: There is no ： in font Droid Sans Mono/OT:mapping=tex-text;ma
+pping=tex-text;!
+Missing character: There is no （ in font Droid Sans Mono/OT:mapping=tex-text;ma
+pping=tex-text;!
+Missing character: There is no 方 in font cmmi7!
+Missing character: There is no 法 in font cmmi7!
+Missing character: There is no 三 in font cmmi7!
+Missing character: There is no ： in font Droid Sans Mono/OT:mapping=tex-text;ma
+pping=tex-text;!
+Missing character: There is no 扩 in font cmmi7!
+Missing character: There is no 展 in font cmmi7!
+Missing character: There is no 欧 in font cmmi7!
+Missing character: There is no 几 in font cmmi7!
+Missing character: There is no 里 in font cmmi7!
+Missing character: There is no 得 in font cmmi7!
+Missing character: There is no 算 in font cmmi7!
+Missing character: There is no 法 in font cmmi7!
+Missing character: There is no 扩 in font cmmi7!
+Missing character: There is no 展 in font cmmi7!
+Missing character: There is no 欧 in font cmmi7!
+Missing character: There is no 几 in font cmmi7!
+Missing character: There is no 里 in font cmmi7!
+Missing character: There is no 得 in font cmmi7!
+Missing character: There is no 算 in font cmmi7!
+Missing character: There is no 法 in font cmmi7!
+Missing character: There is no 可 in font cmmi7!
+Missing character: There is no 解 in font cmmi7!
+Missing character: There is no 决 in font cmmi7!
+! Misplaced alignment tab character &.
+l.27 LL exgcd(LL a, LL b, LL &
+                              x, LL &y){
+? X
+ 
 Here is how much of TeX's memory you used:
- 20102 strings out of 493724
- 408311 string characters out of 6145900
- 638543 words of memory out of 5000000
- 23269 multiletter control sequences out of 15000+600000
- 3768 words of font info for 30 fonts, out of 8000000 for 9000
+ 20664 strings out of 493724
+ 416773 string characters out of 6145899
+ 497153 words of memory out of 5000000
+ 23799 multiletter control sequences out of 15000+600000
+ 4692 words of font info for 34 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 63i,6n,69p,10368b,1708s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on pdfmake/main.pdf (2 pages).
+ 65i,3n,69p,10428b,1254s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.

@@ -1,0 +1,55 @@
+\ProvidesPackage{CodeStyle}
+%代码高亮
+\usepackage{listings}
+\usepackage{xcolor}
+
+%基本设置
+\lstset{
+	language=C++,				%语言设置
+%	columns=fixed,				%
+	numbers=left,				%行号位置
+	numbersep=5pt,				%行号距离代码宽度
+	stepnumber=1,				%行号显示间隔(=2, 显示1, 3, 5, ...)
+	frame=shadowbox,			%背景边框 none, sigle, shadowbox
+	showstringspaces=false,		%不显示字符串中的空格
+	basicstyle=\footnotesize,	%基本样式
+	breakatwhitespace=true,		%设置自动断行是否在whitespace处
+	breaklines=true,			%自动断行
+%	captionpos=t,				%设置标题位置--顶部
+	escapeinside={@:}{:@},		%设置文件内latex的解析符
+	extendedchars=true,			%在非UTF8编码文件中使用非ASCII字符
+	keepspaces=true,				%keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	showspaces=false,			%show spaces everywhere adding particular underscores; it overrides 
+	showtabs=false,			%show tabs within strings adding particular underscores
+	tabsize=4,					%tab大小
+	%增加关键字
+	morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
+	    reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
+	    typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
+	    dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
+	    char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
+	    void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
+	    const,false,private,this,while,constexpr,float,protected,thread_local,
+	    const_cast,for,public,throw,std,},
+	emph={map,set,multimap,multiset,unordered_map,unordered_set,unordered_multiset,
+		unordered_multimap,vector,string,list,deque,array,stack,forwared_list,
+		iostream,memory,shared_ptr,unique_ptr,random,bitset,ostream,istream,cout,cin,
+		endl,move,default_random_engine,uniform_int_distribution,iterator,algorithm,
+		functional,bing,numeric,},
+	%减少关键字
+	deletekeywords={},
+}
+%定义代码主题
+\lstdefinestyle{base}{
+	backgroundcolor=\color{white}, %背景颜色
+	keywordstyle=\bf\color{green},			%关键字样式
+	stringstyle=\rmfamily\slshape\color[RGB]{128, 0, 0}, %字符串样式
+	commentstyle=\it\color[RGB]{0, 96,96}, %注释样式
+	numberstyle=\tiny\color{darkgray}, %行号样式
+	identifierstyle=\bf,
+	rulesepcolor=\color{black},				%
+}
+
+%\newcommand{\includecode}[2][base]{\lstinputlisting[caption=#2, style=#1]{#2}}
+\newcommand{\includecode}[1]{\lstinputlisting[style=base]{#1}}
+
