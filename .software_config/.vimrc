@@ -131,11 +131,11 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""
 "自动补全
 """""""""""""""""""""""""""""""""""""""""""""""""
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<cr>
-:inoremap { {<CR>}<ESC><s-o>
+":inoremap ( ()<ESC>i
+":inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap [ []<ESC>i
+":inoremap ] <c-r>=ClosePair(']')<cr>
+":inoremap { {<CR>}<ESC><s-o>
 ":inoremap " ""<ESC>i
 ":inoremap ' ''<ESC>i
 func ClosePair(char)
@@ -164,17 +164,17 @@ vmap <C-c> "+y
 "去空行
 nnoremap <F2> :g/^\s*$/d<cr>
 "比较文件
-nnoremap <C-F2> :vert diffsplit
+"nnoremap <C-F2> :vert diffsplit
 "新建标签
-map <M-F2> :tabnew<CR>
+"map <M-F2> :tabnew<CR>
 "列出当前目录文件
-map <F3> :tabnew .<CR>
+"map <F3> :tabnew .<CR>
 "打开树状文件目录
-map <C-F3> \be
+"map <C-F3> \be
 
 ""C,C++ 编译运行
 map <F5> :call Compile()<CR>
-imap <F5> <ESC> :call Compile<CR>
+imap <F5> <ESC> :call Compile()<CR>
 func Compile()
 	exec "w"
 	if &filetype == 'c'
@@ -189,10 +189,21 @@ func Compile()
 	endif
 endfunc
 "run with inputfile
-map <C-F5> :!%< < in<cr>
+map <C-F5> :!./%< < in<cr>
 "run
-map <C-r> :!%< <cr>
+map <C-r> :call Run() <cr>
+func Run()
+	if &filetype == 'java'
+		exec ":!java %<"
+	elseif &filetype == 'cpp'
+		exec ":!./%<"
+	elseif &filetype == 'c'
+		exec ":./%<"
+	endif
+endfunc
 
+"edit in
+map <F3> :!vim in <cr>
 ""C,C++ 调试
 map <F8> :call Rungdb()<CR>
 func Rungdb()
@@ -200,3 +211,7 @@ func Rungdb()
 	exec "!g++ % -g -o %<"
 	exec "!gdb ./%<"
 endfunc
+
+"保存
+map <C-s> :w <cr>
+imap <C-s> <esc> :w <cr>
