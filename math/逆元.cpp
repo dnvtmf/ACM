@@ -12,12 +12,15 @@ LL getInv(LL x, LL MOD)
 	return -1;
 }
 
-//方法二： 费马小定理@$ a^{(p-1)} = 1(\% p) $@, 其中p是质数, 所以a的逆元是@$a^{(p - 2)}\%p$ @
+//方法二： 费马小定理和欧拉定理
+//费马小定理:@$ a^{(p-1)} \equiv 1(\% p) $@, 其中p是质数, 所以a的逆元是@$a^{(p - 2)}\%p$@
+//欧拉定理:@$ x^{\phi(m)} \equiv 1 (\% m)$@ x与m互素, m是任意整数
 //O(log n)(配合快速幂), 预处理inv[1-n]：O（nlog n)
 LL qpow(LL x, LL k, LL MOD){....}
 LL getInv(LL x, LL MOD)
 {
-	return qpow(x, MOD - 2, MOD);
+	//return qpow(x, euler_phi(MOD) - 1, MOD);
+	return qpow(x, MOD - 2, MOD);//MOD是质数
 }
 
 //方法三：扩展欧几里得算法
