@@ -4,7 +4,8 @@
 \contentsline {section}{\numberline {4}数学专题}{6}{section.4}
 \contentsline {subsection}{\numberline {4.1}逆元}{6}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}模}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{7}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{8}{subsection.4.4}
-\contentsline {section}{\numberline {5}字符串}{10}{section.5}
-\contentsline {section}{\numberline {6}Java}{11}{section.6}
+\contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{9}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{9}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}博弈论和SG函数}{11}{subsection.4.5}
+\contentsline {section}{\numberline {5}字符串}{13}{section.5}
+\contentsline {section}{\numberline {6}Java}{14}{section.6}
