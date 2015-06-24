@@ -37,7 +37,7 @@ LL getInv(LL x, LL mod)
 {
     LL g, inv, tmp;
     exgcd(x, mod, g, inv, tmp);
-    return g != 1 ? -1 : (inv + mod) % mod;
+    return g != 1 ? -1 : (inv % mod + mod) % mod;
 }
 
 //方法四：积性函数

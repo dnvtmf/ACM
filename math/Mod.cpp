@@ -50,23 +50,15 @@ inline void pre_fact(LL p, LL pc)//预处理@$n! \%  p^c$@ O(@$p^c$@)
     fact[0] = fact[1] = 1;
     for(int i = 2; i < pc; i++)
     {
-        if(i % p == 0)
-            fact[i] = fact[i - 1];
-        else
-            fact[i] = fact[i - 1] * i % pc;
+        if(i % p) fact[i] = fact[i - 1] * i % pc;
+        else fact[i] = fact[i - 1];
     }
 }
 //分解@$	n! = t (p^c) ^ u, n! \% pc = t * qpow(p, u, pc)	$@
 inline void mod_factorial(LL n, LL p, LL pc, LL &t, LL &u)
 {
-    t = 1, u = 0;
-    while(n)
-    {
-        t = t * qpow(fact[pc - 1], n / pc, pc) % pc;
-        t = t * fact[n % pc] % pc;
-        u += n / p;
-        n /= p;
-    }
+    for(t = 1, u = 0; n; u += (n/= p))
+		t = t * fact[n % pc] % pc * qpow(fact[pc - 1], n / pc, pc) % pc;
 }
 /*
  7. 大组合数求模，mod不是质数
@@ -93,13 +85,8 @@ LL C(LL n, LL m, LL mod)
     for(i = 0; prim[i] <= tmpmod; i++)
         if(tmpmod % prim[i] == 0)
         {
-            p = prim[i];
-            pc = 1;
-            while(tmpmod % p == 0)
-            {
+            for(p = prim[i], pc = 1; tempmod % p == 0; tmpmod /= p)
                 pc *= p;
-                tmpmod /= p;
-            }
             //求@$   C_n^k \% pc  $@
             pre_fact(p, pc);
             mod_factorial(n, p, pc, t, u);//n!
@@ -108,10 +95,10 @@ LL C(LL n, LL m, LL mod)
             mod_factorial(m, p, pc, t, u);//m!
             tmpans = tmpans * getInv(t, pc) % pc;//求逆元: 采用扩展欧几里得定律
             tot -= u;
-            mod_factorial(n - m, p, pc, t, u); (n - m)!
+            mod_factorial(n - m, p, pc, t, u);//(n - m)!
             tmpans = tmpans * getInv(t, pc) % pc;
             tot -= u;
-            tmpans = tmpans * qpow(p, tot, pc);
+            tmpans = tmpans * qpow(p, tot, pc) % pc;
             //中国剩余定理
             Mi = mod / pc;
             ans = (ans + tmpans * Mi % mod * getInv(Mi, pc) % mod) % mod;
