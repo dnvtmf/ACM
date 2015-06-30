@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  22 JUN 2015 23:52
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  30 JUN 2015 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1405,7 +1405,21 @@ LaTeX Font Warning: Font shape `EU1/STSong(0)/m/it' undefined
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7.53> on input line 6.
 [6]) (../math/Mod.cpp [7] [8]) (../math/中国剩余定理和线性同余方程.cpp)
-(../math/组合与组合恒等式.cpp [9] [10]) (../math/博弈论.cpp
+(../math/组合与组合恒等式.cpp [9] [10]) (../math/排列.cpp [11]
+Overfull \hbox (25.15477pt too wide) in paragraph at lines 19--28
+[][][]  
+ []
+
+
+Overfull \hbox (47.38185pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][]$\OML/cmm/m/it/7.53 r[]\
+OT1/cmr/m/n/7.53 (\OML/cmm/m/it/7.53 C\OT1/cmr/m/n/7.53 )$  
+ []
+
+) (../math/博弈论.cpp
 Overfull \hbox (84.33005pt too wide) in paragraph at lines 3--4
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1414,6 +1428,7 @@ Overfull \hbox (84.33005pt too wide) in paragraph at lines 3--4
 [][][][][][][][][][][][][][][]  
  []
 
+[12]
 
 LaTeX Warning: Command \textasciicircum invalid in math mode on input line 17.
 
@@ -1423,15 +1438,33 @@ LaTeX Warning: Command \textasciicircum invalid in math mode on input line 17.
 
 LaTeX Warning: Command \textasciicircum invalid in math mode on input line 17.
 
-) [11]) (../string/pdf_string.tex [12]) (../geometry/pdf_geometry.tex [13]
-(../geometry/计算几何基础.cpp [14] [15]) (../geometry/多边形.cpp) (../geometry/立体几何.cpp)
-) (../Java/pdf_java.tex [16]
+) (../math/鸽笼原理与Ramsey数.cpp
+Overfull \hbox (39.14969pt too wide) in paragraph at lines 14--15
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][]  
+ []
+
+
+Overfull \hbox (56.1057pt too wide) in paragraph at lines 29--30
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][]$\OML/cmm/m/it/7.53 c[]; c[]; [] ; c[]$[][][][][][][][][][][][][
+][][][][][][][][][][][]$N\OT1/cmr/m/n/7.53 (\OML/cmm/m/it/7.53 a[]; a[]; [] ; a
+[]\OT1/cmr/m/n/7.53 )$[][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][]  
+ []
+
+[13]) (../math/容斥原理.cpp)) (../string/pdf_string.tex [14])
+(../geometry/pdf_geometry.tex [15] (../geometry/计算几何基础.cpp [16] [17])
+(../geometry/多边形.cpp) (../geometry/立体几何.cpp)) (../Java/pdf_java.tex [18]
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (../Java/Main.java))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 24.
- [17]
+ [19]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 24.
  (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 24.
@@ -1442,12 +1475,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27107 strings out of 493724
- 511261 string characters out of 6145899
- 749745 words of memory out of 5000000
- 30125 multiletter control sequences out of 15000+600000
+ 27123 strings out of 493724
+ 511741 string characters out of 6145899
+ 759154 words of memory out of 5000000
+ 30132 multiletter control sequences out of 15000+600000
  8792 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,11n,69p,10428b,1886s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (17 pages).
+Output written on main.pdf (19 pages).
