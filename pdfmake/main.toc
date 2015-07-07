@@ -7,9 +7,10 @@
 \contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{9}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{9}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}排列}{11}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}博弈论和SG函数}{12}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}鸽笼原理与Ramsey数}{13}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}容斥原理}{14}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.6}母函数}{12}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}博弈论和SG函数}{13}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}鸽笼原理与Ramsey数}{14}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}容斥原理}{14}{subsection.4.9}
 \contentsline {section}{\numberline {5}字符串}{15}{section.5}
 \contentsline {section}{\numberline {6}计算几何}{16}{section.6}
 \contentsline {subsection}{\numberline {6.1}计算几何基础}{16}{subsection.6.1}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  30 JUN 2015 22:02
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  7 JUL 2015 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1419,26 +1419,29 @@ Overfull \hbox (47.38185pt too wide) in paragraph at lines 36--37
 OT1/cmr/m/n/7.53 (\OML/cmm/m/it/7.53 C\OT1/cmr/m/n/7.53 )$  
  []
 
-) (../math/博弈论.cpp
-Overfull \hbox (84.33005pt too wide) in paragraph at lines 3--4
+) (../math/母函数.cpp [12]) (../math/博弈论.cpp
+Overfull \hbox (484.50739pt too wide) in paragraph at lines 3--4
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][]  
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[]  
  []
 
-[12]
 
-LaTeX Warning: Command \textasciicircum invalid in math mode on input line 17.
-
-
-LaTeX Warning: Command \textasciicircum invalid in math mode on input line 17.
+LaTeX Warning: Command \textasciicircum invalid in math mode on input line 15.
 
 
-LaTeX Warning: Command \textasciicircum invalid in math mode on input line 17.
+LaTeX Warning: Command \textasciicircum invalid in math mode on input line 15.
 
-) (../math/鸽笼原理与Ramsey数.cpp
+
+LaTeX Warning: Command \textasciicircum invalid in math mode on input line 15.
+
+) [13] (../math/鸽笼原理与Ramsey数.cpp
 Overfull \hbox (39.14969pt too wide) in paragraph at lines 14--15
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1456,7 +1459,7 @@ Overfull \hbox (56.1057pt too wide) in paragraph at lines 29--30
 ][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[13]) (../math/容斥原理.cpp)) (../string/pdf_string.tex [14])
+) (../math/容斥原理.cpp)) (../string/pdf_string.tex [14])
 (../geometry/pdf_geometry.tex [15] (../geometry/计算几何基础.cpp [16] [17])
 (../geometry/多边形.cpp) (../geometry/立体几何.cpp)) (../Java/pdf_java.tex [18]
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1475,9 +1478,9 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27123 strings out of 493724
- 511741 string characters out of 6145899
- 759154 words of memory out of 5000000
+ 27126 strings out of 493724
+ 511774 string characters out of 6145899
+ 749745 words of memory out of 5000000
  30132 multiletter control sequences out of 15000+600000
  8792 words of font info for 58 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
