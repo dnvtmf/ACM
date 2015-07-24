@@ -1,19 +1,25 @@
 \contentsline {section}{\numberline {1}数据结构}{3}{section.1}
 \contentsline {section}{\numberline {2}动态规划}{4}{section.2}
 \contentsline {section}{\numberline {3}图论}{5}{section.3}
-\contentsline {section}{\numberline {4}数学专题}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}逆元}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}模}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{9}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{9}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}排列}{11}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}母函数}{12}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}博弈论和SG函数}{13}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}鸽笼原理与Ramsey数}{14}{subsection.4.8}
-\contentsline {subsection}{\numberline {4.9}容斥原理}{14}{subsection.4.9}
-\contentsline {section}{\numberline {5}字符串}{15}{section.5}
-\contentsline {section}{\numberline {6}计算几何}{16}{section.6}
-\contentsline {subsection}{\numberline {6.1}计算几何基础}{16}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}多边形}{18}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}立体几何}{18}{subsection.6.3}
-\contentsline {section}{\numberline {7}Java}{19}{section.7}
+\contentsline {subsection}{\numberline {3.1}最短路 shortest path}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}最大流 maximum flow}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}最近公共祖先 LCA}{12}{subsection.3.3}
+\contentsline {section}{\numberline {4}数学专题}{14}{section.4}
+\contentsline {subsection}{\numberline {4.1}逆元 Inverse}{14}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}模}{15}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{17}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{17}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}排列permutation}{19}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}母函数 Generating Function}{20}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}博弈论和SG函数}{21}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}鸽笼原理与Ramsey数}{22}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}容斥原理}{22}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.10}伪随机数的生成--梅森旋转算法}{23}{subsection.4.10}
+\contentsline {section}{\numberline {5}字符串}{24}{section.5}
+\contentsline {subsection}{\numberline {5.1}palindrome回文串}{24}{subsection.5.1}
+\contentsline {section}{\numberline {6}计算几何}{25}{section.6}
+\contentsline {subsection}{\numberline {6.1}计算几何基础}{25}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}多边形}{27}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}凸包 ConvexHull}{27}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}立体几何}{29}{subsection.6.4}
+\contentsline {section}{\numberline {7}Java}{30}{section.7}

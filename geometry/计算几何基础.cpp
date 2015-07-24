@@ -1,5 +1,5 @@
 //精度设置
-const int EPS = 1e-6;
+const double EPS = 1e-6;
 int sgn(double x)
 {
 	if(x < -EPS)return -1;
@@ -96,7 +96,7 @@ bool Point_on_Line(Point &p, Line &l)
  */
 bool seg_seg_inter(Line seg1, Line seg2)
 {
-	return 
+	return
 		sgn(max(seg1.s.x, seg1.e.x) - min(seg2.s.x, seg2.e.x)) >= 0 &&
 		sgn(max(seg2.s.x, seg2.e.x) - min(seg1.s.x, seg1.e.x)) >= 0 &&
 		sgn(max(seg1.s.y, seg1.e.y) - min(seg2.s.y, seg2.e.y)) >= 0 &&
