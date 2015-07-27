@@ -1,25 +1,37 @@
 \BOOKMARK [1][-]{section.1}{数据结构}{}% 1
-\BOOKMARK [1][-]{section.2}{动态规划}{}% 2
-\BOOKMARK [1][-]{section.3}{图论}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{最短路 shortest path}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{最大流 maximum flow}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{最近公共祖先 LCA}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{数学专题}{}% 7
-\BOOKMARK [2][-]{subsection.4.1}{逆元 Inverse}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.2}{模}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.3}{中国剩余定理和线性同余方程组}{section.4}% 10
-\BOOKMARK [2][-]{subsection.4.4}{组合与组合恒等式}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.5}{排列permutation}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.6}{母函数 Generating Function}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.7}{博弈论和SG函数}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.8}{鸽笼原理与Ramsey数}{section.4}% 15
-\BOOKMARK [2][-]{subsection.4.9}{容斥原理}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.10}{伪随机数的生成–梅森旋转算法}{section.4}% 17
-\BOOKMARK [1][-]{section.5}{字符串}{}% 18
-\BOOKMARK [2][-]{subsection.5.1}{palindrome回文串}{section.5}% 19
-\BOOKMARK [1][-]{section.6}{计算几何}{}% 20
-\BOOKMARK [2][-]{subsection.6.1}{计算几何基础}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.2}{多边形}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.3}{凸包 ConvexHull}{section.6}% 23
-\BOOKMARK [2][-]{subsection.6.4}{立体几何}{section.6}% 24
-\BOOKMARK [1][-]{section.7}{Java}{}% 25
+\BOOKMARK [2][-]{subsection.1.1}{RMQ相关}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{ST表}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{最长上升子序列LIS}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{动态规划}{}% 5
+\BOOKMARK [1][-]{section.3}{图论}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{最短路 shortest path}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{最大流 maximum flow}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{最小割 minimum cut}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{分数规划 Fractional Programming}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{最大闭权图 maximum weight closure of a graph}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.6}{最小费用最大流 minimum cost flow}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.7}{有上下界的网络流}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.8}{最近公共祖先 LCA}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{数学专题}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{逆元 Inverse}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{模运算 Module}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.3}{中国剩余定理和线性同余方程组}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.4}{组合与组合恒等式}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.5}{排列permutation}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.6}{母函数 Generating Function}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.7}{博弈论和SG函数}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.8}{鸽笼原理与Ramsey数}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.9}{容斥原理}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.10}{伪随机数的生成–梅森旋转算法}{section.4}% 25
+\BOOKMARK [2][-]{subsection.4.11}{异或 Xor}{section.4}% 26
+\BOOKMARK [2][-]{subsection.4.12}{一些数学知识}{section.4}% 27
+\BOOKMARK [1][-]{section.5}{字符串}{}% 28
+\BOOKMARK [2][-]{subsection.5.1}{palindrome回文串}{section.5}% 29
+\BOOKMARK [1][-]{section.6}{计算几何}{}% 30
+\BOOKMARK [2][-]{subsection.6.1}{计算几何基础}{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.2}{多边形}{section.6}% 32
+\BOOKMARK [2][-]{subsection.6.3}{凸包 ConvexHull}{section.6}% 33
+\BOOKMARK [2][-]{subsection.6.4}{立体几何}{section.6}% 34
+\BOOKMARK [1][-]{section.7}{搜索等}{}% 35
+\BOOKMARK [1][-]{section.8}{分治}{}% 36
+\BOOKMARK [1][-]{section.9}{Java}{}% 37

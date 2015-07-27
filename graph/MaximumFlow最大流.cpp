@@ -56,43 +56,48 @@ int max_flow(int s, int t)
     }
 }
 ///Dinic算法 $O(|E| \cdot |V|^2)$
+//似乎比链式前向星快
 struct edge {int to, cap, rev;};
-
 vector <edge> G[MAXV];
 int level[MAXV];
 int iter[MAXV];
-
+void init()
+{
+    for(int i = 0; i < MAXV; i++)
+        G[i].clear();
+}
 void add_edge(int from, int to, int cap)
 {
     G[from].push_back((edge) {to, cap, G[to].size()});
     G[to].push_back((edge) {from, 0, G[from].size() - 1 });
 }
-void bfs(int s)
+bool bfs(int s, int t)
 {
     memset(level, -1, sizeof(level));
-    queue <int> q;
+    queue <int> que;
     level[s] = 0;
-    q.push(s);
-    while(!q.empty())
+    que.push(s);
+    while(!que.empty())
     {
-        int v = q.front();
-        q.pop();
-        for(int i = 0; i < G[v].size(); i++)
+        int v = que.front();
+        que.pop();
+        for(int i = 0; i < (int)G[v].size(); i++)
         {
             edge &e = G[v][i];
             if(e.cap > 0 && level[e.to] < 0)
             {
                 level[e.to] = level[v] + 1;
-                q.push(e.to);
+                que.push(e.to);
             }
         }
     }
+    return level[t] != -1;
 }
 
 int dfs(int v, int t, int f)
 {
     if(v == t) return f;
-    for(int &i = iter[v]; i < G[v].size(); i++)
+    for(int &i = iter[v]; i < (int)G[v].size(); i++)
     {
         edge &e = G[v][i];
         if(e.cap > 0 && level[v] < level[e.to])
@@ -111,35 +116,39 @@ int dfs(int v, int t, int f)
 
 int max_flow(int s, int t)
 {
-    int flow = 0;
-    for(;;)
+    int flow = 0, cur_flow;
+    while(bfs(s, t))
     {
-        bfs(s);
-        if(level[t] < 0) return flow;
         memset(iter, 0, sizeof(iter));
-        int f;
-        while((f = dfs(s, t, INF)) > 0)
-        {
-            flow += f;
-        }
+        while((cur_flow = dfs(s, t, INF)) > 0) flow += cur_flow;
     }
+    return flow;
 }
-
 ///SAP算法 $O(|E| \cdot |V|^2)$
 #define MAXV 1000
 #define MAXE 10000
 struct edge
 {
     int cap, next, to;
-} e[MAXE];
+} e[MAXE * 2];
 int head[MAXV], tot_edge;
+void init()
+{
+    memset(head, -1, sizeof(head));
+    tot_edge = 0;
+}
+void add_edge(int u, int v, int cap)
+{
+    e[tot_edge] = (edge) {cap, head[u], v};
+    head[u] = tot_edge++;
+}
 int V;
-int humh[MAXV];//用于GAP优化的统计高度数量数组
+int numh[MAXV];//用于GAP优化的统计高度数量数组
 int h[MAXV];//距离标号数组
-int pree[MAXV], prev[MAXV];
+int pree[MAXV], prev[MAXV];//前驱边与结点
 int SAP_max_flow(int s, int t)
 {
-    int i, flow = 0, u, f, neck, tmp;
+    int i, flow = 0, u, cur_flow, neck = 0, tmp;
     memset(h, 0, sizeof(h));
     memset(numh, 0, sizeof(numh));
     memset(prev, -1, sizeof(prev));
@@ -151,22 +160,22 @@ int SAP_max_flow(int s, int t)
     {
         if(u == t)
         {
-            f = INT_MAX;
+            cur_flow = INT_MAX;
             for(i = s; i != t; i = e[pree[i]].to)
             {
-                if(s > e[pree[i]].cap)
+                if(cur_flow > e[pree[i]].cap)
                 {
                     neck = i;
-                    f = e[pree[i].cap];
+                    cur_flow = e[pree[i]].cap;
                 }
-            }//增广成功，寻找“瓶颈”边
+            }//增广成功，寻找"瓶颈"边
             for(i = s; i != t; i = e[pree[i]].to)
             {
                 tmp = pree[i];
-                e[tmp].cap -= f;
-                e[tmp ^ 1].cap += f;
+                e[tmp].cap -= cur_flow;
+                e[tmp ^ 1].cap += cur_flow;
             }//修改路径上的边容量
-            flow += f;
+            flow += cur_flow;
             u = neck;//下次增广从瓶颈边开始
         }
         for(i = pree[u]; i != -1; i = e[i].next)
@@ -181,19 +190,17 @@ int SAP_max_flow(int s, int t)
         else
         {
             if(0 == --numh[h[u]])break;//GAP优化
-            pree[[u] = head[u];
-                 for(tmp = V, i = head[u]; i != -1; i = e[i].next)
-                 if(e[i].cap)
-                 tmp = min(tmp, h[e[i].to]);
-                 h[u] = tmp + 1;
-                 ++num[h[u]];
-                 if(u != s)
-                 u = prev[u];
+            pree[u] = head[u];
+            for(tmp = V, i = head[u]; i != -1; i = e[i].next)
+                if(e[i].cap)
+                    tmp = min(tmp, h[e[i].to]);
+            h[u] = tmp + 1;
+            ++numh[h[u]];
+            if(u != s) u = prev[u];//从标号并且从当前结点的前驱重新增广
         }
     }
     return flow;
 }
-
 
 ///EK算法 $O(|V| \cdot |E|^2)$
 //bfs寻找增广路

@@ -5,10 +5,12 @@
 	Subtract:(a - b) % p = ((a%p - b%p)%p + p)%p
 	Multiply:(a * b) % p = ((a % p) * (b % p)) % p
 	Dvidive: (a / b) % p = (a * $b^{-1}$) % p, $b^{-1}$是b关于p的逆元
-	Power: $(a ^ b) \% p = ((a \% p) ^ b) \% p	 $
+	Power: $(a ^ b) \% p = ((a \% p) ^ b) \% p$
+
+	对一个数连续取模, 有效的取模次数小于$O(\log{n})$
  2. 推论
     若$ a \equiv b (\%p), c \equiv d(\%p)	$,则$	(a+c) \equiv (b+d)(\%p), (a-c) \equiv (b-d)(\%p),
-		(a*c) \equiv (b*d)(\%p), (a/c) \equiv (b/d)(\%p)	$
+		(a*c) \equiv (b*d)(\%p), (a/c) \equiv (b/d)(\%p)$
 
  3. 费马小定理
 	若p是素数，对任意正整数x,有 $ x^p \equiv x (\% p) $.

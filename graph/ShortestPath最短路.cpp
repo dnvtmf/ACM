@@ -7,14 +7,18 @@ struct edge {int u, v, cost;} e[MAXE];
 int V, E;
 //graph G
 int d[MAXV];
-void Bellman_Ford(int s) {
+void Bellman_Ford(int s)
+{
     for(int i = 0; i < V; i++)
         d[i] = INF;
     d[s] = 0;
-    while(true) {
+    while(true)
+    {
         bool update = false;
-        for(int i = 0; i < E; i++) {
-            if(d[e[i].u] != INF && d[e[i].v] > d[e[i].u] + e[i].cost) {
+        for(int i = 0; i < E; i++)
+        {
+            if(d[e[i].u] != INF && d[e[i].v] > d[e[i].u] + e[i].cost)
+            {
                 d[e[i].v] = d[e[i].u] + e[i].cost;
                 update = true;
             }
@@ -22,11 +26,15 @@ void Bellman_Ford(int s) {
     }
 }
 //判负圈
-bool find_negative_loop() {
+bool find_negative_loop()
+{
     memset(d, 0, sizeof(d));
-    for(int i = 0; i < V; i++) {
-        for(int j = 0; j < E; j++) {
-            if(d[e[j].v] > d[e[i].u] + e[j].cost) {
+    for(int i = 0; i < V; i++)
+    {
+        for(int j = 0; j < E; j++)
+        {
+            if(d[e[j].v] > d[e[i].u] + e[j].cost)
+            {
                 d[e[j].v] = d[e[j].u] + e[j].cost;
                 if(i == V - 1)
                     return true;
@@ -38,11 +46,14 @@ bool find_negative_loop() {
 }
 
 //spfa算法 $O(|E|\log{|V|})$
+//适用于负权图和稀疏图, 稳定性不如dijstra
 //存在负环返回false
 int d[MAXV], outque[MAXV];
 bool vis[MAXV];
-bool spfa(int s) {
-    for(int i = 0; i < V; i++) {
+bool spfa(int s)
+{
+    for(int i = 0; i < V; i++)
+    {
         vis[i] = false;
         d[i] = INF;
         outque[i] = 0;
@@ -51,38 +62,44 @@ bool spfa(int s) {
     queue<int> que;
     que.push(s);
     vis[s] = true;
-    while(!que.empty()) {
+    while(!que.empty())
+    {
         int u = que.front();
         que.pop();
         vis[u] = false;
-        if(++outque[u] > V) return false;
-        for(int i = head[u]; i != -1; i = e[i].next) {
+        if(++outque[u] > V) return false;;
+        for(int i = head[u]; i != -1; i = e[i].next)
+        {
             int v = e[i].to;
-            if(d[v] > d[u] + e[i].w) {
+            if(d[v] > d[u] + e[i].w)
+            {
                 d[v] = d[u] + e[i].w;
-                if(!vis[v]) {
+                if(!vis[v])
+                {
                     vis[v] = true;
                     que.push(v);
                 }
             }
         }
     }
+    return true;
 }
 
 //dijkstra算法$O(|V|^2)$
 int cost[MAXV][MAXV];
 int d[MAXV];
 bool vis[MAXV];
-void dijkstra(int s) {
+void dijkstra(int s)
+{
     fill(d, d + V, INF);
     memset(vis, 0, sizeof(vis));
     d[s] = 0;
-    while(true) {
+    while(true)
+    {
         int v = -1;
-        for(int u = 0; u < V; u++) {
+        for(int u = 0; u < V; u++)
             if(!vis[u] && (v == -1 || d[u] < d[v]))
                 v = u;
-        }
         if(v == -1) break;
         for(int u = 0; u < V; u++)
             d[u] = min(d[u], d[v] + cost[v][u]);
@@ -94,18 +111,22 @@ struct edge {int v, cost;};
 vector<edge> g[MAXV];
 int d[MAXV];
 
-void dijkstra(int s) {
+void dijkstra(int s)
+{
     priority_queue<P, vector<P>, greater<P> > que;
     fill(d, d + V, INF);
     d[s] = 0;
     que.push(P(0, s));
-    while(!que.empty()) {
+    while(!que.empty())
+    {
         P p = que.top(); que.pop();
         int u = p.second;
         if(d[u] < p.first) continue;
-        for(int i = 0; i < g[u].size(); i++) {
+        for(int i = 0; i < g[u].size(); i++)
+        {
             edge &e = g[u][i];
-            if(d[e.v] > d[u] + e.cost) {
+            if(d[e.v] > d[u] + e.cost)
+            {
                 d[e.v] = d[u] + e.cost;
                 que.push(P(d[e.v], e.v));
             }
@@ -117,7 +138,8 @@ void dijkstra(int s) {
 //Floyd-Warshall算法 $O(|V|^3)$
 int d[MAX_V][MAX_V];
 int V;
-void floyd_warshall() {
+void floyd_warshall()
+{
     int i, j, k;
     for(k = 0; k < V; k++)
         for(i = 0; i < V; i++)
@@ -127,7 +149,8 @@ void floyd_warshall() {
 
 ///两点间最短路 -- 一条可行路径还原
 /*用prev[u]记录从s到u的最短路上u的前驱结点*/
-vector <int> get_path(int t) {
+vector <int> get_path(int t)
+{
     vector <int> path;
     for(; t != -1; t = prev[t])
         path.push_back(t);
@@ -143,11 +166,14 @@ vector <int> get_path(int t) {
 int vis[MAXV];
 vector<edge> G[MAXV];
 void add_edge() {}
-void get_pathG(int u) {
+void get_pathG(int u)
+{
     vis[u] = 1;
-    for(int i = 0; i < g[u].size(); i++) {
+    for(int i = 0; i < g[u].size(); i++)
+    {
         int v = g[u][i].v, w = g[u][i].w;
-        if(d[v] + w == d[u]) {
+        if(d[v] + w == d[u])
+        {
             add_edge(u, v);
             add_edge(v, u);
             if(!vis[v])
@@ -156,45 +182,53 @@ void get_pathG(int u) {
     }
 }
 //情况2
-struct edge {
+struct edge
+{
 //...
 } e[MAXE];
 int head[MAXV], tot;
 vector<int> g[MAXV];//所有最短路形成的逆图
 int vis[MAXV];
-void dijkstra(int s) {
+void dijkstra(int s)
+{
     //... ... other part see above
-    for(int i = head[u]; i != -1; i = e[i].next) {
+    for(int i = head[u]; i != -1; i = e[i].next)
+    {
         int v = e[i].to;
-        if(d[v] > d[u] + e[i].w) {
+        if(d[v] > d[u] + e[i].w)
+        {
             g[v].clear();
             g[v].push_back(u);
             d[v] = d[u] + e[i].w;
             que.push(P(d[v], v));
         }
-        else if(d[v] == d[u] + e[i].w) {
+        else if(d[v] == d[u] + e[i].w)
+        {
             g[v].push_back(u);
         }
     }
 }
 
-void get_all_path(int s, int t) {
+void get_all_path(int s, int t)
+{
     memset(vis, 0, sizeof(vis));
     queue<int> que;
     que.push(t);
     vis[t] = 1;
-    while(!que.empty()) {
+    while(!que.empty())
+    {
         int u = que.front();
         que.pop();
         for(int i = 0; i < g[u].size(); i++)
-            if(!vis[g[u][i]]) {
+            if(!vis[g[u][i]])
+            {
                 vis[g[u][i]] = 1;
                 que.push(g[u][i]);
             }
     }
     for(int i = 1; i <= V; i++)
-        if(!vis[i]) {
+        if(!vis[i])
+        {
             g[i].clear();//清空不是路径上的点
         }
-
 }
