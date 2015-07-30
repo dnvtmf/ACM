@@ -17,21 +17,24 @@
 \contentsline {subsection}{\numberline {4.2}模运算 Module}{23}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{25}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{25}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}排列permutation}{27}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.5}排列 permutation}{27}{subsection.4.5}
 \contentsline {subsection}{\numberline {4.6}母函数 Generating Function}{28}{subsection.4.6}
 \contentsline {subsection}{\numberline {4.7}博弈论和SG函数}{29}{subsection.4.7}
 \contentsline {subsection}{\numberline {4.8}鸽笼原理与Ramsey数}{30}{subsection.4.8}
 \contentsline {subsection}{\numberline {4.9}容斥原理}{30}{subsection.4.9}
 \contentsline {subsection}{\numberline {4.10}伪随机数的生成--梅森旋转算法}{31}{subsection.4.10}
 \contentsline {subsection}{\numberline {4.11}异或 Xor}{31}{subsection.4.11}
-\contentsline {subsection}{\numberline {4.12}一些数学知识}{32}{subsection.4.12}
-\contentsline {section}{\numberline {5}字符串}{33}{section.5}
-\contentsline {subsection}{\numberline {5.1}palindrome回文串}{33}{subsection.5.1}
-\contentsline {section}{\numberline {6}计算几何}{34}{section.6}
-\contentsline {subsection}{\numberline {6.1}计算几何基础}{34}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}多边形}{36}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}凸包 ConvexHull}{36}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}立体几何}{38}{subsection.6.4}
-\contentsline {section}{\numberline {7}搜索等}{39}{section.7}
-\contentsline {section}{\numberline {8}分治}{39}{section.8}
-\contentsline {section}{\numberline {9}Java}{40}{section.9}
+\contentsline {subsection}{\numberline {4.12}快速傅里叶变换 FFT}{32}{subsection.4.12}
+\contentsline {subsection}{\numberline {4.13}莫比乌斯反演 Mobius}{33}{subsection.4.13}
+\contentsline {subsection}{\numberline {4.14}一些数学知识}{34}{subsection.4.14}
+\contentsline {section}{\numberline {5}字符串}{35}{section.5}
+\contentsline {subsection}{\numberline {5.1}回文串 palindrome}{35}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}后缀数组 Suffix Array}{35}{subsection.5.2}
+\contentsline {section}{\numberline {6}计算几何}{39}{section.6}
+\contentsline {subsection}{\numberline {6.1}计算几何基础}{39}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}多边形}{41}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}凸包 ConvexHull}{41}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}立体几何}{43}{subsection.6.4}
+\contentsline {section}{\numberline {7}搜索等}{44}{section.7}
+\contentsline {section}{\numberline {8}分治}{44}{section.8}
+\contentsline {section}{\numberline {9}Java}{45}{section.9}

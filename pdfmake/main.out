@@ -17,21 +17,24 @@
 \BOOKMARK [2][-]{subsection.4.2}{模运算 Module}{section.4}% 17
 \BOOKMARK [2][-]{subsection.4.3}{中国剩余定理和线性同余方程组}{section.4}% 18
 \BOOKMARK [2][-]{subsection.4.4}{组合与组合恒等式}{section.4}% 19
-\BOOKMARK [2][-]{subsection.4.5}{排列permutation}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.5}{排列 permutation}{section.4}% 20
 \BOOKMARK [2][-]{subsection.4.6}{母函数 Generating Function}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.7}{博弈论和SG函数}{section.4}% 22
 \BOOKMARK [2][-]{subsection.4.8}{鸽笼原理与Ramsey数}{section.4}% 23
 \BOOKMARK [2][-]{subsection.4.9}{容斥原理}{section.4}% 24
 \BOOKMARK [2][-]{subsection.4.10}{伪随机数的生成–梅森旋转算法}{section.4}% 25
 \BOOKMARK [2][-]{subsection.4.11}{异或 Xor}{section.4}% 26
-\BOOKMARK [2][-]{subsection.4.12}{一些数学知识}{section.4}% 27
-\BOOKMARK [1][-]{section.5}{字符串}{}% 28
-\BOOKMARK [2][-]{subsection.5.1}{palindrome回文串}{section.5}% 29
-\BOOKMARK [1][-]{section.6}{计算几何}{}% 30
-\BOOKMARK [2][-]{subsection.6.1}{计算几何基础}{section.6}% 31
-\BOOKMARK [2][-]{subsection.6.2}{多边形}{section.6}% 32
-\BOOKMARK [2][-]{subsection.6.3}{凸包 ConvexHull}{section.6}% 33
-\BOOKMARK [2][-]{subsection.6.4}{立体几何}{section.6}% 34
-\BOOKMARK [1][-]{section.7}{搜索等}{}% 35
-\BOOKMARK [1][-]{section.8}{分治}{}% 36
-\BOOKMARK [1][-]{section.9}{Java}{}% 37
+\BOOKMARK [2][-]{subsection.4.12}{快速傅里叶变换 FFT}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.13}{莫比乌斯反演 Mobius}{section.4}% 28
+\BOOKMARK [2][-]{subsection.4.14}{一些数学知识}{section.4}% 29
+\BOOKMARK [1][-]{section.5}{字符串}{}% 30
+\BOOKMARK [2][-]{subsection.5.1}{回文串 palindrome}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.2}{后缀数组 Suffix Array}{section.5}% 32
+\BOOKMARK [1][-]{section.6}{计算几何}{}% 33
+\BOOKMARK [2][-]{subsection.6.1}{计算几何基础}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.2}{多边形}{section.6}% 35
+\BOOKMARK [2][-]{subsection.6.3}{凸包 ConvexHull}{section.6}% 36
+\BOOKMARK [2][-]{subsection.6.4}{立体几何}{section.6}% 37
+\BOOKMARK [1][-]{section.7}{搜索等}{}% 38
+\BOOKMARK [1][-]{section.8}{分治}{}% 39
+\BOOKMARK [1][-]{section.9}{Java}{}% 40
