@@ -1,40 +1,43 @@
-\contentsline {section}{\numberline {1}数据结构}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}RMQ相关}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}ST表}{3}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}最长上升子序列LIS}{3}{subsection.1.3}
-\contentsline {section}{\numberline {2}动态规划}{5}{section.2}
-\contentsline {section}{\numberline {3}图论}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}最短路 shortest path}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}最大流 maximum flow}{9}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}最小割 minimum cut}{13}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}分数规划 Fractional Programming}{15}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}最大闭权图 maximum weight closure of a graph}{15}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}最小费用最大流 minimum cost flow}{16}{subsection.3.6}
-\contentsline {subsection}{\numberline {3.7}有上下界的网络流}{19}{subsection.3.7}
-\contentsline {subsection}{\numberline {3.8}最近公共祖先 LCA}{20}{subsection.3.8}
-\contentsline {section}{\numberline {4}数学专题}{22}{section.4}
-\contentsline {subsection}{\numberline {4.1}逆元 Inverse}{22}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}模运算 Module}{23}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}中国剩余定理和线性同余方程组}{25}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}组合与组合恒等式}{25}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}排列 permutation}{27}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}母函数 Generating Function}{28}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}博弈论和SG函数}{29}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}鸽笼原理与Ramsey数}{30}{subsection.4.8}
-\contentsline {subsection}{\numberline {4.9}容斥原理}{30}{subsection.4.9}
-\contentsline {subsection}{\numberline {4.10}伪随机数的生成--梅森旋转算法}{31}{subsection.4.10}
-\contentsline {subsection}{\numberline {4.11}异或 Xor}{31}{subsection.4.11}
-\contentsline {subsection}{\numberline {4.12}快速傅里叶变换 FFT}{32}{subsection.4.12}
-\contentsline {subsection}{\numberline {4.13}莫比乌斯反演 Mobius}{33}{subsection.4.13}
-\contentsline {subsection}{\numberline {4.14}一些数学知识}{34}{subsection.4.14}
-\contentsline {section}{\numberline {5}字符串}{35}{section.5}
-\contentsline {subsection}{\numberline {5.1}回文串 palindrome}{35}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}后缀数组 Suffix Array}{35}{subsection.5.2}
-\contentsline {section}{\numberline {6}计算几何}{39}{section.6}
-\contentsline {subsection}{\numberline {6.1}计算几何基础}{39}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}多边形}{41}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}凸包 ConvexHull}{41}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}立体几何}{43}{subsection.6.4}
-\contentsline {section}{\numberline {7}搜索等}{44}{section.7}
-\contentsline {section}{\numberline {8}分治}{44}{section.8}
-\contentsline {section}{\numberline {9}Java}{45}{section.9}
+\contentsline {section}{\numberline {1}数据结构}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}RMQ相关}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}ST表}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}最长上升子序列LIS}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}动态规划}{6}{section.2}
+\contentsline {section}{\numberline {3}图论}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}最短路 shortest path}{7}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}最大流 maximum flow}{10}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}最小割 minimum cut}{14}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}分数规划 Fractional Programming}{16}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}最大闭权图 maximum weight closure of a graph}{16}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}最小费用最大流 minimum cost flow}{17}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}有上下界的网络流}{20}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}最近公共祖先 LCA}{21}{subsection.3.8}
+\contentsline {section}{\numberline {4}数学专题}{23}{section.4}
+\contentsline {subsection}{\numberline {4.1}素数 Prime}{23}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}最大公约数 GCD}{24}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}逆元 Inverse}{25}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}模运算 Module}{26}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}中国剩余定理和线性同余方程组}{28}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}组合与组合恒等式}{28}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}排列 permutation}{30}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}母函数 Generating Function}{31}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}博弈论和SG函数}{32}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.10}鸽笼原理与Ramsey数}{33}{subsection.4.10}
+\contentsline {subsection}{\numberline {4.11}容斥原理}{33}{subsection.4.11}
+\contentsline {subsection}{\numberline {4.12}伪随机数的生成--梅森旋转算法}{34}{subsection.4.12}
+\contentsline {subsection}{\numberline {4.13}异或 Xor}{34}{subsection.4.13}
+\contentsline {subsection}{\numberline {4.14}快速傅里叶变换 FFT}{35}{subsection.4.14}
+\contentsline {subsection}{\numberline {4.15}莫比乌斯反演 Mobius}{36}{subsection.4.15}
+\contentsline {subsection}{\numberline {4.16}矩阵的基本运算 Matrix}{37}{subsection.4.16}
+\contentsline {subsection}{\numberline {4.17}一些数学知识}{41}{subsection.4.17}
+\contentsline {section}{\numberline {5}字符串}{42}{section.5}
+\contentsline {subsection}{\numberline {5.1}回文串 palindrome}{42}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}后缀数组 Suffix Array}{42}{subsection.5.2}
+\contentsline {section}{\numberline {6}计算几何}{46}{section.6}
+\contentsline {subsection}{\numberline {6.1}计算几何基础}{46}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}多边形}{48}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}凸包 ConvexHull}{48}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}立体几何}{50}{subsection.6.4}
+\contentsline {section}{\numberline {7}搜索等}{51}{section.7}
+\contentsline {section}{\numberline {8}分治}{51}{section.8}
+\contentsline {section}{\numberline {9}Java}{52}{section.9}
