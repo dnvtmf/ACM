@@ -29,8 +29,8 @@ LL getInv(LL x, LL MOD)
 //$O(\log{n})$, 预处理inv[1-n]：$O(n\log{n})$
 inline void exgcd(LL a, LL b, LL &g, LL &x, LL &y)
 {
-    if(!b) g = a, x = 1, y = 0;
-    else exgcd(b, a % b, g, y, x), y -= (a / b) * x;
+    if(b) exgcd(b, a % b, g, y, x), y -= (a / b) * x;
+    else g = a, x = 1, y = 0;
 }
 
 LL getInv(LL x, LL mod)
