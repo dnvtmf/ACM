@@ -137,13 +137,25 @@ void polynomial_multi(const vector<int> &a, const vector<int> &b, vector<int> &r
     \neq 1, &i = 1, 2, \cdots , N - 1\\
     = 1, &i = N
     \end{array}\right.$$@
-    要在整数域了满足上述条件的, 可以是关于素数p的取模运算, 若a是在模p意义下的原根, 旋转因子为$\displaystyle a^x$,x为满足xN + yp = p - 1的x的最小正整数解, 如果N | p - 1, 则$x = \frac{p - 1}{N}$, 最后的结果为对p取模后的答案(如果要求准确答案, 需要满足$p > \max{\{a(i), b(i), c(i)\}}(i = 0, 1, 2, \cdots , N - 1)$, 或者对不同素数p进行多次计算, 然后用中国剩余定理求解)
+    要在整数域了满足上述条件的, 可以是关于素数p的取模运算, 若a是在模p意义下的原根, 旋转因子为$\displaystyle a^{\frac{p-1}{N}}$, 要求N整除p - 1,最后的结果为对p取模后的答案(如果要求准确答案, 需要满足$p > \max{\{a(i), b(i), c(i)\}}(i = 0, 1, 2, \cdots , N - 1)$, 或者对不同素数p进行多次计算, 然后用中国剩余定理求解)
 适合$p = 998244353 = 119\times 2^{23} + 1 (2^{23} > 8.3e6)$, 3是p的原根
+p = 985661441, 3是p的原根, $(p-1)= 2^{20} * i + 1$
+适合的p有很多, 枚举i, 判断(1<<K)*i + 1是否为素数即可
 */
 //来源: 2015多校第三场, 1007标程
-const int mod = 998244353;// = 119 * 2^23 + 1 (2^23 > 8e6)
-int qpow(int x, int k);
-int wi[NUM<<1];//存储旋转因子w的i次方
+LL qpow(LL x, LL k, LL mod);
+const LL mod = 998244353, wroot = 3;
+int wi[NUM << 2];
+int fft_init(int n)
+{
+    int N = 1;
+    while(N < n + n) N <<= 1;
+    wi[0] = 1, wi[1] = qpow(wroot, (mod - 1) / N, mod);
+    for(int i = 2; i < N; i++)
+        wi[i] = 1LL * wi[i - 1] * wi[1] % mod;
+    return N;
+}
+
 void brc(vector<int> &p, int N) //蝶形变换, 交换位置i与逆序i, 如N=2^3, 交换p[011=3]与p[110=6]
 {
     int i, j, k;
@@ -154,33 +166,28 @@ void brc(vector<int> &p, int N) //蝶形变换, 交换位置i与逆序i, 如N=2^
         if(j < k) j += k;
     }
 }
-void NTT(vector<int> &a, int N, int op)
+void FFT(vector<int> &a, int N, int op)
 {
     brc(a, N);
-    for(int i = 0; i < N; i++) m2[i] = m1[i * (Top / N)];
-    int p0 = N >> 1;
-    for(int h = 2; h <= N; h <<= 1, p0 >>= 1)
+    for(int h = 2; h <= N; h <<= 1)
     {
-        int unit = op == 1 ? N - p0 : p0;
+        int unit = op == -1 ? N - N / h : N / h;
         int hf = h >> 1;
         for(int i = 0; i < N; i += h)
         {
             int w = 0;
             for(int j = i; j < i + hf; j++)
             {
-                int u = a[j], t = 1LL * m2[w] * a[j + hf] % mod;
-                a[j] = u + t;
-                a[j + hf] = u - t;
-                if(a[j + hf] < 0) a[j + hf] += mod;
-                if(a[j] >= mod) a[j] -= mod;
-                w += unit;
-                if(w >= N) w -= N;
+                int u = a[j], t = 1LL * wi[w] * a[j + hf] % mod;
+                if((a[j] = u + t) >= mod) a[j] -= mod;
+                if((a[j + hf] = u - t) < 0) a[j + hf] += mod;
+                if((w += unit) >= N) w -= N;
             }
         }
     }
     if(op == -1)
     {
-        int inv = qpow(N, mod - 2);
+        int inv = qpow(N, mod - 2, mod);
         for(int i = 0; i < N; i++) a[i] = 1LL * a[i] * inv % mod;
     }
 }

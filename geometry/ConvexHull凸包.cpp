@@ -52,15 +52,10 @@ vector<Point> graham(Point p[], int pn)
     sort(p + 1, p + pn);
     vector<Point> stk(pn * 2 + 5);
     int top = 0;
-    stk[top++] = p[0];
-    if(n > 1) stk[top++] = p[1];
-    if(n > 2)
+    for(i = 0; i < n; i++)
     {
-        for(i = 2; i < n; i++)
-        {
-            while(top > 1 && ((stk[top - 1] - stk[top - 2]) ^ (p[i] - stk[top - 2])) <= 0) top--;
-            stk[top++] = p[i];
-        }
+        while(top > 1 && ((stk[top - 1] - stk[top - 2]) ^ (p[i] - stk[top - 2])) <= 0) top--;
+        stk[top++] = p[i];
     }
     stk.resize(top);
     return stk;
