@@ -232,3 +232,49 @@ void get_all_path(int s, int t)
             g[i].clear();//清空不是路径上的点
         }
 }
+///求最短路网络上的桥
+//方法1: 将最短路网络新建一个图, 跑Tarjan算法.
+//方法2: 最短路径还原时, 当且仅当队列为空, 且当前结点只有一条边指向s时, 该边为桥
+//求割点类似
+int vis[MAXV];
+int ce[MAXE], num;
+void get_bridge(int s, int t)//在逆图中运行
+{
+    priority_queue<P> que;
+    que.push(P(dist[t], t));//按到t的距离远近出队, 保证割点一定后出队
+    memset(vis, 0, sizeof(vis));
+    vis[t] = 1;
+    num = 0;
+    while(!que.empty())
+    {
+        int u  = que.top().SE;
+        que.pop();
+        int cnt = 0;
+        if(que.empty())
+        {
+            for(int i = rhead[u]; i != -1; i = re[i].next)
+            {
+                int v = re[i].to, w = re[i].cost;
+                if(dist[v] + w == dist[u])
+                {
+                    cnt++;
+                    if(cnt >= 2) break;
+                }
+            }
+        }
+        bool f = que.empty() && cnt == 1;//当且仅当, 队列为空且只有一条路时, 找到桥
+        for(int i = rhead[u]; i != -1; i = re[i].next)
+        {
+            int v = re[i].to, w = re[i].cost;
+            if(dist[v] + w == dist[u])
+            {
+                if(f) ce[num++] = i;
+                if(!vis[v])
+                {
+                    vis[v] = 1;
+                    que.push(P(dist[v], v));
+                }
+            }
+        }
+    }
+}

@@ -20,7 +20,6 @@
 	$\displaystyle \Rightarrow \sum_{i=1}^{\lfloor \frac{a}{D} \rfloor}{\sum_{d|gcd(i,j)}{\mu(d)}}$, 使用mobius函数和的性质替换gcd(i, j)==1
 	$\displaystyle \Rightarrow \sum_{d=1}^{\lfloor \frac{a}{D} \rfloor}{\displaystyle \mu(d) \lfloor \frac{\lfloor \frac{a}{D} \rfloor}{d} \rfloor \cdot \lfloor \frac{\lfloor \frac{b}{D} \rfloor}{d}\rfloor} , d | gcd(i, j) \Leftrightarrow d|i \cup d | j$
 	$\displaystyle D == 1, \sum_{d=1}^{a}{\mu(d)\cdot \lfloor \frac{a}{d} \rfloor \cdot \lfloor \frac{b}{d} \rfloor}$
-==> sum(d=1 -> [a/D]){μ(d)*[[a/D]/d]*[[b/D]/d]},  d|\gcd(i, j) <==> (d|i) \cup (d|j)
 */
 
 //使用2
