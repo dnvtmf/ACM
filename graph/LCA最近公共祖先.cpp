@@ -62,15 +62,10 @@ void dfs(int u, int fa, int dep, int &k)
 //ST表
 int Log2[MAXV * 2];
 node st[MAXV * 2][32];
-template<class T>
-void pre_st(int n, T ar[])
+void pre_st(int n, node ar[])
 {
     Log2[1] = 0;
-    for(int i = 2; i <= n; i++)
-    {
-        Log2[i] = Log2[i - 1];
-        if((1 << Log2[i] + 1) == i) ++Log2[i];
-    }
+    for(int i = 2; i <= n; i++) Log2[i] = Log2[i >> 1] + 1;
     for(int i = n - 1; i >= 0; i--)
     {
         st[i][0] = ar[i];

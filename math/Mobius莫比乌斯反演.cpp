@@ -9,8 +9,8 @@
 //莫比乌斯反演
 //@$$ F(n) = \sum_{d|n}{f(d)} \Leftrightarrow f(n) = \sum_{d|n}{\mu (d) F(\frac{n}{d})}	$$@
 //@$$\sum_{d|n}{\mu(d)} = \left\{ \begin{array}{l l} 1 &n=1 \\ 0 & n \neq 1\end{array} \right. $$@
-//$\displaystyle\sum_{d|n}{\varphi(d)} = n, \varphi(d)$为欧拉函数
-//$\displaystyle \varphi(n) = n\sum_{d|n}{\mu(d)/d}$
+//$\displaystyle\sum_{d|n}{\phi(d)} = n, \phi(d)$为欧拉函数
+//$\displaystyle \phi(n) = n\sum_{d|n}{\mu(d)/d}$
 
 //使用1
 /*
@@ -29,7 +29,7 @@
 	$\displaystyle \Rightarrow \sum_{d=1}^{a}{\sum_{d' =1}^{\lfloor \frac{a}{d} \rfloor}{d \cdot \mu(d')\cdot \lfloor \frac{a}{dd'} \rfloor \cdot \lfloor \frac{b}{dd'} \rfloor}}$, 使用1
 	$\displaystyle \Rightarrow \sum_{d=1}^{a}{\sum_{d|D}{d\cdot \mu(\frac{D}{d}) \cdot \lfloor \frac{a}{D} \rfloor \cdot \lfloor \frac{b}{D} \rfloor}}, D = dd'$
 	$\displaystyle \Rightarrow \sum_{D=1}^{a}{\lfloor \frac{a}{D} \rfloor \cdot \lfloor \frac{b}{D} \rfloor \cdot (id\cdot \mu)(D)}$
-	$\displaystyle \Rightarrow \sum_{D=1}^{a}{\lfloor \frac{a}{D} \rfloor \cdot \lfloor \frac{b}{D} \rfloor \cdot \varphi(D)}, \ id \cdot \mu = \varphi$
+	$\displaystyle \Rightarrow \sum_{D=1}^{a}{\lfloor \frac{a}{D} \rfloor \cdot \lfloor \frac{b}{D} \rfloor \cdot \phi(D)}, \ id \cdot \mu = \phi$
 */
 
 ///积性函数
@@ -43,9 +43,9 @@
 //恒为1的常函数$1(n) = 1$,
 //恒等函数$id(n) = n$,
 //单位函数$\varepsilon(n) = (n==1)$, (这三个都是显然为积性)
-//欧拉函数$\varphi(n)$(只要证两个集合相等就能证明积性)
+//欧拉函数$\phi(n)$(只要证两个集合相等就能证明积性)
 //莫比乌斯函数$\mu(n)$ (由定义也是显然的)
-//$\mu \cdot id = \varphi$
+//$\mu \cdot id = \phi$
 void pre_mobius()
 {
     mu[1] = 1;

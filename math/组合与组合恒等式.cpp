@@ -7,20 +7,19 @@
  					\end{array}
 				\right.
  $@
- 推论1：@$C_n^r = C_n^{n-r}$@
- 推论2(Pascal公式)：@$C_n^r = C_{n-1}^r + C_{n-1}^{r-1}$@
- 推论3: @$\sum_{k=r-1}^{n-1}{C_k^{r-1}}=C_{n-1}^{r-1}+C_{n-2}^{r-2}+\dots+C_{r-1}^{r-1} = C_n^r$@
- 2. 从重集@$B=\{\infty \cdot b_1, \infty \cdot b_2, \dots , \infty \cdot b_n\}$@的r-组合数F(n,r)为
-	@$F(n,r)=C_{n+r-1}^{r}$@
+ 推论1：$C_n^r = C_n^{n-r}$
+ 推论2(Pascal公式)：$C_n^r = C_{n-1}^r + C_{n-1}^{r-1}$
+ 推论3: $\displaystyle \sum_{k=r-1}^{n-1}{C_k^{r-1}}=C_{n-1}^{r-1}+C_{n-2}^{r-2}+\dots+C_{r-1}^{r-1} = C_n^r$
+ 2. 从重集$B=\{\infty \cdot b_1, \infty \cdot b_2, \dots , \infty \cdot b_n\}$的r-组合数F(n,r)为$F(n,r)=C_{n+r-1}^{r}$
 
  3. 二项式定义
 	当n是一个正整数时，对任何x和y有：
 	@$$(x+y)^n = \sum_{k=0}^n{C_n^k x^k y^{n-k}}$$@
 	令y=1，有：
-	@$(1+x)^n = \sum_{k=0}^n{C_n^k x^k} = \sum_{k=0}^n{C_n^{n-k} x^k}$@
+	$\displaystyle (1+x)^n = \sum_{k=0}^n{C_n^k x^k} = \sum_{k=0}^n{C_n^{n-k} x^k}$
 	广义二项式定理：
 	广义二项式系数：对于任何实数@$\alpha$@和整数k,有
-	@$$C_{\alpha}^{K}=\left\{ \begin{array}{c l} 
+	@$$C_{\alpha}^{K}=\left\{ \begin{array}{c l}
 		\frac{\alpha (\alpha - 1) \dots (\alpha - k + 1)}{k!} & k > 0\\
 		1 &k=0\\
 		0 &k < 0

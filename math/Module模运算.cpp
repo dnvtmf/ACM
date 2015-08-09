@@ -65,8 +65,8 @@ inline void mod_factorial(LL n, LL p, LL pc, LL &t, LL &u)
 /*
  7. 大组合数求模，mod不是质数
 	求$ C_n^m \% mod $
-	1) 因式分解:$ mod = p_1^{c_1} p_2^{c_2} \cdots p_k^{c_k}	$
-	2) 对每个因子$ p^c $, 求$ C_n^m \% p^c = \frac{n! \% pc}{ m! \% pc (n-m)! \% pc}	$
+	1) 因式分解:$ mod = p_1^{c_1} p_2^{c_2} \cdots p_k^{c_k}$
+	2) 对每个因子$ p^c $, 求$\displaystyle C_n^m \% p^c = \frac{n! \% p^c}{ m! \% p^c (n-m)! \% p^c} \% p^c$
 	3) 根据中国剩余定理求解答案(注: 逆元采用扩展欧几里得求法)
  */
 LL fact[NUM];
@@ -90,7 +90,7 @@ LL C(LL n, LL m, LL mod)
         {
             for(p = prim[i], pc = 1; tmpmod % p == 0; tmpmod /= p)
                 pc *= p;
-            //求$   C_n^k \% pc  $
+            //求$   C_n^k \% p^c  $
             pre_fact(p, pc);
             mod_factorial(n, p, pc, t, u);//n!
             tmpans = t;

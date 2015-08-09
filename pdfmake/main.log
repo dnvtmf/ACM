@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  6 AUG 2015 11:48
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  9 AUG 2015 15:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1405,26 +1405,25 @@ LaTeX Font Warning: Font shape `EU1/STSong(0)/m/it' undefined
 ) (../dataStruct/Treap.cpp
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7.53> on input line 15.
- [4]) (../dataStruct/ST表.cpp [5])
-(../dataStruct/最长上升子序列LIS.cpp)) (../DP/pdf_DP.tex [6]) (../graph/pdf_graph.tex
-[7] (../graph/无向图的桥,割点,双联通分量.cpp [8] [9]) (../graph/ShortestPath最短路.cpp
-[10] [11] [12] [13]) (../graph/MaximumFlow最大流.cpp [14] [15] [16] [17])
-(../graph/MinimumCut最小割.cpp [18] [19]) (../graph/FractionalProgramming分数规划.cpp)
+ [4]) (../dataStruct/ST表.cpp) [5]
+(../dataStruct/最长上升子序列LIS.cpp) (../dataStruct/DisjointSet并查集.cpp))
+(../DP/pdf_DP.tex [6]) (../graph/pdf_graph.tex [7] (../graph/无向图的桥,割点,双连通分量.cpp
+[8] [9]) (../graph/ShortestPath最短路.cpp [10] [11] [12] [13])
+(../graph/MaximumFlow最大流.cpp [14] [15] [16] [17]) (../graph/MinimumCut最小割.cpp
+[18] [19]) (../graph/FractionalProgramming分数规划.cpp)
 (../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp [20])
-(../graph/MincostFlow最小费用流.cpp [21] [22] [23]) (../graph/有上下界的网络流.cpp [24])
+(../graph/MincostFlow最小费用流.cpp [21] [22] [23]) [24] (../graph/有上下界的网络流.cpp)
 (../graph/LCA最近公共祖先.cpp [25])) (../math/pdf_math.tex [26] (../math/Prime素数.cpp
-[27]) (../math/gcd以及扩展gcd.cpp) [28] (../math/Inverse逆元.cpp [29])
-(../math/Module模运算.cpp [30] [31]) (../math/中国剩余定理和线性同余方程.cpp)
-(../math/组合与组合恒等式.cpp [32] [33]) (../math/permutation排列.cpp [34])
-(../math/GeneratingFunction母函数.cpp [35]) (../math/鸽笼原理与Ramsey数.cpp [36])
-(../math/容斥原理.cpp) (../math/伪随机数生成--梅森旋转算法.cpp [37]) (../math/Xor异或.cpp)
-(../math/gameTheory博弈论.cpp [38]) (../math/FFT快速傅里叶变换.cpp [39] [40] [41]
-[42]) (../math/Mobius莫比乌斯反演.cpp [43] [44]) (../math/Matrix矩阵和Gauss消元.cpp
-[45] [46] [47]) (../math/数学知识.cpp
-Missing character: There is no ， in font Droid Sans Mono/OT:mapping=tex-text;ma
-pping=tex-text;!
-)) (../string/pdf_string.tex [48]
-(../string/palindrome回文串.cpp) (../string/SuffixArray后缀数组.cpp [49] [50] [51]
+[27]) (../math/QuickPow快速幂快速乘.cpp) (../math/gcd以及扩展gcd.cpp [28])
+(../math/Inverse逆元.cpp [29]) (../math/Module模运算.cpp [30] [31])
+(../math/中国剩余定理和线性同余方程.cpp [32]) (../math/组合与组合恒等式.cpp [33] [34])
+(../math/Permutation排列.cpp [35]) (../math/FullPermutation全排列.cpp [36])
+(../math/GeneratingFunction母函数.cpp [37]) (../math/鸽笼原理与Ramsey数.cpp [38])
+(../math/容斥原理.cpp) (../math/伪随机数生成--梅森旋转算法.cpp [39]) (../math/Xor异或.cpp)
+(../math/GameTheory博弈论.cpp [40]) (../math/FFT快速傅里叶变换.cpp [41] [42] [43]
+[44]) (../math/Mobius莫比乌斯反演.cpp [45] [46]) (../math/Matrix矩阵和Gauss消元.cpp
+[47] [48] [49]) (../math/数学知识.cpp)) (../string/pdf_string.tex [50]
+(../string/palindrome回文串.cpp) (../string/SuffixArray后缀数组.cpp [51] [52] [53]
 Missing character: There is no 答 in font cmmi7!
 Missing character: There is no 案 in font cmmi7!
 Missing character: There is no 为 in font cmmi7!
@@ -1464,22 +1463,23 @@ Missing character: There is no 接 in font cmmi7!
 Missing character: There is no 两 in font cmmi7!
 Missing character: There is no 串 in font cmmi7!
 )
-(../string/Trie字典树.cpp [52]
+(../string/Trie字典树.cpp [54]
 
 LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/m/sl' undefined
 (Font)              using `EU1/DroidSansMono(0)/m/n' instead on input line 32.
 
-) (../string/string问题汇总.txt)) (../geometry/pdf_geometry.tex [53]
-(../geometry/计算几何基础.cpp [54] [55]) (../geometry/多边形.cpp)
-(../geometry/ConvexHull凸包.cpp [56]) (../geometry/立体几何.cpp))
-(../other/pdf_other.tex [57] (../other/二分搜索,三分搜索.cpp) (../other/分治.cpp))
-(../Java/pdf_java.tex [58]
+) (../string/string问题汇总.txt) [55]) (../geometry/pdf_geometry.tex [56]
+(../geometry/计算几何基础.cpp [57] [58]) (../geometry/Polygon多边形.cpp [59] [60])
+(../geometry/ConvexHull凸包.cpp) [61] (../geometry/HalfPlaneCross半平面交.cpp
+[62]) (../geometry/立体几何.cpp [63]) (../geometry/LatticePoint格点上的几何.cpp))
+(../other/pdf_other.tex [64] (../other/二分搜索,三分搜索.cpp) (../other/分治.cpp))
+(../Java/pdf_java.tex [65]
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (../Java/Main.java))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 26.
- [59]
+ [66]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 26.
  (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 26.
@@ -1490,12 +1490,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28191 strings out of 493724
- 522740 string characters out of 6145899
- 810118 words of memory out of 5000000
- 31107 multiletter control sequences out of 15000+600000
+ 28528 strings out of 493724
+ 525505 string characters out of 6145899
+ 805778 words of memory out of 5000000
+ 31429 multiletter control sequences out of 15000+600000
  8800 words of font info for 59 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 65i,15n,69p,10428b,1788s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,15n,69p,10428b,1786s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (59 pages).
+Output written on main.pdf (66 pages).

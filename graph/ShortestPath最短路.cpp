@@ -1,5 +1,5 @@
 ///最短路 Shortest Path
-//Bellman-Ford算法$ O(|E|*|V|)$
+//Bellman-Ford算法$ O(|E| \cdot |V|)$
 //$d[v] = \min{\{d[u] + w[e]\}}(e = <u, v> \in E)$
 
 const int MAXV = 1000, MAXE = 1000, INF = 1000000007;
@@ -136,9 +136,8 @@ void dijkstra(int s)
 
 ///任意两点间最短路
 //Floyd-Warshall算法 $O(|V|^3)$
-int d[MAX_V][MAX_V];
-int V;
-void floyd_warshall()
+int d[MAXV][MAXV];
+void floyd_warshall(int V)
 {
     int i, j, k;
     for(k = 0; k < V; k++)

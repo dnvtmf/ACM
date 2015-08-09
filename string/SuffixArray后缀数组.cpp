@@ -123,14 +123,14 @@ void dc3(int r[], int sa[], int n, int m)
     for(; j < tbc; p++) sa[p] = wb[j++];
 }
 
-///高度数组
+///高度数组longest commest prefix
 //height[i] = suffix(sa[i])和suffix(sa[i - 1])的最长公共前缀lcp(sa[i],sa[i-1])
 //rk[0..n-1]:rk[i]保存的是原串中suffix[i]的名次
 //height数组性质:
-//任意两个suffix(j)和suffix(k)(rk[j] < rk[k])的最长公共前缀: min(i=j+1-->k){height[rk[i]]}
-//height[i] >= height[i - 1] - 1
+//任意两个suffix(j)和suffix(k)(rank[j] < rank[k])的最长公共前缀: $\displaystyle \min_{i = j + 1 \to k}{\{height[rank[i]]\}}$
+//$height[rank[i]] \geq height[rank[i - 1]] - 1$
 int rk[maxn], height[maxn];
-void calheight(char *r, int *sa, int n)
+void cal_height(char *r, int *sa, int n)
 {
     int i, j, k = 0;
     for(i = 0; i < n; i++)rk[sa[i]] = i;
