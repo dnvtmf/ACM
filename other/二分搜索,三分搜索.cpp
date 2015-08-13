@@ -5,17 +5,19 @@
 int binary_search(int l, int r)
 {
     int mid;
-    while(l + 1 < r)
+    int ans = l;
+    while(l <= r)
     {
         mid = (l + r) >> 1;
         if(f(mid))
-            r = mid;//视情况定
+        {
+            r = mid - 1;//视情况定
+            ans = mid;
+        }
         else
-            l = mid;
+            l = mid + 1;
     }
-    for(; l <= r; l++)
-        if(f(l))
-            return l;
+    return ans;
 }
 ///三分搜索
 //对于满足抛物线性质的数列或函数,可以三分答案,在O(log n)时间内求解

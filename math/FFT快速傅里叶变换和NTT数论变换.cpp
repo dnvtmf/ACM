@@ -101,8 +101,8 @@ void polynomial_multi(const vector<int> &a, const vector<int> &b, vector<int> &r
 */
 
 
-//在整数域上的FFT
-/*在整数域上的FFT的推导:
+//数论变换(Number Theory Transformation, NTT)
+/*NTT的推导:
 0. DFT变换公式: $\displaystyle A(k) = \sum_{i=0}^{N-1}{a(i)\varpi^{ik}}$
     IDFT变换公式: $\displaystyle a(k) = N^{-1}\sum_{i=0}^{N-1}{A(i)\varpi^{-ik}}$
 1. 周期性: 由于@$$\begin{array}{l r l}
@@ -146,7 +146,7 @@ p = 985661441, 3是p的原根, $(p-1)= 2^{20} * i + 1$
 LL qpow(LL x, LL k, LL mod);
 const LL mod = 998244353, wroot = 3;
 int wi[NUM << 2];
-int fft_init(int n)
+int ntt_init(int n)
 {
     int N = 1;
     while(N < n + n) N <<= 1;
@@ -166,7 +166,7 @@ void brc(vector<int> &p, int N) //蝶形变换, 交换位置i与逆序i, 如N=2^
         if(j < k) j += k;
     }
 }
-void FFT(vector<int> &a, int N, int op)
+void NTT(vector<int> &a, int N, int op)
 {
     brc(a, N);
     for(int h = 2; h <= N; h <<= 1)

@@ -32,3 +32,32 @@ vector<Point> Graham(vector<Point> p)
 
 //写法二：按极坐标排序
 //可能由于精度问题出现RE
+Point p0;//p0 原点集中最左下方的点
+bool cmp(const Point &p1, const Point &p2) //极角排序函数 ， 角度相同则距离小的在前面
+{
+    double tmp = (p0 - p2) ^ (p1 - p2);
+    if(sgn(tmp) > 0) return true;
+    else if(sgn(tmp) == 0 && sgn(((p0 - p1) * (p0 - p1)) - ((p0 - p2) * (p0 - p2))) < 0)  return true;
+    else return false;
+}
+
+vector<Point> Graham(vector<Point> p)
+{
+    //p0
+    int pn = p.size();
+    for(int i = 1; i < pn; i++)
+        if(p[i].x < p[0].x || (p[i].x == p[0].x && p[i].y < p[0].y))
+            swap(p[i], p[0]);
+    p0 = p[0];
+    //sort
+    sort(p.begin() + 1, p.end(), cmp);
+    vector<Point> stk(pn * 2 + 5);
+    int top = 0;
+    for(int i = 0; i < pn; i++)
+    {
+        while(top > 1 && sgn((stk[top - 1] - stk[top - 2]) ^ (p[i] - stk[top - 2])) <= 0) top--;
+        stk[top++] = p[i];
+    }
+    stk.resize(top);
+    return stk;
+}
