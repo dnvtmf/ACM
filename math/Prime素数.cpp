@@ -22,7 +22,7 @@ void pre_prime()
 		if(!prim[i]) prim[prim_num++] = i;
 		for(int j = 0; j < prim_num && i * prim[j] < NUM; j++)
 		{
-			flag[i * prim[j]] = 1;
+			prim[i * prim[j]] = 1;
 			if(i % prim[j] == 0) break;
 		}
 	}
@@ -43,7 +43,7 @@ bool isPrime(int n)
 	return true;
 }
 //简单测试: 根据费马小定理p是素数, 则有$a^{(p-1)} \equiv 1 (\% p)$, 通过选取[0, p-1]间的任意整数a, 如果测试结果不满足上述定理, 则p是合数, 否则, p可能是素数
-//witness定理: 
+//witness定理:
 //Miller_Rabin $O(\log{n})$
 int qpow(int x, int k, int mod){}
 bool witness(int a, int n)

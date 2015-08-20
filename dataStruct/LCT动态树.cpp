@@ -6,10 +6,7 @@
 	结点v的子树中, 如果最后被访问访问的结点在子树w中, 这里w是v的儿子, 那么称w是v的Preferred Child. 如果最后被访问的结点是v本身, 则v没有Preferred Child.
 	每个结点到它的Preferred Child的边称作Preferred Edge.
 	由Preferred Edge连接成的不可再延伸的路径称为Preferred Path.
-	(Preferred Path就是从根结点访问到当前结点经过的所有子树的某个结点形成的路径)
 	这棵树就被划分成若干条Preferred Path, 对于每一条Preferred Path, 用其结点的深度做关键字, 用Splay Tree树维护它, 称这棵树为 Auxiliary Tree.
-	(即用Preferred Path将森林维护成一棵树, 称为represented tree)
-	(对于森林中的每棵子树, 以其结点的深度为关键字, 用Splay Tree来维护, 同时用rev标记表明树的左右子树是否交换过 (以维护树的形态不变))
 	用 Path Parent 来记录每棵 Auxiliary Tree 对应的 Preferred Path 中的最高点的父亲结点, 如果这个 Preferred Path 的最高点就是根结点, 那么令这棵 Auxiliary Tree 的 Path Parent 为 null.
 	Link-Cut Trees 就是将要维护的森林中的每棵树 T 表示为若干个 Auxiliary Tree, 并通过 Path Parent 将这些 Auxiliary Tree 连接起来的数据结构.
 */
@@ -21,40 +18,104 @@
 	cut(v): 将v所属树分割为两棵子树, 通过删边<parent(v), v>.  先访问 v, 然后把 v 旋转到它所属的 Auxiliary Tree 的根, 然后再断开 v 在它的所属 Auxiliary Tree 中与它的左子树的连接, 并设置.
 	make_root(v): 使v成为所属树的树根, 相当于翻转从v到root(v)路径上所有边的方向.
 */
+//无向图的写法
 struct LCT
 {
-    int ch[NUM][2], fa[NUM];
-    int pathparent[NUM];
-    int root;//LCT的根结点
-    void Access(int v)
+    int ch[NUM][2], fa[NUM], pathparent[NUM];
+    bool rev[NUM];
+    int step[NUM];
+    inline void init()
     {
-        int w = 0;
-        for(; v != root; w = v, v = pathparent[v];)
+        memset(fa, 0, sizeof(fa));
+        memset(ch, 0, sizeof(ch));
+        memset(pathparent, 0, sizeof(pathparent));
+        memset(rev, 0, sizeof(rev));
+        memset(step, 0, sizeof(step));
+    }
+    inline void Rev(int x)
+    {
+        if(!x) return ;
+        swap(ch[x][0], ch[x][1]);
+        rev[x] ^= 1;
+    }
+    inline void push_down(int x)
+    {
+        if(!rev[x]) return ;
+        Rev(ch[x][0]);
+        Rev(ch[x][1]);
+        rev[x] = 0;
+    }
+    inline void P(int x)
+    {
+        if(fa[x]) P(fa[x]);
+        push_down(x);
+    }
+    inline void push_up(int x)
+    {
+        step[x] = step[ch[x][0]] - 1;
+    }
+    inline void Rot(int x, int c)//c = 0, 左旋,  c = 1, 右旋
+    {
+        int y = fa[x], z = fa[y];
+        ch[y][!c] = ch[x][c];
+        if(ch[x][c]) fa[ch[x][c]] = y;
+        fa[x] = z;
+        if(z) ch[z][ch[z][1] == y] = x;
+        ch[x][c] = y;
+        fa[y] = x;
+        push_up(y);
+    }
+    inline void Splay(int x)//将x旋转至所属树的根
+    {
+        P(x);
+        int rt = x;
+        for(; fa[rt]; rt = fa[rt]);
+        if(rt != x)
         {
-            Splay(v);
-            //Update w's preferred child
-            pathparent[ch[v][1]] = v;
-            ch[v][1] = w;
-            pathparent[w] = 0;//=NULL
+            pathparent[x] = pathparent[rt];
+            pathparent[rt] = 0;
+            while(fa[x]) Rot(x, ch[fa[x]][0] == x);
+        }
+        push_up(x);
+    }
+    inline void Access(int x)//打通到根结点的路径
+    {
+        int pa = 0;
+        for(; x; x = pathparent[x])
+        {
+            Splay(x);
+            pathparent[ch[x][1]] = x;
+            pathparent[pa] = 0;
+            fa[ch[x][1]] = 0;
+            ch[x][1] = pa;
+            fa[pa] = x;
+            pa = x ;
+            push_up(x);
         }
     }
-    void Cut(int v)
+    inline void make_rt(int x)//使x称为所属树的根
     {
-        Access(v);
-        ch[v][0] = 0;//= NULL
+        Access(x);
+        Splay(x);
+        Rev(x);
     }
-    void Link(int v, int w)
+    inline void Cut(int v)//分割所属树, 通过删边<fa[v], v>
     {
+        make_rt(u);
         Access(v);
-        pathparent[v] = w;
-        Access(v);
-    }
-    int Find_root(int v)
-    {
-        Access(v);
-        while(ch[v][0] != 0)// != NULL
-            v = ch[v][0];
         Splay(v);
-        return v;
+        fa[ch[v][0]] = 0;
+        ch[v][0] = 0;
+        push_up(v);
+    }
+    inline void Link(int v, int w)//合并v所属树和w所属树, 通过连边<w, v>, (w成为v的父结点)
+    {
+        make_rt(v);
+        pathparent[v] = u;
+    }
+    inline int Query(int x)
+    {
+        return step[x];
     }
 };
+//有向图的写法

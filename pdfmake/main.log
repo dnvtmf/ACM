@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  13 AUG 2015 21:58
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  20 AUG 2015 19:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -996,6 +996,17 @@ tly
 )
 \Hy@SectionHShift=\skip54
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks18
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 \g__fontspec_family_STSong_int=\count148
 .................................................
 . fontspec info: "no-font-shape"
@@ -1158,7 +1169,7 @@ Package: CodeStyle
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count151
 \lst@gtempboxa=\box45
-\lst@token=\toks18
+\lst@token=\toks19
 \lst@length=\count152
 \lst@currlwidth=\dimen176
 \lst@column=\count153
@@ -1243,7 +1254,7 @@ LaTeX Font Info:    ... okay on input line 6.
 . 
 . Adjusting the maths setup (use [no-math] to avoid this).
 .................................................
-\symlegacymaths=\mathgroup4
+\symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
 (Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 6.
 LaTeX Font Info:    Redeclaring math accent \acute on input line 6.
@@ -1360,13 +1371,16 @@ LaTeX Info: Redefining \nameref on input line 6.
 \openout3 = `main.out'.
 
 \c@lstlisting=\count161
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12.05> on input line 8.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 8.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 8.
+LaTeX Font Info:    Try loading font information for U+msa on input line 8.
 
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 8.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
@@ -1378,18 +1392,11 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/bx/n' undefined
 (Font)              using `EU1/DroidSansMono(0)/m/n' instead on input line 9.
 
-(./main.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.54> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
- [2])
+(./main.toc [2] [3])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (../dataStruct/pdf_dataStruct.tex [3] [4]
+ (../dataStruct/pdf_dataStruct.tex [4]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 5.
 
@@ -1402,32 +1409,40 @@ LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/m/it' undefined
 LaTeX Font Warning: Font shape `EU1/STSong(0)/m/it' undefined
 (Font)              using `EU1/STSong(0)/m/n' instead on input line 1.
 
-) (../dataStruct/树链剖分.cpp
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.53> on input line 1.
- [5]) (../dataStruct/Splay伸展树.cpp [6] [7] [8])
+) (../dataStruct/树链剖分.cpp [5]) (../dataStruct/Splay伸展树.cpp [6] [7] [8])
 (../dataStruct/Treap.cpp [9]) [10] (../dataStruct/ST表.cpp)
 (../dataStruct/莫队算法.cpp [11]) (../dataStruct/最长上升子序列LIS.cpp)
 (../dataStruct/DisjointSet并查集.cpp)) (../DP/pdf_DP.tex [12])
-(../graph/pdf_graph.tex [13] (../graph/无向图的桥,割点,双连通分量.cpp [14] [15])
-(../graph/ShortestPath最短路.cpp [16] [17] [18] [19]) (../graph/MaximumFlow最大流.cpp
-[20] [21] [22] [23]) (../graph/MinimumCut最小割.cpp [24] [25])
-(../graph/FractionalProgramming分数规划.cpp)
-(../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp [26])
-(../graph/MincostFlow最小费用流.cpp [27] [28] [29]) [30] (../graph/有上下界的网络流.cpp)
-(../graph/LCA最近公共祖先.cpp [31])) (../math/pdf_math.tex [32] (../math/Prime素数.cpp
-[33]) (../math/Euler欧拉函数.cpp) [34] (../math/QuickPow快速幂快速乘.cpp)
-(../math/gcd以及扩展gcd.cpp [35]) (../math/Inverse逆元.cpp [36])
-(../math/Module模运算.cpp [37] [38]) (../math/幂模p与原根.cpp [39])
-(../math/中国剩余定理和线性同余方程.cpp) (../math/组合与组合恒等式.cpp [40] [41])
-(../math/Permutation排列.cpp [42]) (../math/FullPermutation全排列.cpp [43] [44])
-(../math/GeneratingFunction母函数.cpp) (../math/整数拆分和Ferrers图.cpp [45])
-(../math/鸽笼原理与Ramsey数.cpp [46]) (../math/容斥原理.cpp) (../math/伪随机数生成--梅森旋转算法.cpp
-[47]) (../math/Xor异或.cpp) (../math/GameTheory博弈论.cpp [48])
-(../math/FFT快速傅里叶变换和NTT数论变换.cpp [49] [50] [51] [52]) (../math/Mobius莫比乌斯反演.cpp
-[53] [54]) (../math/Matrix矩阵和Gauss消元.cpp [55] [56] [57]) (../math/数学知识.cpp
-[58])) (../string/pdf_string.tex [59] (../string/palindrome回文串.cpp)
-(../string/SuffixArray后缀数组.cpp [60] [61] [62]
+(../graph/pdf_graph.tex [13] (../graph/拓扑排序.cpp) (../graph/Euler欧拉回路,哈密顿回路.cpp
+[14] [15] [16]) (../graph/无向图的桥,割点,双连通分量.cpp [17] [18])
+(../graph/ShortestPath最短路.cpp [19] [20] [21] [22] [23])
+(../graph/MaximumFlow最大流.cpp [24] [25] [26] [27]) (../graph/MinimumCut最小割.cpp
+[28]) (../graph/FractionalProgramming分数规划.cpp [29])
+(../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp)
+(../graph/MaximumDensitySubgraph最大密度子图.cpp [30])
+(../graph/二分图的最小点权覆盖和最大点权独立集.cpp) (../graph/MincostFlow最小费用流.cpp [31] [32]
+[33] [34]) (../graph/有上下界的网络流.cpp) (../graph/LCA最近公共祖先.cpp [35] [36]))
+(../math/pdf_math.tex [37] (../math/Prime素数.cpp [38]) (../math/Euler欧拉函数.cpp)
+[39] (../math/QuickPow快速幂快速乘.cpp) (../math/gcd以及扩展gcd.cpp [40])
+(../math/Inverse逆元.cpp [41]) (../math/Module模运算.cpp [42] [43]) [44]
+(../math/幂模p与原根.cpp) (../math/中国剩余定理和线性同余方程.cpp [45]) (../math/组合与组合恒等式.cpp
+[46]) (../math/Permutation排列.cpp [47] [48]) (../math/FullPermutation全排列.cpp
+[49]) (../math/GeneratingFunction母函数.cpp) [50] (../math/整数拆分和Ferrers图.cpp)
+(../math/鸽笼原理与Ramsey数.cpp [51]) (../math/容斥原理.cpp) [52]
+(../math/伪随机数生成--梅森旋转算法.cpp) (../math/Xor异或.cpp) [53]
+(../math/GameTheory博弈论.cpp) [54] (../math/FFT快速傅里叶变换和NTT数论变换.cpp [55] [56]
+[57]) (../math/Mobius莫比乌斯反演.cpp [58] [59]) (../math/数学知识.cpp)
+(../math/LinearAlgebra线性代数/pdf_LinearAlgebra.tex
+(../math/LinearAlgebra线性代数/Matrix矩阵.cpp [60] [61]
+
+LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/m/sl' undefined
+(Font)              using `EU1/DroidSansMono(0)/m/n' instead on input line 126.
+
+
+) [62] (../math/LinearAlgebra线性代数/矩阵的初等变换和矩阵的逆.cpp [63] [64])))
+(../string/pdf_string.tex [65] (../string/KMP以及扩展KMP.cpp [66])
+(../string/palindrome回文串.cpp) (../string/Hash哈希算法.cpp [67])
+(../string/SuffixArray后缀数组.cpp [68] [69]
 Missing character: There is no 答 in font cmmi7!
 Missing character: There is no 案 in font cmmi7!
 Missing character: There is no 为 in font cmmi7!
@@ -1466,26 +1481,23 @@ Missing character: There is no 连 in font cmmi7!
 Missing character: There is no 接 in font cmmi7!
 Missing character: There is no 两 in font cmmi7!
 Missing character: There is no 串 in font cmmi7!
-) (../string/Trie字典树.cpp [63]
-
-LaTeX Font Warning: Font shape `EU1/DroidSansMono(0)/m/sl' undefined
-(Font)              using `EU1/DroidSansMono(0)/m/n' instead on input line 32.
-
-) (../string/string问题汇总.txt) [64]) (../geometry/pdf_geometry.tex [65]
-(../geometry/计算几何基础.cpp [66]) (../geometry/Polygon多边形.cpp [67] [68] [69]
-[70] [71] [72]
+ [70]) (../string/Trie字典树.cpp [71])
+(../string/最小表示法.cpp) (../string/string问题汇总.txt [72]))
+(../geometry/pdf_geometry.tex [73] (../geometry/计算几何基础.cpp [74])
+(../geometry/Polygon多边形.cpp [75] [76] [77] [78] [79]
 Missing character: There is no ∠ in font Droid Sans Mono/OT:mapping=tex-text;ma
 pping=tex-text;!
-) (../geometry/ConvexHull凸包.cpp [73])
-(../geometry/HalfPlaneCross半平面交.cpp [74] [75]) (../geometry/立体几何.cpp [76])
-(../geometry/LatticePoint格点上的几何.cpp)) (../other/pdf_other.tex [77]
-(../other/二分搜索,三分搜索.cpp) (../other/分治.cpp)) (../Java/pdf_java.tex [78]
+ [80])
+(../geometry/ConvexHull凸包.cpp [81]) (../geometry/HalfPlaneCross半平面交.cpp
+[82]) [83] (../geometry/立体几何.cpp [84]) (../geometry/LatticePoint格点上的几何.cpp))
+(../other/pdf_other.tex [85] (../other/二分搜索,三分搜索.cpp) (../other/分治.cpp))
+(../Java/pdf_java.tex [86]
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (../Java/Main.java))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 26.
- [79]
+ [87]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 26.
  (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 26.
@@ -1496,12 +1508,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28710 strings out of 493724
- 529126 string characters out of 6145899
- 854024 words of memory out of 5000000
- 31593 multiletter control sequences out of 15000+600000
- 8800 words of font info for 59 fonts, out of 8000000 for 9000
+ 29280 strings out of 493724
+ 535417 string characters out of 6145899
+ 854542 words of memory out of 5000000
+ 32114 multiletter control sequences out of 15000+600000
+ 13274 words of font info for 80 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,15n,69p,10428b,1788s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (79 pages).
+Output written on main.pdf (87 pages).

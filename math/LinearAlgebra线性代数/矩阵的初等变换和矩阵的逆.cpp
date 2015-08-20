@@ -1,72 +1,5 @@
-///矩阵 Matrix
+///矩阵的初等变换和矩阵的逆
 const int Matrix_N = 1010, Matrix_M = 1010;
-//矩阵类, 适用于递推关系式的快速求值
-struct Matrix
-{
-	int n, m;//矩阵的行数和列数
-	int a[Matrix_N][Matrix_M];
-	void clear()//将矩阵清0
-	{
-		n = m = 0;
-		memset(a, 0, sizeof(a));
-	}
-	void I()//将矩阵化为单位矩阵, 对方阵有效
-	{
-		memset(a, 0, sizeof(a));
-		for(int i = 0; i < n; i++) a[i][i] = 1;
-	}
-	//实现矩阵加法$C = A + B, (A.n = B.n, A.m = B.m) O(n^2)$
-	Matrix operator + (const Matrix &b) const
-	{
-		Matrix c;
-		c.n = n;
-		c.m = m;
-		for(int i = 0; i < n; i++)
-			for(int j = 0; j < m; j++)
-				c.a[i][j] = a[i][j] + b.a[i][j];
-		return c;
-	}
-	//实现矩阵的减法$C = A - B(A.n = B.n, A.m = B.m), O(n^2)$
-	Matrix operator - (const Matrix &b) const 
-	{
-		Matrix c;
-		c.n = n;
-		c.m = m;
-		for(int i = 0; i < n; i++)
-			for(int j = 0; j < m; j++)
-				c.a[i][j] = a[i][j] - b.a[i][j];
-		return c;
-	}
-	//实现矩阵的乘法$C = A \times B, (A.m = B.n) O(n^3)$
-	Matrix operator * (const Matrix &b) const
-	{
-		Matrix c;
-		c.n = n;
-		c.m = b.m;
-		for(int i = 0; i < n; i++)
-			for(int j = 0; j < b.m; j++)
-			{
-				c.a[i][j] = 0;
-				for(int k = 0; k < m; k++)
-					c.a[i][j] += a[i][j] * b.a[i][j];//如果要取模， 要修改这里
-			}
-		return c;
-	}
-	//实现矩阵的快速幂$O(n^3\log(k)$, 要求是方阵
-	Matrix operator ^(int k)
-	{
-		Matrix res, tmp = *this;
-		res.n = res.m = n;
-		res.I();
-		while(k)
-		{
-			if(k&1) res = res * tmp;
-			tmp = tmp * tmp;
-			k >>= 1;
-		}
-		return res;
-	}
-};
 //矩阵类 适用与求矩阵的逆与高斯消元等场合
 //行的初等变换
 typedef vector<double> VD;
@@ -147,10 +80,10 @@ struct Matrix
 			}
 		return c;
 	}
-	
+
 	//实现求矩阵的逆$O(n^3)$
 	//将原矩阵A和一个单位矩阵I做一个大矩阵$(A, I)$, 用行的初等变换将大矩阵中的A变为I, 将会的到$(I, A^{-1})$的形式
-	//注意:  
+	//注意:
 	Matrix inverse()
 	{
 		Matrix c;
@@ -220,7 +153,7 @@ f的递推可以看做是一个$n\times n$的矩阵A乘以一个n维列向量$\b
 &\vdots & &\ddots &\vdots \cr
 0 &0 &0 &\cdots &1\cr
 a_{n-1} &a_{n-2} &a_{n-3} &\cdots &a_0
-}\right], 
+}\right],
 \beta_n = \left[ \matrix{
 f_{x-n} \cr f_{x - n + 1} \cr \vdots \cr f_{x-2} \cr f_{x-1}
 }\right]$$@
