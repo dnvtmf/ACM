@@ -3,9 +3,10 @@
     $\gcd(0, 0) = 0, \gcd(a, b) = \gcd(b, a), \gcd(a, b) = \gcd(-a, b), \gcd(a, b) = \gcd(|a|, |b|), \gcd(a, 0) = |a|$
     $\gcd(a, ka) = |a|, (k \in Z), \gcd(a, b) = n\gcd(a, b), \gcd(a, \gcd(b, c)) = \gcd(\gcd(a, b), c)$
     gcd递归定理: $\gcd(a, b) = \gcd(b, a\% b)$
-    最大公倍数$lcm(a, b) = \frac{ab}{\gcd(a, b)}$
-    n个数的gcd和lcm, 记第i个数@$$a_i = \prod_{k=1}^{l}{p_k ^ {g_{ik}}} $$@, 则@$$\gcd(a_1, a_2, \cdots, a_n) = \prod_{k=1}^{l}{p_k^{\min{\{g_{1k}, g_{2k}, \cdots, g_{nk}}\}}}$$@, @$$lcm(a_1, a_2, \cdots, a_n) = \prod_{k=1}^{l}{p_k^{\max{\{g_{1k}, g_{2k}, \cdots, g_{nk}\}}}}$$@.
+    最大公倍数$\lcm(a, b) = \frac{ab}{\gcd(a, b)}$
+    n个数的gcd和lcm, 记第i个数@$$a_i = \prod_{k=1}^{l}{p_k ^ {g_{ik}}} $$@, 则@$$\gcd(a_1, a_2, \cdots, a_n) = \prod_{k=1}^{l}{p_k^{\min{\{g_{1k}, g_{2k}, \cdots, g_{nk}}\}}}$$@, @$$\lcm(a_1, a_2, \cdots, a_n) = \prod_{k=1}^{l}{p_k^{\max{\{g_{1k}, g_{2k}, \cdots, g_{nk}\}}}}$$@.
     一段区间[l, r]$(r = l \to n)$的gcd最多变化log次
+    $1, 2, \cdots, n$的lcm为, 如果n是某质数p的幂, 则$\lcm(n) = \lcm(n - 1) \times p$, 否则$\lcm(n) = \lcm(n-1)$.
 */
 //欧几里得算法$O(\log{n})$
 //递归

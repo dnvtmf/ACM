@@ -98,41 +98,42 @@ void DCC(int V)
 }
 
 //桥 边双连通分量
+//注释部分为求边的双连通分量
 int ce[MAXE], num; //记录桥
-int id[MAXV], cnt_dcc;//连通分量编号及总数
-void tarjan(int u, int order, int pree)//重边是pree为边的id，否则为父亲结点fa
+//int id[MAXE << 1], cnt_dcc; //连通分量编号及总数
+int dfn[MAXV], low[MAXV];
+//int stk[MAXV], top;
+void tarjan(int u, int order, int pree)
 {
-    dfs[u] = low[u] = order++;
-    stk[top++] = u; //-DCC
-    for(int i = head[u]; i != -1; i = e[i].next)
+    dfn[u] = low[u] = order++;
+//    stk[top++] = u;
+    for(int i = head[u]; ~i; i = e[i].next)
     {
-        int v = e[i].v;
-        if(!dfs[v])
+        if(!e[i].inpath || (i ^ 1) == pree) continue;
+        int v = e[i].to;
+        if(!dfn[v])
         {
             tarjan(v, order, i);
-            if(low[v] < low[u])
-                low[u] = low[v];
-            if(dfs[u] < low[v])
+            if(low[v] < low[u]) low[u] = low[v];
+            if(dfn[u] < low[v])
             {
-                ce[num++] = i;
-                //-DCC
-                cnt_dcc++;
-                do
-                {
-                    id[stk[--top]] = cnt_dcc;
-                }
-                while(stk[top] != v);
+                ce[num++] = (i >> 1) + 1;
+//                ++cnt_dcc;
+//                do
+//                {
+//                    id[stk[--top]] = cnt_dcc;
+//                }
+//                while(stk[top] != v);
             }
         }
-        else if((i ^ 1) != pree && dfs[v] < low[u])
-            low[u] = dfs[v];
+        else if(dfn[v] < low[u])
+            low[u] = dfn[v];
     }
 }
 void DCC()
 {
-    memset(dfs, 0, sizeof(dfs));
+    memset(dfn, 0, sizeof(dfn));
     num = 0;
-    top = cnt_dcc = 0;//-DCC
-    for(int i = 1; i <= V; i++)
-        tarjan(1, 1, -1);
+//   top = cnt_dcc = 0;
+    for(int u = 1; u <= V; ++u) if(!dfn[u]) tarjan(u, 1, -1);
 }
