@@ -1,7 +1,11 @@
 ///最大公约数gcd
 /*$\gcd(a, b)$的性质
-    $\gcd(0, 0) = 0, \gcd(a, b) = \gcd(b, a), \gcd(a, b) = \gcd(-a, b), \gcd(a, b) = \gcd(|a|, |b|), \gcd(a, 0) = |a|$
-    $\gcd(a, ka) = |a|, (k \in Z), \gcd(a, b) = n\gcd(a, b), \gcd(a, \gcd(b, c)) = \gcd(\gcd(a, b), c)$
+    $\gcd(0, 0) = 0, \gcd(a, b) = \gcd(b, a), \gcd(a, b) = \gcd(-a, b)$
+    $\gcd(a, b) = \gcd(|a|, |b|), \gcd(a, 0) = |a|, \gcd(a, ka) = |a|, (k \in Z)$
+    $\gcd(a, b) = n\gcd(a, b), \gcd(a, \gcd(b, c)) = \gcd(\gcd(a, b), c)$
+    1. 如果a, b都是偶数, 则$\gcd(a, b) = 2 \cdot \gcd(a/2, b/2)$.
+    2. 如果a是奇数, b是偶数, 则$\gcd(a, b) = \gcd(a, b / 2)$.
+    3. 如果a, b都是奇数, 则$\gcd(a, b) = \gcd((a - b)/2, b)$.
     gcd递归定理: $\gcd(a, b) = \gcd(b, a\% b)$
     最大公倍数$\lcm(a, b) = \frac{ab}{\gcd(a, b)}$
     n个数的gcd和lcm, 记第i个数@$$a_i = \prod_{k=1}^{l}{p_k ^ {g_{ik}}} $$@, 则@$$\gcd(a_1, a_2, \cdots, a_n) = \prod_{k=1}^{l}{p_k^{\min{\{g_{1k}, g_{2k}, \cdots, g_{nk}}\}}}$$@, @$$\lcm(a_1, a_2, \cdots, a_n) = \prod_{k=1}^{l}{p_k^{\max{\{g_{1k}, g_{2k}, \cdots, g_{nk}\}}}}$$@.
@@ -12,11 +16,16 @@
 //递归
 int gcd(int a, int b) {return b ? gcd(b, a % b) : a;}
 //循环
+int gcd(int a, int b) {while(b) swap(b, a = a % b); return a;}
+//二进制GCD
 int gcd(int a, int b)
 {
-    int t;
-    while(b) t = a % b, a = b, b = t;
-    return a;
+    if(a == 0)  return b;
+    if(b == 0)  return a;
+    if(!(a & 1) && !(b & 1))    return gcd(a >> 1, b >> 1) << 1;
+    else if(!(b & 1))   return gcd(a, b >> 1);
+    else if(!(a & 1))   return gcd(a >> 1, b);
+    else return gcd(abs(a - b) >> 1, min(a, b));
 }
 //小数的gcd
 //EPS控制精度

@@ -137,3 +137,77 @@ void DCC()
 //   top = cnt_dcc = 0;
     for(int u = 1; u <= V; ++u) if(!dfn[u]) tarjan(u, 1, -1);
 }
+//缩点
+//为连通图
+const int MAXV = 10000 + 10, MAXE = 2000000 + 10;
+int dfn[MAXV], low[MAXV];
+int Belong[MAXV];
+struct Graph
+{
+    struct edge
+    {
+        int next, to;
+        bool isBridge;
+    } e[MAXE];
+    int head[MAXV], htot;
+    int V, E;
+    void init()
+    {
+        memset(head, -1, sizeof(head));
+        htot = 0;
+    }
+    void add_edge(int u, int v)
+    {
+        e[htot].to = v;
+        e[htot].next = head[u];
+        e[htot].isBridge = false;
+        head[u] = htot++;
+    }
+    void tarjan(int u, int order, int pree)
+    {
+        dfn[u] = low[u] = order++;
+        for(int i = head[u]; ~i; i = e[i].next)
+        {
+            if((i ^ 1) == pree) continue;
+            int v = e[i].to;
+            if(!dfn[v])
+            {
+                tarjan(v, order, i);
+                if(low[v] < low[u]) low[u] = low[v];
+                if(dfn[u] < low[v])
+                {
+                    e[i].isBridge = e[i ^ 1].isBridge = true;
+                }
+            }
+            else if(dfn[v] < low[u])
+                low[u] = dfn[v];
+        }
+    }
+    void ReBuild(Graph &g)
+    {
+        memset(dfn, 0, sizeof(dfn));
+        tarjan(u, 1, -1);
+        queue<int> que;
+        int &n = g.V;
+        Belong[1] = ++n;
+        que.push(1);
+        while(!que.empty())
+        {
+            int u = que.front();
+            que.pop();
+            for(int i = head[u]; ~i; i = e[i].next)
+            {
+                int &v = e[i].to;
+                if(Belong[v]) continue;
+                if(e[i].isBridge)
+                {
+                    Belong[v] = ++n;
+                    g.add_edge(Belong[u], Belong[v]);
+                    g.add_edge(Belong[v], Belong[u]);
+                }
+                else Belong[v] = Belong[u];
+                que.push(v);
+            }
+        }
+    }
+} g1, g2;

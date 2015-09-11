@@ -13,7 +13,7 @@
 	5. 质因数个数: 10^5以内的数质因数至多7个, 10^6以内的数的质因数至多8个, 10^9以内的数的质因数至多10个
 */
 ///分解质因数
-//暴力试除法, $O(\sqrt(N))$
+//暴力试除法, $O(\sqrt{N})$
 int prim[NUM], tot;//素数表
 vector<P> FAC(int n)
 {
@@ -76,60 +76,57 @@ void pre_fac()
 */
 LL factor[100];//质因数分解结果(刚返回时是无序的)
 int tol;//质因数的个数. 数组小标从0开始
-LL mult_mod(LL a, LL b, LL c)
+LL qmult(LL a, LL b, LL mod)
 {
-    a %= c;
-    b %= c;
-    LL ret = 0;
+    a %= mod;
+    b %= mod;
+    LL res = 0;
     while(b)
     {
-        if(b & 1) {ret += a; ret %= c;}
-        a <<= 1;
-        if(a >= c)a %= c;
+        if(b & 1) if((res += a) >= mod) res -= mod;
+        if((a <<= 1) >= mod) a -= mod;
         b >>= 1;
     }
-    return ret;
+    return res;
 }
-LL gcd(LL a, LL b)
+inline LL gcd(LL a, LL b)
 {
-    if(a == 0)return 1;
-    if(a < 0) return gcd(-a, b);
-    while(b)
-    {
-        LL t = a % b;
-        a = b;
-        b = t;
-    }
-    return a;
+    while(b) {swap(b, a = a % b);}
+    if(a >= 0) return a;
+    else return -a;
 }
 
-LL Pollard_rho(LL x, LL c)
+LL Pollard_rho(LL n, LL c)
 {
     LL i = 1, k = 2;
-    LL x0 = rand() % x;
-    LL y = x0;
+    LL x = rand() % n;//0 ~ n - 1
+    LL y = x;
     while(1)
     {
-        i++;
-        x0 = (mult_mod(x0, x0, x) + c) % x;
-        LL d = gcd(y - x0, x);
-        if(d != 1 && d != x) return d;
-        if(y == x0) return x;
-        if(i == k) {y = x0; k += k;}
+        //x = (qmult(x, x, n) + n - 1) % n;
+        x = (x * x + c) % n;
+        LL d = gcd(y - x, n);
+        if(d != 1 && d != n) return d;
+        if(y == x) return n;
+        if(++i == k) y = x, k += k;
     }
 }
 //对n进行素因子分解
-void findfac(LL n)
+long long factor[110];//乱序返回
+int factor_num;
+void FindFactor(LL n)
 {
-    if(Miller_Rabin(n))//素数
+    if(n == 0) return ;
+    if(Miller_Rabin(n))//测试n是否是素数
     {
-        factor[tol++] = n;
-        return;
+        factor[factor_num++] = n;
+        return ;
     }
     LL p = n;
-    while(p >= n)p = Pollard_rho(p, rand() % (n - 1) + 1);
-    findfac(p);
-    findfac(n / p);
+    int c = 107;//一般取107左右
+    while(p >= n) p = Pollard_rho(p, c--);//值变化, 防止死循环
+    FindFactor(p);
+    FindFactor(n / p);
 }
 
 

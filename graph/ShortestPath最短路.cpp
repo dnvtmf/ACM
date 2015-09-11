@@ -1,6 +1,6 @@
 ///最短路 Shortest Path
 //dijkstra算法 $O(|E|\log{|V|})$
-struct edge {int next, to, cost;} e[MAXE << 1];
+struct edge {int next, to, cost;} e[MAXE];
 int head[MAXV], tot;
 int V, E;//结点数和边数(结点编号开始于1)
 void init();

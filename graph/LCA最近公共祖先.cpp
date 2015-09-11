@@ -76,7 +76,7 @@ void pre_st(int n, node ar[])
     {
         st[i][0] = ar[i];
         for(int j = 1; i + (1 << j) <= n; j++)
-            st[i][j] = min(st[i][j - 1], st[i + (1 << j - 1)][j - 1]);
+            st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
     }
 }
 int query(int l, int r)

@@ -158,7 +158,7 @@ void Hamilton()
             t = ans[++i];
             reverse(ans + i, ans + ansi);
         }
-        if(ansi == n)return ;
+        if(ansi == V)return ;
         for(j = 1; j <= V; j++)
             if(!vis[j])
                 for(i = 1; i < ansi - 2; i++)if(G[ans[i]][j])break;

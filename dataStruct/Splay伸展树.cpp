@@ -98,23 +98,18 @@ struct Splay
         while((y = e[x].fa) != fa)
         {
             z = e[y].fa;
-            if(z == fa)
-                rot(x, e[y].ch[0] == x);//单旋
+            if(z == fa) rot(x, e[y].ch[0] == x);//单旋
             else
             {
                 if(e[z].ch[0] == y)
                 {
-                    if(e[y].ch[0] == x)
-                        rot(y, 1), rot(x, 1);//一字旋
-                    else
-                        rot(x, 0), rot(x, 1);//之字旋
+                    if(e[y].ch[0] == x) rot(y, 1), rot(x, 1);//一字旋
+                    else rot(x, 0), rot(x, 1);//之字旋
                 }
                 else
                 {
-                    if(e[y].ch[1] == x)
-                        rot(y, 0), rot(x, 0);//一字旋
-                    else
-                        rot(x, 1), rot(x, 0);//之字旋
+                    if(e[y].ch[1] == x) rot(y, 0), rot(x, 0);//一字旋
+                    else rot(x, 1), rot(x, 0);//之字旋
                 }
             }
         }
