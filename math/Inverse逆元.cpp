@@ -58,7 +58,7 @@ LL getInv(LL x, LL mod)
     while(x > 1)
     {
         res = res * (mod - mod / x) % mod;
-        x  = mod % x;
+        x = mod % x;
     }
     return res;
 }

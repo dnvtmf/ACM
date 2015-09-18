@@ -1,4 +1,4 @@
-///拓扑排序 (Topologicla Sorting)
+///拓扑排序 (Topological Sorting)
 //有向无环图 $O(|E| + |V|)$
 /*算法:
 	1. 选择没有前驱(入度为0)的顶点v, 并输出

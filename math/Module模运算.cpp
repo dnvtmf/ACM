@@ -111,7 +111,7 @@ LL C(LL n, LL m, LL mod)
 
 /*
  8. 大组合数求模, mod是素数, Lucas定理
-	Lucas定理: $	C_n^m\% mod = C_{n/mod}^{m/mod} \cdot C_{n \% mod}^{m \% mod} \% mod	$
+	Lucas定理: $C_n^m\% mod = C_{n/mod}^{m/mod} \cdot C_{n \% mod}^{m \% mod} \% mod$
 	采用$O(n)$方法预处理0~n-1的$	n! \% mod $和每个数的逆元, 则可在$O(\log{n})$时间求出$ C_n^k \% mod $
 */
 LL fact[NUM], inv[NUM];
@@ -123,7 +123,7 @@ LL Lucas(LL n, LL m, LL mod) //mod是质数
     {
         a = n % mod, b = m % mod;
         if(a < b) return 0LL;
-        res = res * fact[a] % mod * inv[fact[b] * fact[a - b] % mod, mod] % mod;
+        res = res * fact[a] % mod * getInv(fact[b] * fact[a - b] % mod, mod) % mod;
         n /= mod, m /= mod;
     }
     return res;
