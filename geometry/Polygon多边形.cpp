@@ -13,41 +13,57 @@ int inConvexPoly(Point a, Point p[], int n)
     }
     return 1;
 }
-//*判断点在任意多边形内
-//射线法, poly[]的顶点数要大于等于3,点的编号0~n-1
-//返回值
-//-1:点在凸多边形外
-//0:点在凸多边形边界上
-//1:点在凸多边形内
-int inPoly(Point p, Point poly[], int n)
+/*
+Description: 判断点在任意多边形内
+Algorithm: 射线法, poly[]的顶点数要大于等于3,点的编号0~n-1
+Return:  -1, 点在凸多边形外; 0, 点在凸多边形边界上; 1, 点在凸多边形内
+Notice: ray.e.x的取值要注意, 要小于最小的x坐标, 如果是整数, 防止爆int或LL;
+*/
+int isPointInPolygon(Point p, Point poly[], int n)
 {
-    int cnt;
+    int cnt = 0;
     Line ray, side;
-    cnt = 0;
     ray.s = p;
     ray.e.y = p.y;
-    ray.e.x = -100000000000.0;//-INF,注意取值防止越界
-    for(int i = 0; i < n; i++)
+    ray.e.x = -100000000000.0;//-INF, 注意取值防止越界
+    for(int i = 0; i < n; ++i)
     {
         side.s = poly[i];
-        side.e = poly[(i + 1) % n]; //*判断点在任意多边形内
-        if(OnSeg(p, side))return 0;
-        //如果平行轴则不考虑
-        if(sgn(side.s.y - side.e.y) == 0)
-            continue;
-        if(OnSeg(side.s, ray))
+        side.e = poly[(i + 1) % n]; //判断点在任意多边形内
+        if(isPointOnSegment(p, side)) return -1;
+        if(sgn(side.s.y - side.e.y) == 0) continue;//如果平行轴则不考虑
+        if(isPointOnSegment(side.s, ray))
         {
-            if(sgn(side.s.y - side.e.y) > 0)cnt++;
+            if(sgn(side.s.y - side.e.y) > 0) cnt = !cnt;
         }
-        else if(OnSeg(side.e, ray))
+        else if(isPointOnSegment(side.e, ray))
         {
-            if(sgn(side.e.y - side.s.y) > 0)cnt++;
+            if(sgn(side.e.y - side.s.y) > 0) cnt = !cnt;
         }
-        else if(inter(ray, side))
-            cnt++;
+        else if(seg_seg_inter(ray, side)) cnt = !cnt;
     }
-    if(cnt % 2 == 1)return 1;
-    else return -1;
+    return cnt;
+}
+/*
+Description: 判断点是否在多边形内
+Algorithm: 射线法, $O(n)$
+Param[in]: p, 要判断的点; poly, 多边形(边不自交); n, 多边形顶点数
+Return: -1, 点在多边形上; 0, 点在多边形外; 1, 点在多边形内
+Notice: 复制p[0]到p[n]
+*/
+int isPointInPolygon(Point p, Point poly[], int n)
+{
+    int wn = 0;
+    for(int i = 0; i < n; ++i)
+    {
+        if(isPointOnSegmet(p, poly[i], poly[i + 1])) return -1;
+        int k = sgn((poly[i + 1] - poly[i]) ^ (p - poly[i]));
+        int d1 = sgn(poly[i].y - p.y);
+        int d2 = sgn(poly[i + 1].y - p.y);
+        if(k > 0 && d1 <= 0 && d2 > 0) ++wn;
+        if(k < 0 && d1 > 0 && d2 <= 0) --wn;
+    }
+    return wn != 0;
 }
 
 //判断凸多边形
@@ -65,6 +81,7 @@ bool isconvex(Point poly[], int n)
     }
     return true;
 }
+
 //多边形的面积: 分解为多个三角形的面积和
 double CalArea(vector<Point> p)
 {
@@ -74,6 +91,7 @@ double CalArea(vector<Point> p)
         res += (p[i] ^ p[i - 1]);//计算由原点, p[i], p[i-1]构成的三角形的有向面积
     return fabs(res * 0.5);//三角面积需乘以0.5, 以及取正
 }
+
 //多边形的质心: 三角质心坐标的的面积加权和
 Point Centroid(vector<Point> p)//按顺时针方向或逆时针方向排列
 {

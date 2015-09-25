@@ -27,9 +27,26 @@ LL primitive_root(LL p)
     if(tmp != 1) factor.push_back(tmp);
     LL g = 1;
     while(true)
-	{
-		if(g_test(g, p, factor))
-			return g;
-		g++;
-	}
+    {
+        if(g_test(g, p, factor))
+            return g;
+        g++;
+    }
 }
+
+/*无理数的模幂
+求 $\lceil (a + b\sqrt{c})^n \mod m \rceil, (a - 1)^2 < b^2 c < a^2, n > 0, m > 0$.
+令 $S_n = (a + b \sqrt{c})^n + (a - b \sqrt{c})^n$
+由于 $a - 1 < b\sqrt{c} < a$, 所以 $0 < (a - b \sqrt{c})^n < 1$.
+所以 $S_n$ 即为所求的值, 且由于 $S_n$ 展开后带根号的项相互抵消, $S_n$ 是整数.
+关于 $S_n$ 的递推式:
+    $[(a + b\sqrt{c}) + (a - b\sqrt{c})]S_n$
+$=[(a + b\sqrt{c}) + (a - b\sqrt{c})][(a + b\sqrt{c})^n + (a - b\sqrt{c})^n]$
+$=(a+b\sqrt{c})^{n+1} + (a - b\sqrt{c})^{n+1} + (a + b\sqrt{c})(a - b\sqrt{c})^n + (a - b\sqrt{c})(a + b\sqrt{c})^n$
+$= S_{n+1} + (a^2 - b^2 c)[(a + b\sqrt{c})^{n - 1} + (a - b\sqrt{c})^{n - 1}]$
+$= S_{n+1} + (a^2 - b^2 c)S_{n-1}$
+即$2aS_n = S_{n+1} + (a^2 - b^2 c)S_{n-1} \Rightarrow S_{n+1} = 2aS_n + (b^2 c - a^2)S_{n-1}$
+然后可以用矩阵快速幂快速求解.
+
+相关题目: hdu 4565 So Easy
+*/

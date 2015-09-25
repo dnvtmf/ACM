@@ -9,9 +9,9 @@ const double EPS = 1e-6;
 */
 /*
 向量叉积 @$a\times b = |a||b|\sin{\theta} $@
-叉积>0，表示向量b在当前向量逆时针方向
-叉积=0，表示两向量平行
-叉积<0，表示向量b在当前向量顺时针方向
+叉积>0, 表示向量b在当前向量逆时针方向
+叉积=0, 表示两向量平行
+叉积<0, 表示向量b在当前向量顺时针方向
 */
 inline int sgn(double x) {if(x < -EPS)return -1; return x > EPS ? 1 : 0;}
 struct Point
@@ -59,14 +59,14 @@ double dist(Point &a, Point &b) {return (a - b).norm();}
  * (p - l.s) ^ (l.s - l.e) = 0; 保证点p在直线L上
  * p在线段l的两个端点l.s,l.e为对角定点的矩形内
  */
-bool Point_on_Segment(Point &p, Line &l)
+bool isPointOnSegment(const Point &p,const Line &l)
 {
     return sgn((p - l.s) ^ (l.s - l.e)) == 0 &&
            sgn((p.x - l.s.x) * (p.x - l.e.x)) <= 0 &&
            sgn((p.y - l.s.y) * (p.y - l.e.y)) <= 0;
 }
 //判断点p在直线l上
-bool Point_on_Line(Point &p, Line &l)
+bool isPointOnLine(Point &p, Line &l)
 {
     return sgn((p - l.s) ^ (l.s - l.e)) == 0;
 }

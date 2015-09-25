@@ -65,6 +65,7 @@ int min_cost_flow(int s, int t, int flow)
     }
     return min_cost;
 }
+
 ///spfa实现 基于0开始的图
 struct edge {int next, to, cap, cost;} e[MAXE << 1];
 int head[MAXV], htot;
@@ -107,48 +108,6 @@ void spfa(int s)
             }
         }
     }
-}
-int h[MAXV];
-void dijkstra(int s)
-{
-    priority_queue<P, vector<P>, greater<P> > que;
-    fill(dist, dist + V, INF);
-    que.push(P(0, s));
-    dist[0] = 0;
-    while(!que.empty())
-    {
-        P p = que.top(); que.pop();
-        int u = p.SE;
-        if(dist[u] < p.FI) continue;
-        for(int i = head[u]; ~i; i = e[i].next)
-            if(e[i].cap > 0 && dist[e[i].to] > dist[u] + e[i].cost + h[u] - h[e[i].to])
-            {
-                dist[e[i].to] = dist[u] + e[i].cost + h[u] - h[e[i].to];
-                prev[e[i].to] = u;
-                pree[e[i].to] = i;
-                que.push(P(dist[e[i].to], e[i].to));
-            }
-    }
-}
-int min_cost_flow(int s, int t, int flow)
-{
-    int min_cost = 0;
-    while(flow > 0)
-    {
-        spfa(s);
-        if(dist[t] == INF) return -1;
-        int now_flow = flow;
-        for(int u = t; u != s; u = prev[u])//寻找瓶颈边
-            now_flow = min(now_flow, e[pree[u]].cap);
-        flow -= now_flow;
-        min_cost += now_flow * dist[t];
-        for(int u = t; u != s; u = prev[u])
-        {
-            e[pree[u]].cap -= now_flow;
-            e[pree[u] ^ 1].cap += now_flow;
-        }
-    }
-    return min_cost;
 }
 
 ///zkw最小费用流, 在稠密图上很快

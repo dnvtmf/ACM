@@ -45,56 +45,46 @@ void LCA(int u)
 	再记录下第一次扫描到结点u时的序号
 	RMQ: 得到dfs中从u到v路径上深度最小的结点, 那就是LCA[u][v].
 */
-struct node
+struct lca_node
 {
-    int u;//记录经过的结点
-    int depth;//记录当前结点的深度
-} vs[2 * MAXV];
-bool operator < (node a, node b) {return a.depth < b.depth;}
-int id[MAXV];//记录第一次经过点u时的dfn序号
-void dfs(int u, int fa, int dep, int &k)
+    int u, dep;
+    bool operator < (const lca_node &b) const {return dep < b.dep;}
+} ;
+struct __LCA
 {
-    vs[k] = (node) {u, dep};
-    id[u] = k++;
-    for(int i = head[u]; i != -1; i = e[i].next)
-        if(e[i].to != fa)
-        {
-            dfs(e[i].to, u, dep + 1, k);
-            vs[k++] = (node) {u, dep};
-        }
-}
-//RMQ
-//动态查询id[u] 到 id[v] 之间的depth最小的结点
-//ST表
-int Log2[MAXV * 2];
-node st[MAXV * 2][32];
-void pre_st(int n, node ar[])
-{
-    Log2[1] = 0;
-    for(int i = 2; i <= n; i++) Log2[i] = Log2[i >> 1] + 1;
-    for(int i = n - 1; i >= 0; i--)
+    lca_node st[MAXE][25];
+    int id[MAXV], Lg2[MAXE], cnt;
+    __LCA()
     {
-        st[i][0] = ar[i];
-        for(int j = 1; i + (1 << j) <= n; j++)
-            st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
+        Lg2[1] = 0;
+        for(int i = 2; i < MAXE; ++i) Lg2[i] = Lg2[i >> 1] + 1;
+    }
+    void st_init()
+    {
+        for(int i = cnt - 1; i >= 0; i--)
+        {
+            for(int j = 1; i + (1 << j) <= cnt; j++)
+                st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
+        }
+    }
+    inline int LCA(int u, int v)
+    {
+        u = id[u], v = id[v];
+        if(u > v) swap(u, v);
+        int k = Lg2[v - u + 1];
+        return min(st[u][k], st[v - (1 << k) + 1][k]).u;
+    }
+} lca;
+
+void dfs(int u, int fa, int dep)
+{
+    lca.st[lca.id[u] = lca.cnt++][0] = (node) {u, dep};
+    for(int i = head[u]; i != -1; i = e[i].next)
+    {
+        if(e[i].to == fa) continue;
+        dfs(e[i].to, u, dep + 1, k);
+        lca.st[lca.cnt++][0] = (node) {u, dep};
     }
 }
-int query(int l, int r)
-{
-    int k = Log2[r - l + 1];
-    return min(st[l][k], st[r - (1 << k) + 1][k]).u;
-}
 
-void lca_init()
-{
-    int k = 0;
-    dfs(1, -1, 0, k);
-    pre_st(k, vs);
-}
 
-int LCA(int u, int v)
-{
-    u = id[u], v = id[v];
-    if(u > v) swap(u, v);
-    return query(u, v);
-}

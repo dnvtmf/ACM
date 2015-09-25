@@ -1,30 +1,31 @@
 \contentsline {section}{\numberline {1}数据结构}{5}{section.1}
 \contentsline {subsection}{\numberline {1.1}RMQ相关}{5}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}树链剖分}{5}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}伸展树 Splay}{6}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}Treap}{9}{subsection.1.4}
-\contentsline {subsection}{\numberline {1.5}ST表}{10}{subsection.1.5}
-\contentsline {subsection}{\numberline {1.6}莫队算法 分块}{11}{subsection.1.6}
-\contentsline {subsection}{\numberline {1.7}并查集 Disjoint Set}{12}{subsection.1.7}
-\contentsline {section}{\numberline {2}动态规划}{13}{section.2}
-\contentsline {subsection}{\numberline {2.1}最长上升公共子序列LIS}{13}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}多重背包及优化}{13}{subsection.2.2}
-\contentsline {section}{\numberline {3}图论}{15}{section.3}
-\contentsline {subsection}{\numberline {3.1}拓扑排序 Topological Sorting}{15}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}欧拉回路Euler, 哈密顿回路 Hamilton}{15}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}无向图的桥, 割点, 双连通分量}{18}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}最短路 shortest path}{22}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}差分约束系统}{25}{subsection.3.5}
-\contentsline {subsection}{\numberline {3.6}最大流 maximum flow}{26}{subsection.3.6}
-\contentsline {subsection}{\numberline {3.7}最小割 minimum cut}{30}{subsection.3.7}
-\contentsline {subsection}{\numberline {3.8}分数规划 Fractional Programming}{32}{subsection.3.8}
-\contentsline {subsection}{\numberline {3.9}最大闭权图 maximum weight closure of a graph}{32}{subsection.3.9}
-\contentsline {subsection}{\numberline {3.10}最大密度子图Maximum Density Subgraph}{33}{subsection.3.10}
-\contentsline {subsection}{\numberline {3.11}二分图的最小点权覆盖集与最大点权独立集}{33}{subsection.3.11}
-\contentsline {subsection}{\numberline {3.12}最小费用最大流 minimum cost flow}{34}{subsection.3.12}
+\contentsline {subsection}{\numberline {1.2}主席树(可持久化线段树)}{5}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}树链剖分}{6}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}伸展树 Splay}{7}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Treap}{10}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}ST表}{12}{subsection.1.6}
+\contentsline {subsection}{\numberline {1.7}莫队算法 分块}{12}{subsection.1.7}
+\contentsline {subsection}{\numberline {1.8}并查集 Disjoint Set}{13}{subsection.1.8}
+\contentsline {section}{\numberline {2}动态规划}{14}{section.2}
+\contentsline {subsection}{\numberline {2.1}最长上升公共子序列LIS}{14}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}多重背包及优化}{14}{subsection.2.2}
+\contentsline {section}{\numberline {3}图论}{16}{section.3}
+\contentsline {subsection}{\numberline {3.1}拓扑排序 Topological Sorting}{16}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}欧拉回路Euler, 哈密顿回路 Hamilton}{16}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}无向图的桥, 割点, 双连通分量}{19}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}最短路 shortest path}{23}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}差分约束系统}{26}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}最大流 maximum flow}{27}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}最小割 minimum cut}{31}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}分数规划 Fractional Programming}{33}{subsection.3.8}
+\contentsline {subsection}{\numberline {3.9}最大闭权图 maximum weight closure of a graph}{33}{subsection.3.9}
+\contentsline {subsection}{\numberline {3.10}最大密度子图Maximum Density Subgraph}{34}{subsection.3.10}
+\contentsline {subsection}{\numberline {3.11}二分图的最小点权覆盖集与最大点权独立集}{34}{subsection.3.11}
+\contentsline {subsection}{\numberline {3.12}最小费用最大流 minimum cost flow}{35}{subsection.3.12}
 \contentsline {subsection}{\numberline {3.13}有上下界的网络流}{38}{subsection.3.13}
 \contentsline {subsection}{\numberline {3.14}树的直径}{38}{subsection.3.14}
-\contentsline {subsection}{\numberline {3.15}最近公共祖先 LCA}{38}{subsection.3.15}
+\contentsline {subsection}{\numberline {3.15}最近公共祖先 LCA}{39}{subsection.3.15}
 \contentsline {section}{\numberline {4}数学专题}{41}{section.4}
 \contentsline {subsection}{\numberline {4.1}素数 Prime}{41}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}因式分解Factorization和约数}{42}{subsection.4.2}
@@ -35,43 +36,44 @@
 \contentsline {subsection}{\numberline {4.7}逆元 Inverse}{49}{subsection.4.7}
 \contentsline {subsection}{\numberline {4.8}模运算 Module}{50}{subsection.4.8}
 \contentsline {subsection}{\numberline {4.9}幂p的原根}{52}{subsection.4.9}
-\contentsline {subsection}{\numberline {4.10}中国剩余定理和线性同余方程组}{52}{subsection.4.10}
+\contentsline {subsection}{\numberline {4.10}中国剩余定理和线性同余方程组}{53}{subsection.4.10}
 \contentsline {subsection}{\numberline {4.11}伪随机数的生成--梅森旋转算法}{53}{subsection.4.11}
 \contentsline {subsection}{\numberline {4.12}位运算}{54}{subsection.4.12}
-\contentsline {subsection}{\numberline {4.13}博弈论 Game Theory}{54}{subsection.4.13}
+\contentsline {subsection}{\numberline {4.13}博弈论 Game Theory}{55}{subsection.4.13}
 \contentsline {subsection}{\numberline {4.14}快速傅里叶变换和数论变换(FFT和NTT)}{56}{subsection.4.14}
-\contentsline {subsection}{\numberline {4.15}一些数学知识}{59}{subsection.4.15}
-\contentsline {section}{\numberline {5}线性代数 Linear Algebra}{60}{section.5}
-\contentsline {subsection}{\numberline {5.1}矩阵 Matrix}{60}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}矩阵的初等变换和矩阵的逆}{63}{subsection.5.2}
-\contentsline {section}{\numberline {6}组合数学Combinatorial Mathematics}{65}{section.6}
-\contentsline {subsection}{\numberline {6.1}排列 Permutation}{65}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}全排列 Full Permutation}{66}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}组合与组合恒等式}{68}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}鸽笼原理与Ramsey数}{70}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}容斥原理}{70}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}母函数 Generating Function}{71}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}整数拆分和Ferrers图}{71}{subsection.6.7}
-\contentsline {subsection}{\numberline {6.8}递归关系}{72}{subsection.6.8}
-\contentsline {subsection}{\numberline {6.9}群和Polya定理}{75}{subsection.6.9}
-\contentsline {subsection}{\numberline {6.10}线性规划Linear Programming}{76}{subsection.6.10}
-\contentsline {section}{\numberline {7}字符串}{80}{section.7}
-\contentsline {subsection}{\numberline {7.1}KMP以及扩展KMP}{80}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}回文串 palindrome}{81}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}哈希算法 Hash}{81}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}后缀数组 Suffix Array}{82}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}字典树Trie}{85}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}字符串循环同构的最小表示法}{86}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}字符串问题汇总}{86}{subsection.7.7}
-\contentsline {section}{\numberline {8}计算几何}{88}{section.8}
-\contentsline {subsection}{\numberline {8.1}计算几何基础}{88}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}三角形 Triangle}{89}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}多边形 Polygon}{93}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}圆Circle}{94}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}凸包 ConvexHull}{95}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}半平面交 Half-plane Cross}{96}{subsection.8.6}
-\contentsline {subsection}{\numberline {8.7}立体几何}{98}{subsection.8.7}
-\contentsline {subsection}{\numberline {8.8}格点 Lattice Point}{99}{subsection.8.8}
-\contentsline {section}{\numberline {9}搜索等}{100}{section.9}
-\contentsline {section}{\numberline {10}分治}{100}{section.10}
-\contentsline {section}{\numberline {11}Java}{101}{section.11}
+\contentsline {subsection}{\numberline {4.15}快速沃尔什变换(FWT)}{59}{subsection.4.15}
+\contentsline {subsection}{\numberline {4.16}一些数学知识}{60}{subsection.4.16}
+\contentsline {section}{\numberline {5}线性代数 Linear Algebra}{61}{section.5}
+\contentsline {subsection}{\numberline {5.1}矩阵 Matrix}{61}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}矩阵的初等变换和矩阵的逆}{64}{subsection.5.2}
+\contentsline {section}{\numberline {6}组合数学Combinatorial Mathematics}{66}{section.6}
+\contentsline {subsection}{\numberline {6.1}排列 Permutation}{66}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}全排列 Full Permutation}{67}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}组合与组合恒等式}{69}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}鸽笼原理与Ramsey数}{71}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}容斥原理}{71}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}母函数 Generating Function}{72}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}整数拆分和Ferrers图}{72}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}递归关系}{74}{subsection.6.8}
+\contentsline {subsection}{\numberline {6.9}群和Polya定理}{76}{subsection.6.9}
+\contentsline {subsection}{\numberline {6.10}线性规划Linear Programming}{77}{subsection.6.10}
+\contentsline {section}{\numberline {7}字符串}{81}{section.7}
+\contentsline {subsection}{\numberline {7.1}KMP以及扩展KMP}{81}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}回文串 palindrome}{82}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}哈希算法 Hash}{82}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}后缀数组 Suffix Array}{83}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}字典树Trie}{86}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}字符串循环同构的最小表示法}{87}{subsection.7.6}
+\contentsline {subsection}{\numberline {7.7}字符串问题汇总}{87}{subsection.7.7}
+\contentsline {section}{\numberline {8}计算几何}{89}{section.8}
+\contentsline {subsection}{\numberline {8.1}计算几何基础}{89}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}三角形 Triangle}{90}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}多边形 Polygon}{94}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}圆Circle}{95}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}凸包 ConvexHull}{97}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}半平面交 Half-plane Cross}{98}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}立体几何}{100}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}格点 Lattice Point}{101}{subsection.8.8}
+\contentsline {section}{\numberline {9}搜索等}{102}{section.9}
+\contentsline {section}{\numberline {10}分治}{102}{section.10}
+\contentsline {section}{\numberline {11}Java}{103}{section.11}
