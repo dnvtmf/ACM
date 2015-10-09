@@ -4,76 +4,83 @@
 \BOOKMARK [2][-]{subsection.1.3}{树链剖分}{section.1}% 4
 \BOOKMARK [2][-]{subsection.1.4}{伸展树 Splay}{section.1}% 5
 \BOOKMARK [2][-]{subsection.1.5}{Treap}{section.1}% 6
-\BOOKMARK [2][-]{subsection.1.6}{ST表}{section.1}% 7
-\BOOKMARK [2][-]{subsection.1.7}{莫队算法 分块}{section.1}% 8
-\BOOKMARK [2][-]{subsection.1.8}{并查集 Disjoint Set}{section.1}% 9
-\BOOKMARK [1][-]{section.2}{动态规划}{}% 10
-\BOOKMARK [2][-]{subsection.2.1}{最长上升公共子序列LIS}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.2}{多重背包及优化}{section.2}% 12
-\BOOKMARK [1][-]{section.3}{图论}{}% 13
-\BOOKMARK [2][-]{subsection.3.1}{拓扑排序 Topological Sorting}{section.3}% 14
-\BOOKMARK [2][-]{subsection.3.2}{欧拉回路Euler, 哈密顿回路 Hamilton}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.3}{无向图的桥, 割点, 双连通分量}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.4}{最短路 shortest path}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.5}{差分约束系统}{section.3}% 18
-\BOOKMARK [2][-]{subsection.3.6}{最大流 maximum flow}{section.3}% 19
-\BOOKMARK [2][-]{subsection.3.7}{最小割 minimum cut}{section.3}% 20
-\BOOKMARK [2][-]{subsection.3.8}{分数规划 Fractional Programming}{section.3}% 21
-\BOOKMARK [2][-]{subsection.3.9}{最大闭权图 maximum weight closure of a graph}{section.3}% 22
-\BOOKMARK [2][-]{subsection.3.10}{最大密度子图Maximum Density Subgraph}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.11}{二分图的最小点权覆盖集与最大点权独立集}{section.3}% 24
-\BOOKMARK [2][-]{subsection.3.12}{最小费用最大流 minimum cost flow}{section.3}% 25
-\BOOKMARK [2][-]{subsection.3.13}{有上下界的网络流}{section.3}% 26
-\BOOKMARK [2][-]{subsection.3.14}{树的直径}{section.3}% 27
-\BOOKMARK [2][-]{subsection.3.15}{最近公共祖先 LCA}{section.3}% 28
-\BOOKMARK [1][-]{section.4}{数学专题}{}% 29
-\BOOKMARK [2][-]{subsection.4.1}{素数 Prime}{section.4}% 30
-\BOOKMARK [2][-]{subsection.4.2}{因式分解Factorization和约数}{section.4}% 31
-\BOOKMARK [2][-]{subsection.4.3}{欧拉函数 Euler}{section.4}% 32
-\BOOKMARK [2][-]{subsection.4.4}{快速幂 快速乘}{section.4}% 33
-\BOOKMARK [2][-]{subsection.4.5}{最大公约数 GCD}{section.4}% 34
-\BOOKMARK [2][-]{subsection.4.6}{莫比乌斯反演 Mobius}{section.4}% 35
-\BOOKMARK [2][-]{subsection.4.7}{逆元 Inverse}{section.4}% 36
-\BOOKMARK [2][-]{subsection.4.8}{模运算 Module}{section.4}% 37
-\BOOKMARK [2][-]{subsection.4.9}{幂p的原根}{section.4}% 38
-\BOOKMARK [2][-]{subsection.4.10}{中国剩余定理和线性同余方程组}{section.4}% 39
-\BOOKMARK [2][-]{subsection.4.11}{伪随机数的生成–梅森旋转算法}{section.4}% 40
-\BOOKMARK [2][-]{subsection.4.12}{位运算}{section.4}% 41
-\BOOKMARK [2][-]{subsection.4.13}{博弈论 Game Theory}{section.4}% 42
-\BOOKMARK [2][-]{subsection.4.14}{快速傅里叶变换和数论变换\(FFT和NTT\)}{section.4}% 43
-\BOOKMARK [2][-]{subsection.4.15}{快速沃尔什变换\(FWT\)}{section.4}% 44
-\BOOKMARK [2][-]{subsection.4.16}{一些数学知识}{section.4}% 45
-\BOOKMARK [1][-]{section.5}{线性代数 Linear Algebra}{}% 46
-\BOOKMARK [2][-]{subsection.5.1}{矩阵 Matrix}{section.5}% 47
-\BOOKMARK [2][-]{subsection.5.2}{矩阵的初等变换和矩阵的逆}{section.5}% 48
-\BOOKMARK [1][-]{section.6}{组合数学Combinatorial Mathematics}{}% 49
-\BOOKMARK [2][-]{subsection.6.1}{排列 Permutation}{section.6}% 50
-\BOOKMARK [2][-]{subsection.6.2}{全排列 Full Permutation}{section.6}% 51
-\BOOKMARK [2][-]{subsection.6.3}{组合与组合恒等式}{section.6}% 52
-\BOOKMARK [2][-]{subsection.6.4}{鸽笼原理与Ramsey数}{section.6}% 53
-\BOOKMARK [2][-]{subsection.6.5}{容斥原理}{section.6}% 54
-\BOOKMARK [2][-]{subsection.6.6}{母函数 Generating Function}{section.6}% 55
-\BOOKMARK [2][-]{subsection.6.7}{整数拆分和Ferrers图}{section.6}% 56
-\BOOKMARK [2][-]{subsection.6.8}{递归关系}{section.6}% 57
-\BOOKMARK [2][-]{subsection.6.9}{群和Polya定理}{section.6}% 58
-\BOOKMARK [2][-]{subsection.6.10}{线性规划Linear Programming}{section.6}% 59
-\BOOKMARK [1][-]{section.7}{字符串}{}% 60
-\BOOKMARK [2][-]{subsection.7.1}{KMP以及扩展KMP}{section.7}% 61
-\BOOKMARK [2][-]{subsection.7.2}{回文串 palindrome}{section.7}% 62
-\BOOKMARK [2][-]{subsection.7.3}{哈希算法 Hash}{section.7}% 63
-\BOOKMARK [2][-]{subsection.7.4}{后缀数组 Suffix Array}{section.7}% 64
-\BOOKMARK [2][-]{subsection.7.5}{字典树Trie}{section.7}% 65
-\BOOKMARK [2][-]{subsection.7.6}{字符串循环同构的最小表示法}{section.7}% 66
-\BOOKMARK [2][-]{subsection.7.7}{字符串问题汇总}{section.7}% 67
-\BOOKMARK [1][-]{section.8}{计算几何}{}% 68
-\BOOKMARK [2][-]{subsection.8.1}{计算几何基础}{section.8}% 69
-\BOOKMARK [2][-]{subsection.8.2}{三角形 Triangle}{section.8}% 70
-\BOOKMARK [2][-]{subsection.8.3}{多边形 Polygon}{section.8}% 71
-\BOOKMARK [2][-]{subsection.8.4}{圆Circle}{section.8}% 72
-\BOOKMARK [2][-]{subsection.8.5}{凸包 ConvexHull}{section.8}% 73
-\BOOKMARK [2][-]{subsection.8.6}{半平面交 Half-plane Cross}{section.8}% 74
-\BOOKMARK [2][-]{subsection.8.7}{立体几何}{section.8}% 75
-\BOOKMARK [2][-]{subsection.8.8}{格点 Lattice Point}{section.8}% 76
-\BOOKMARK [1][-]{section.9}{搜索等}{}% 77
-\BOOKMARK [1][-]{section.10}{分治}{}% 78
-\BOOKMARK [1][-]{section.11}{Java}{}% 79
+\BOOKMARK [2][-]{subsection.1.6}{动态树}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.7}{ST表}{section.1}% 8
+\BOOKMARK [2][-]{subsection.1.8}{莫队算法 分块}{section.1}% 9
+\BOOKMARK [2][-]{subsection.1.9}{并查集 Disjoint Set}{section.1}% 10
+\BOOKMARK [1][-]{section.2}{动态规划}{}% 11
+\BOOKMARK [2][-]{subsection.2.1}{最长上升公共子序列LIS}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.2}{多重背包及优化}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{图论}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{拓扑排序 Topological Sorting}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{欧拉回路Euler, 哈密顿回路 Hamilton}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{无向图的桥, 割点, 双连通分量}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.4}{有向图强连通分量}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.5}{最短路 shortest path}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.6}{差分约束系统}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.7}{二分图 Bipartite Graph}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.8}{最大流 maximum flow}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.9}{最小割 minimum cut}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.10}{分数规划 Fractional Programming}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.11}{最大闭权图 maximum weight closure of a graph}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.12}{最大密度子图Maximum Density Subgraph}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.13}{二分图的最小点权覆盖集与最大点权独立集}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.14}{最小费用最大流 minimum cost flow}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.15}{有上下界的网络流}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.16}{最小生成树Minimum Spanning Tree}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.17}{树的直径}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.18}{树的最小支配集, 最小覆盖集, 最大独立集}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.19}{最近公共祖先 LCA}{section.3}% 33
+\BOOKMARK [1][-]{section.4}{数学专题}{}% 34
+\BOOKMARK [2][-]{subsection.4.1}{素数 Prime}{section.4}% 35
+\BOOKMARK [2][-]{subsection.4.2}{因式分解Factorization和约数}{section.4}% 36
+\BOOKMARK [2][-]{subsection.4.3}{欧拉函数 Euler}{section.4}% 37
+\BOOKMARK [2][-]{subsection.4.4}{快速幂 快速乘}{section.4}% 38
+\BOOKMARK [2][-]{subsection.4.5}{最大公约数 GCD}{section.4}% 39
+\BOOKMARK [2][-]{subsection.4.6}{莫比乌斯反演 Mobius}{section.4}% 40
+\BOOKMARK [2][-]{subsection.4.7}{逆元 Inverse}{section.4}% 41
+\BOOKMARK [2][-]{subsection.4.8}{模运算 Module}{section.4}% 42
+\BOOKMARK [2][-]{subsection.4.9}{幂p的原根}{section.4}% 43
+\BOOKMARK [2][-]{subsection.4.10}{中国剩余定理和线性同余方程组}{section.4}% 44
+\BOOKMARK [2][-]{subsection.4.11}{伪随机数的生成–梅森旋转算法}{section.4}% 45
+\BOOKMARK [2][-]{subsection.4.12}{位运算}{section.4}% 46
+\BOOKMARK [2][-]{subsection.4.13}{博弈论 Game Theory}{section.4}% 47
+\BOOKMARK [2][-]{subsection.4.14}{快速傅里叶变换和数论变换\(FFT和NTT\)}{section.4}% 48
+\BOOKMARK [2][-]{subsection.4.15}{快速沃尔什变换\(FWT\)}{section.4}% 49
+\BOOKMARK [2][-]{subsection.4.16}{一些数学知识}{section.4}% 50
+\BOOKMARK [1][-]{section.5}{线性代数 Linear Algebra}{}% 51
+\BOOKMARK [2][-]{subsection.5.1}{矩阵 Matrix}{section.5}% 52
+\BOOKMARK [2][-]{subsection.5.2}{矩阵的初等变换和矩阵的逆}{section.5}% 53
+\BOOKMARK [1][-]{section.6}{组合数学Combinatorial Mathematics}{}% 54
+\BOOKMARK [2][-]{subsection.6.1}{排列 Permutation}{section.6}% 55
+\BOOKMARK [2][-]{subsection.6.2}{全排列 Full Permutation}{section.6}% 56
+\BOOKMARK [2][-]{subsection.6.3}{组合与组合恒等式}{section.6}% 57
+\BOOKMARK [2][-]{subsection.6.4}{鸽笼原理与Ramsey数}{section.6}% 58
+\BOOKMARK [2][-]{subsection.6.5}{容斥原理}{section.6}% 59
+\BOOKMARK [2][-]{subsection.6.6}{母函数 Generating Function}{section.6}% 60
+\BOOKMARK [2][-]{subsection.6.7}{整数拆分和Ferrers图}{section.6}% 61
+\BOOKMARK [2][-]{subsection.6.8}{递归关系}{section.6}% 62
+\BOOKMARK [2][-]{subsection.6.9}{群和Polya定理}{section.6}% 63
+\BOOKMARK [2][-]{subsection.6.10}{线性规划Linear Programming}{section.6}% 64
+\BOOKMARK [1][-]{section.7}{字符串}{}% 65
+\BOOKMARK [2][-]{subsection.7.1}{KMP以及扩展KMP}{section.7}% 66
+\BOOKMARK [2][-]{subsection.7.2}{回文串 palindrome}{section.7}% 67
+\BOOKMARK [2][-]{subsection.7.3}{哈希算法 Hash}{section.7}% 68
+\BOOKMARK [2][-]{subsection.7.4}{后缀数组 Suffix Array}{section.7}% 69
+\BOOKMARK [2][-]{subsection.7.5}{字典树Trie}{section.7}% 70
+\BOOKMARK [2][-]{subsection.7.6}{字符串循环同构的最小表示法}{section.7}% 71
+\BOOKMARK [2][-]{subsection.7.7}{字符串问题汇总}{section.7}% 72
+\BOOKMARK [1][-]{section.8}{计算几何}{}% 73
+\BOOKMARK [2][-]{subsection.8.1}{计算几何基础}{section.8}% 74
+\BOOKMARK [2][-]{subsection.8.2}{三角形 Triangle}{section.8}% 75
+\BOOKMARK [2][-]{subsection.8.3}{多边形 Polygon}{section.8}% 76
+\BOOKMARK [2][-]{subsection.8.4}{圆Circle}{section.8}% 77
+\BOOKMARK [2][-]{subsection.8.5}{凸包 ConvexHull}{section.8}% 78
+\BOOKMARK [2][-]{subsection.8.6}{半平面交 Half-plane Cross}{section.8}% 79
+\BOOKMARK [2][-]{subsection.8.7}{立体几何}{section.8}% 80
+\BOOKMARK [2][-]{subsection.8.8}{格点 Lattice Point}{section.8}% 81
+\BOOKMARK [1][-]{section.9}{搜索等}{}% 82
+\BOOKMARK [1][-]{section.10}{分治}{}% 83
+\BOOKMARK [1][-]{section.11}{倍增法}{}% 84
+\BOOKMARK [1][-]{section.12}{输入输出挂}{}% 85
+\BOOKMARK [1][-]{section.13}{Java}{}% 86

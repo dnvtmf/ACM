@@ -1,4 +1,5 @@
-//随机化二叉树Treap
+///随机化二叉树Treap
+//数组版
 struct node
 {
     int key;
@@ -74,3 +75,4 @@ struct Treap
         }
     }
 };
+//指针版

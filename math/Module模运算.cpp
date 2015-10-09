@@ -10,24 +10,24 @@
 	对一个数连续取模, 有效的取模次数小于$O(\log{n})$
  2. 推论
     若$ a \equiv b (\%p), c \equiv d(\%p)	$,则$	(a+c) \equiv (b+d)(\%p), (a-c) \equiv (b-d)(\%p),
-		(a*c) \equiv (b*d)(\%p), (a/c) \equiv (b/d)(\%p)$
+		(a c) \equiv (b d)(\%p), (a/c) \equiv (b/d)(\%p)$
 
  3. 费马小定理
-	若p是素数，对任意正整数x,有 $ x^p \equiv x (\% p) $.
+	若p是素数, 对任意正整数x, 有 $ x^p \equiv x (\% p) $.
  4. 欧拉定理
 	若p与x互素, 则有$ x^{\phi (p)} \equiv 1 (\% p)	$.
- 5. $n! = a p^e, \gcd (a, p) == 1, p	$是素数
+ 5. $n! = a p^e, \gcd (a, p) == 1, p$ 是素数
 	$e = (n/p + n/p^2 + n/p^3 + \cdots) $(a不能被p整除)
 	威尔逊定理：$ (p-1)! \equiv -1 (\% p) $(当且仅当p是素数)
-	n!中不能被p整除的数的积:$ n! = (p - 1)!^{(n/p)} \times (n\  mod\ p)! $
-	n!中能被p整除的项为:p, 2p, 3p, ... , (n/p)p, 除以p得到1,2,3,...,n/p(问题从缩减到n/p)
+	n!中不能被p整除的数的积: $ n! = (p - 1)!^{(n/p)} \times (n\  mod\ p)! $
+	n!中能被p整除的项为: $p, 2p, 3p, \cdots , (n/p)p$, 除以p得到$1, 2, 3, \cdots , n/p$(问题从缩减到n/p)
 	在O(p)时间内预处理除$0 \leq n < p$范围内中的n! mod p的表
 	可在$O(\log_p n)$时间内算出答案
 	若不预处理,复杂度为$O(p\log_p{n})$
  */
 int fact[MAX_P];//预处理n! mod p的表.$O(p)$
 //分解$n!=a\ p^e$.返回a % p. $O(\log_p{n})$
-int mod_fact(int n, int p, int &e)
+int mod_fact(int n, int p, int& e)
 {
     e = 0;
     if(n == 0) return 1;
@@ -57,7 +57,7 @@ inline void pre_fact(LL p, LL pc)//预处理$n! \%  p^c$, $O(p^c)$
     }
 }
 //分解$n! = t (p^c) ^ u, n! \% pc = t \cdot p^u\%pc)$
-inline void mod_factorial(LL n, LL p, LL pc, LL &t, LL &u)
+inline void mod_factorial(LL n, LL p, LL pc, LL& t, LL& u)
 {
     for(t = 1, u = 0; n; u += (n /= p))
         t = t * fact[n % pc] % pc * qpow(fact[pc - 1], n / pc, pc) % pc;
@@ -73,13 +73,13 @@ LL fact[NUM];
 LL prim[NUM], prim_num;
 LL pre_prim();
 LL pre_fact(LL p, LL pc);
-LL mod_factorial(LL n, LL p, LL pc, LL &t, LL &u);
+LL mod_factorial(LL n, LL p, LL pc, LL& t, LL& u);
 LL qpow(LL x, LL k, LL mod);
 LL getInv(LL x, LL mod);
 
 LL C(LL n, LL m, LL mod)
 {
-	if(n < m) return 0;
+    if(n < m) return 0;
     LL p, pc, tmpmod = mod;
     LL Mi, tmpans, t, u, tot;
     LL ans = 0;
@@ -112,7 +112,7 @@ LL C(LL n, LL m, LL mod)
 /*
  8. 大组合数求模, mod是素数, Lucas定理
 	Lucas定理: $C_n^m\% mod = C_{n/mod}^{m/mod} \cdot C_{n \% mod}^{m \% mod} \% mod$
-	采用$O(n)$方法预处理0~n-1的$	n! \% mod $和每个数的逆元, 则可在$O(\log{n})$时间求出$ C_n^k \% mod $
+	采用$O(n)$方法预处理0 ~ n-1的 $ n! \% mod $和每个数的逆元, 则可在$O(\log{n})$时间求出$ C_n^k \% mod $
 */
 LL fact[NUM], inv[NUM];
 void Lucas_init(LL mod);//预处理
@@ -128,3 +128,4 @@ LL Lucas(LL n, LL m, LL mod) //mod是质数
     }
     return res;
 }
+

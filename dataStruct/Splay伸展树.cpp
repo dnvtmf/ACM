@@ -4,181 +4,134 @@
 1. 旋转: 左右旋, 将左（右）孩子变为根
 2. spaly: 将结点x旋转至根y处
 3. find: 同二叉树查找, 查找成功后splay
-4. remove: 查找x, 如果x无孩子或一个孩子, 删除x, splay（x）的根结点; x有两个孩子, 用x的后继y代替x, splay（y)
-5. join, split合并, 分解数.
+4. remove: 查找x, 如果x无孩子或一个孩子, 删除x, splay(x)的根结点; x有两个孩子, 用x的后继y代替x, splay(y)
+5. join, split合并, 分解树.
 6. 区间操作: [a, b], 将a-1 splay至根处, b+1至根的右孩子处, 那根的右孩子的左子树表示区间[a, b]
 */
 const int NUM = 1000000 + 10;
-struct Splay_node
-{
-    int ch[2], fa;
-    int key;
-    int len;
-    bool flag;
-    LL val, sum;
-    void malloc(int _key)
-    {
-        ch[0] = ch[1] = fa = 0;
-        key = _key;
-        len = 1;
-        flag = false;
-        val = sum = 0;
-    }
-};
 struct Splay
 {
-    Splay_node *e;
-    int tot;
-    int root;
-    Splay()
+    int fa[NUM], ch[NUM][2];
+    int key[NUM];
+    int sum[NUM];
+    int len[NUM];
+    int tot, root;
+    void init()
     {
-        e = new Splay_node[NUM];
         tot = 0;
-        root = -1;
+        root = 0;
     }
-    ~Splay()
+    void push_down(int p) {}
+    void push_up(int p)
     {
-        delete []e;
+        sum[p] = len[p];
+        if(ch[p][0]) sum[p] += sum[ch[p][0]];
+        if(ch[p][1]) sum[p] += sum[ch[p][1]];
     }
-    void push_down(int x)//标记下传
+    void Rot(int x)
     {
-        if(e[x].flag)
-        {
-            int y = e[x].ch[0];
-            if(y)
-            {
-                e[y].flag = true;
-                e[y].val = e[x].val;
-                e[y].sum = e[y].val * e[y].len;
-            }
-            y = e[x].ch[1];
-            if(y)
-            {
-                e[y].flag = true;
-                e[y].val = e[x].val;
-                e[y].sum = e[y].val * e[y].len;
-            }
-            e[x].flag = false;
-        }
-    }
-    void push_up(int x)//标记上传
-    {
-        e[x].sum = e[x].val;
-        e[x].len = 1;
-        if(e[x].ch[0])
-        {
-            e[x].sum += e[e[x].ch[0]].sum;
-            e[x].len += e[e[x].ch[0]].len;
-        }
-        if(e[x].ch[1])
-        {
-            e[x].sum += e[e[x].ch[1]].sum;
-            e[x].len += e[e[x].ch[1]].len;
-        }
-    }
-    //旋转操作: c = 0: 左旋, 将父节点旋转到结点x的左儿子; c = 1: 右旋, 将父节点旋转到结点x的右儿子
-    void rot(int x, int c)
-    {
-        int y = e[x].fa, z = e[y].fa;
+        int y = fa[x], z = fa[y];
+        int c = (ch[y][0] == x);
         push_down(y), push_down(x);
-        e[y].ch[!c] = e[x].ch[c];
-        if(e[x].ch[c]) e[e[x].ch[c]].fa = y;
-        e[y].fa = x;
-        if(z) e[z].ch[e[z].ch[1] == y] = x;
-        e[x].ch[c] = y;
-        e[x].fa = z;
+        ch[y][!c] = ch[x][c];
+        if(ch[x][c]) fa[ch[x][c]] = y;
+        if(z) ch[z][ch[z][1] == y] = x;
+        fa[x] = z;
+        ch[x][c] = y;
+        fa[y] = x;
         push_up(y);
-        if(y == root) root = x;
+        if(root == y) root = x;
     }
-    //splay操作: 将结点x旋转到结点fa下面
-    void splay(int x, int fa)
+
+    void splay(int x, int pa)
     {
         int y, z;
         push_down(x);
-        while((y = e[x].fa) != fa)
+        while((y = fa[x]) != pa)
         {
-            z = e[y].fa;
-            if(z == fa) rot(x, e[y].ch[0] == x);//单旋
+            z = fa[y];
+            if(z == pa) Rot(x);
+            else if((ch[z][0] == y) == (ch[y][0] == x))
+                Rot(y), Rot(x);
             else
-            {
-                if(e[z].ch[0] == y)
-                {
-                    if(e[y].ch[0] == x) rot(y, 1), rot(x, 1);//一字旋
-                    else rot(x, 0), rot(x, 1);//之字旋
-                }
-                else
-                {
-                    if(e[y].ch[1] == x) rot(y, 0), rot(x, 0);//一字旋
-                    else rot(x, 1), rot(x, 0);//之字旋
-                }
-            }
+                Rot(x), Rot(x);
         }
         push_up(x);
     }
-    void insert(int key)
+
+    int find(int _key)
+    {
+        int p = root;
+        while(p)
+        {
+            if(key[p] == _key) break;
+            else if(key[p] > _key) p = ch[p][0];
+            else p = ch[p][1];
+        }
+        if(p) splay(p, 0);
+        return p;
+    }
+
+    int insert(int _key, int _len)
     {
         int x = ++tot;
-        e[x].malloc(key);
-        int y = root;
-        if(y == -1)
+        ch[x][0] = ch[x][1] = 0;
+        key[x] = _key;
+        len[x] = _len;
+        sum[x] = _len;
+        int p = root;
+        if(!p) root = x, fa[x] = 0;
+        else
         {
-            root = x;
-            e[x].fa = 0;
-            return ;
-        }
-        while(true)
-        {
-            if(e[y].key < key)
+            while(true)
             {
-                if(e[y].ch[1]) y = e[y].ch[1];
+                int c = key[p] < _key;
+                if(ch[p][c]) p = ch[p][c];
                 else
                 {
-                    e[y].ch[1] = x;
-                    e[x].fa = y;
-                    splay(x, 0);
-                    return ;
+                    ch[p][c] = x;
+                    fa[x] = p;
+                    break;
                 }
             }
-            else if(e[y].key > key)
-            {
-                if(e[y].ch[0]) y = e[y].ch[0];
-                else
-                {
-                    e[y].ch[0] = x;
-                    e[x].fa = y;
-                    splay(x, 0);
-                    return ;
-                }
-            }
-            else
-                return ;
-        }
-    }
-    int find(int key)
-    {
-        int x = root;
-        while(e[x].key != key)
-        {
-            x = e[x].ch[e[x].key < key];
-            if(!x)//没有找到
-                return -1;
+            splay(x, 0);
         }
         return x;
     }
-    void update(int L, int R, LL val)
+
+    void erase(int x)
     {
-        splay(find(L - 1), 0);
-        splay(find(R + 1), root);
-        int x = e[e[root].ch[1]].ch[0];
-        e[x].flag = true;
-        e[x].val = val;
-        e[x].sum = val * e[x].len;
+        splay(x, 0);
+        int a = ch[x][0];
+        int b = ch[x][1];
+        if(a) fa[a] = 0;
+        if(b) fa[b] = 0;
+        if(!a)
+        {
+            root = b;
+            return;
+        }
+        if(!b)
+        {
+            root = a;
+            return ;
+        }
+        while(ch[a][1]) a = ch[a][1];
+        ch[a][1] = b;
+        fa[b] = a;
+        splay(a, 0);
+        root = a;
     }
-    LL query(int L, int R)
+    int lower_bound(int _key)
     {
-        splay(find(L - 1), 0);
-        splay(find(R + 1), root);
-        int x = e[e[root].ch[1]].ch[0];
-        return e[x].sum;
+        int x = -1, p = root;
+        while(p)
+        {
+            if(_key > key[p]) p = ch[p][1];
+            else p = ch[x = p][0];
+        }
+        if(x > 0) splay(x, 0);
+        return x;
     }
-};
+} sp;
+

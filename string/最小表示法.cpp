@@ -18,3 +18,5 @@ int MinimumRepresentation(char *s, int len)
     }
     return (i < j ? i : j);
 }
+
+//方法二: SAM(后缀自动机)

@@ -42,7 +42,7 @@ void exgcd(int a, int b, int &g, int &x, int &y)
 }
 //应用
 //1. 求解ax + by = c的x的最小正整数解
-//x的通解为x0 + b/gcd(a, b) * k
+//x的通解为x0 + b / gcd(a, b) * k
 int solve(int a, int b, int c)
 {
     int g = exgcd(a, b, x, y), t = b / g;
