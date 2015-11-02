@@ -70,7 +70,7 @@ struct Matrix
         if(I) for(int i = 1; i <= n; ++i) a[i][i] = 1;
     }
     //C = A + B
-    Matrix operator + (const Matrix &B) const
+    Matrix operator + (const Matrix& B) const
     {
         Matrix res(n, m);
         for(int i = 1; i <= n; ++i)
@@ -79,7 +79,7 @@ struct Matrix
         return Matrix;
     }
     //C = A - B
-    Matrix operator - (const Matrix &B) const
+    Matrix operator - (const Matrix& B) const
     {
         Matrix res(n, m);
         for(int i = 1; i <= n; ++i)
@@ -88,7 +88,7 @@ struct Matrix
         return Matrix;
     }
     //A += B
-    Matrix operator += (const Matrix &B) const
+    Matrix operator += (const Matrix& B) const
     {
         for(int i = 1; i <= n; ++i)
             for(int j = 1; j < m; ++j)
@@ -96,7 +96,7 @@ struct Matrix
         return *this;
     }
     //C = AB
-    Matrix operator * (const Matrix & B) const
+    Matrix operator * (const Matrix& B) const
     {
         Matrix res(n, B.m);
         int i, j, k;
@@ -108,7 +108,7 @@ struct Matrix
 //                        res.a[i][j] -= mod;
         return res;
     }
-	//方阵的k次幂
+    //方阵的k次幂
     Matrix operator ^(int k)
     {
         Matrix x = *this;
@@ -142,4 +142,6 @@ struct Matrix
 		B^m &\displaystyle \sum_{k=1}^{m-1}{AB^k} \cr
 		O &I
 	}\right]$$@
+3. 若A是$n \times 1$的列矩阵, B是$1 \times n$的行矩阵, 则@$$
+	(AB)^k = A(BA)^{k-1}B $$@
 */

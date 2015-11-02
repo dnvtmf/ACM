@@ -1,12 +1,12 @@
 ///伸展树Splay
-//均摊复杂度O(log n) 最坏复杂度O(n)
+//均摊复杂度$O(\log{n})$ 最坏复杂度 $O(n)$
 /*操作
-1. 旋转: 左右旋, 将左（右）孩子变为根
-2. spaly: 将结点x旋转至根y处
-3. find: 同二叉树查找, 查找成功后splay
-4. remove: 查找x, 如果x无孩子或一个孩子, 删除x, splay(x)的根结点; x有两个孩子, 用x的后继y代替x, splay(y)
-5. join, split合并, 分解树.
-6. 区间操作: [a, b], 将a-1 splay至根处, b+1至根的右孩子处, 那根的右孩子的左子树表示区间[a, b]
+1. Rot(x): 将x的父亲结点变成x的儿子
+2. spaly(x, y): 将结点x旋转为y的儿子结点
+3. find(key): 同二叉树查找, 查找成功后splay
+4. erase(key): 先查找key在x处, 如果x无孩子或一个孩子, 删除x, splay(x)的父结点; x有两个孩子, 用x的后继y代替x, splay(y)
+5. insert(key): 按其他树的插入方法操作;
+6. 区间操作: 要操作的区间为[a, b], 将a-1 splay至根处, b+1至根的右孩子处, 那根的右孩子的左子树表示区间[a, b], 接着进行区间[a, b]的操作
 */
 const int NUM = 1000000 + 10;
 struct Splay

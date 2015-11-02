@@ -38,4 +38,12 @@
 11. 在对浮点数进行二分查找, 三分查找时, 固定查找次数, 而不是比较两个左右区间. 一般查找次数为50, 保险为70~80, 也可以为100
 */
 int sgn(double a) {return a < -EPS ? -1 : a < EPS ? 0 : 1;}
-int mysqrt(double a) {return sqrt(max(0.0, a);}
+int mysqrt(double a) {return sqrt(max(0.0, a));}
+//注意改精度
+char buf[100];
+void Out(double a)
+{
+    sprintf(buf, "%.2f", a);
+    if(strcmp(buf, "-0.00") == 0) printf("0.00");
+    else printf("%s", buf);
+}

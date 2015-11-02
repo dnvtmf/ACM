@@ -191,3 +191,8 @@ void NTT(vector<int> &a, int N, int op)
         for(int i = 0; i < N; i++) a[i] = 1LL * a[i] * inv % mod;
     }
 }
+/*分治ntt
+有递推关系式: $\displaystyle a_n = \sum_{k=0}^{n-1}{k! \cdot a_{n-k}}$
+分治: solve(l, r) = solve(l, mid) + deal(l, r) + solve(mid + 1, r);
+deal(l, r) = $\displaystyle \sum_{k=l}^{mid}{k! \cdot a_{l + (mid - k)}}$
+*/

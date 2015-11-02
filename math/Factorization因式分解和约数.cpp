@@ -5,12 +5,13 @@
 因子的性质:
 	1. 因子个数函数$\tau$定义为正整数n的所有正因子个数, 记为$\tau(n)$, 则$\displaystyle \tau(n) = \prod_{i=0}^{m}{(k_i + 1)}$
 	2. 因子和函数$\sigma$定义为整数n的所有正因子之和, 记为$\sigma(n)$, 则$\displaystyle \sigma(n) = \prod_{i=1}^{m}{\frac{p_i^{k_i + 1} - 1}{p_i - 1}}$
-	3. 因子和函数$\sigma$和因子个数函数$\tau$是乘性函数.
-	4. 设$\displaystyle a = \prod_{i=1}^{m}{p_i^{x_i}}, b = \prod_{i=1}^{m}{p_i^{y_i}}$, 则@$$
+	3. 因子的k次方的和为: $\displaystyle \sum_{d|n}{d^k} = \prod_{i=1}^{m}{\sum_{j=0}^{k_i}{p_i^j}}$
+	4. 因子和函数$\sigma$和因子个数函数$\tau$是乘性函数.
+	5. 设$\displaystyle a = \prod_{i=1}^{m}{p_i^{x_i}}, b = \prod_{i=1}^{m}{p_i^{y_i}}$, 则@$$
 	\gcd(a, b) = \prod_{i=1}^{m}{\min{(x_i, y_i)}}$$@, @$$
 	lcm(a, b) = \prod_{i=1}^{m}{\max{(x_i, y_i)}}
 	$$@
-	5. 质因数个数: 10^5以内的数质因数至多7个, 10^6以内的数的质因数至多8个, 10^9以内的数的质因数至多10个
+	6. 质因数个数: 10^5以内的数质因数至多7个, 10^6以内的数的质因数至多8个, 10^9以内的数的质因数至多10个
 */
 ///分解质因数
 //暴力试除法, $O(\sqrt{N})$
