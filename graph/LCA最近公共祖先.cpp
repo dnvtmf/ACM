@@ -48,7 +48,7 @@ void LCA(int u)
 struct lca_node
 {
     int u, dep;
-    bool operator < (const lca_node &b) const {return dep < b.dep;}
+    bool operator < (const lca_node& b) const {return dep < b.dep;}
 } ;
 struct __LCA
 {
@@ -78,12 +78,12 @@ struct __LCA
 
 void dfs(int u, int fa, int dep)
 {
-    lca.st[lca.id[u] = lca.cnt++][0] = (node) {u, dep};
+    lca.st[lca.id[u] = lca.cnt++][0] = (lca_node) {u, dep};
     for(int i = head[u]; i != -1; i = e[i].next)
     {
         if(e[i].to == fa) continue;
-        dfs(e[i].to, u, dep + 1, k);
-        lca.st[lca.cnt++][0] = (node) {u, dep};
+        dfs(e[i].to, u, dep + 1);
+        lca.st[lca.cnt++][0] = (lca_node) {u, dep};
     }
 }
 

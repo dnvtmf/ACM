@@ -21,7 +21,7 @@ void add_edge(int u, int v, int cap, int cost)
 }
 int dist[MAXV];
 int prev[MAXV], pree[MAXV];
-int h[MAXV];
+int h[MAXV], V;
 void dijkstra(int s)
 {
     priority_queue<P, vector<P>, greater<P> > que;
@@ -47,6 +47,14 @@ int min_cost_flow(int s, int t, int flow)
 {
     int min_cost = 0;
     memset(h, 0, sizeof(h));
+    for(bool f = true; f;)
+    {
+        f = false;
+        for(int u = 0; u < V; ++u)
+            for(int i = head[u]; ~i; i = e[i].next)
+                if(e[i].cap > 0 && h[e[i].to] > h[u] + e[i].cost)
+                    h[e[i].to] = h[u] + e[i].cost, f = true;
+    }
     while(flow > 0)
     {
         dijkstra(s);
@@ -56,7 +64,7 @@ int min_cost_flow(int s, int t, int flow)
         for(int u = t; u != s; u = prev[u])//寻找瓶颈边
             now_flow = min(now_flow, e[pree[u]].cap);
         flow -= now_flow;
-        min_cost += now_flow * dist[t];
+        min_cost += now_flow * (dist[t] - h[s] + h[t]);
         for(int u = t; u != s; u = prev[u])
         {
             e[pree[u]].cap -= now_flow;
@@ -67,47 +75,56 @@ int min_cost_flow(int s, int t, int flow)
 }
 
 ///spfa实现 基于0开始的图
-struct edge {int next, to, cap, cost;} e[MAXE << 1];
-int head[MAXV], htot;
-int V;
-void init()
-{
-    memset(head, -1, sizeof(head));
-    htot = 0;
-}
-void add_edge(int u, int v, int cap, int cost)
-{
-    e[htot] = (edge) {head[u], v, cap, cost};
-    head[u] = htot++;
-    e[htot] = (edge) {head[v], u, 0, -cost};
-    head[v] = htot++;
-}
 int dist[MAXV];
-int prev[MAXV], pree[MAXV];
-void spfa(int s)
+int InQue[MAXV], Pree[MAXV], Prev[MAXV];
+bool spfa(int s, int t)
 {
-    fill(dist, dist + V, INF);
+    memset(dist, 0x3f, sizeof(dist));
+    //memset(InQue, 0, sizeof(InQue));
+    queue<int> que;
+    que.push(s);
     dist[s] = 0;
-    bool update = true;
-    while(update)
+    InQue[s] = 1;
+    while(!que.empty())
     {
-        update = false;
-        for(int v = 0; v < V; v++)
+        int u = que.front(); que.pop();
+        InQue[u] = 0;
+        for(int i = head[u]; ~i; i = e[i].next)
         {
-            if(dist[v] == INF) continue;
-            for(int i = head[v]; i != -1; i = e[i].next)
+            int v = e[i].to;
+            if(e[i].cap > 0 && dist[v] > dist[u] + e[i].cost)
             {
-                //edge &e = G[v][i];
-                if(e[i].cap > 0 && dist[e[i].to] > dist[v] + e[i].cost)
+                dist[v] = dist[u] + e[i].cost;
+                Pree[v] = i;
+                Prev[v] = u;
+//                assert(e[i].cap > 0);
+                if(InQue[v] == 0)
                 {
-                    dist[e[i].to] = dist[v] + e[i].cost;
-                    prev[e[i].to] = v;
-                    pree[e[i].to] = i;
-                    update = true;
+                    InQue[v] = 1;
+                    que.push(v);
                 }
             }
         }
     }
+    return dist[t] != 0x3f3f3f3f;
+}
+void min_cost_flow(int s, int t, int flow)
+{
+    int ans = 0;
+    while(flow > 0 && spfa(s, t))
+    {
+        int cur_flow = flow;
+        for(int u = t; u != s; u = Prev[u])
+            cur_flow = min(cur_flow, e[Pree[u]].cap);
+        flow -= cur_flow;
+        ans += dist[t] * cur_flow;
+        for(int u = t; u != s; u = Prev[u])
+        {
+            e[Pree[u]].cap -= cur_flow;
+            e[Pree[u] ^ 1].cap += cur_flow;
+        }
+    }
+    return ans;
 }
 
 ///zkw最小费用流, 在稠密图上很快

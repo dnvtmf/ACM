@@ -132,10 +132,10 @@ void dfs(int v)
     {
         if(dfn[G[v][i]] == 0)
             dfs(G[v][i]);
-        else if(Belong[[G[v][i]] == 0)
-    {
-        while(dfn[stk2[top2]] > dfn[G[v][i]])
-            top2--;
+        else if(Belong[G[v][i]] == 0)
+        {
+            while(dfn[stk2[top2]] > dfn[G[v][i]])
+                top2--;
         }
     }
     if(stk2[top2] == v)

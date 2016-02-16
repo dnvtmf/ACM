@@ -81,3 +81,61 @@ void unContor(int pos, int n)
         sum %= fac[n - i - 1];
     }
 }
+
+
+///重集的编码与解码(拓展的康拓展开)
+/*
+给一个排列 $A=\{a_1, a_2, \cdots, a_n\}$, 求按字典序排序之后其中所有全排列的编号(从0开始)
+$$ Rank_A = \sum_{i=1}^{n}{min_i \cdot (n-i)! \cdot \prod_{j=1}^{i-1}{num_j}} $$
+其中, $min_i$ 是第i个数之后有多少个数小于 $a_i$, $num_i$ 表示第i个数及以后有多少个数与 $a_i$ 相同.
+这个 $Rank_A$ 比实际值大 $\displaystyle Mul = \prod_{i=1}^{m}{cnt_i!}$, 其中 $cnt_i$表示第i种数的个数
+A所在集合的全排列个数为: $$\frac{n!}{Mul}$$
+解码: 按照上述公式从第一位到最后一位展开即可.
+*/
+int getRank(int a[], int n)
+{
+    int rank = 0;
+    int sum = 1;
+    for(int i = 1; i <= n; ++i)
+    {
+        int factorial = 1, min_i = 0, num_i = 1;
+        for(int j = i + 1; j <= n; ++j)
+        {
+            factorial *= (j - i);
+            if(a[j] < a[i]) ++min_i;
+            else if(a[j] == a[i]) ++num_i;
+        }
+        rank += factorial * min_i * sum;
+        sum *= num_i;
+    }
+    return rank;
+}
+
+//给定集合中{1~m} 各有cnt[i]个
+void getRankInv(int rank, int cnt[], int m, int a[], int n)
+{
+    int factorial = 1, sum = 1;
+    for(int i = 1; i < n; ++i) factorial *= i;
+    for(int i = 1; i <= n; ++i)
+    {
+        int tot = rank / factorial;
+        int num_i = 0;
+        for(int j = 1; j <= m; ++j)
+        {
+            if(cnt[j] <= tot)
+            {
+                tot -= cnt[j];
+                num_i += cnt[j];
+            }
+            else
+            {
+                res[i] = j;
+                rank -= sum * factorial * num_i;
+                sum *= cnt[j];
+                --cnt[j];
+                break;
+            }
+        }
+        factorial /= (n - i);
+    }
+}

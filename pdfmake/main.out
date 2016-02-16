@@ -51,40 +51,41 @@
 \BOOKMARK [2][-]{subsection.5.14}{快速傅里叶变换和数论变换\(FFT和NTT\)}{section.5}% 51
 \BOOKMARK [2][-]{subsection.5.15}{快速沃尔什变换\(FWT\)}{section.5}% 52
 \BOOKMARK [2][-]{subsection.5.16}{一些数学知识}{section.5}% 53
-\BOOKMARK [1][-]{section.6}{线性代数 Linear Algebra}{}% 54
-\BOOKMARK [2][-]{subsection.6.1}{矩阵 Matrix}{section.6}% 55
-\BOOKMARK [2][-]{subsection.6.2}{矩阵的初等变换和矩阵的逆}{section.6}% 56
-\BOOKMARK [1][-]{section.7}{组合数学Combinatorial Mathematics}{}% 57
-\BOOKMARK [2][-]{subsection.7.1}{排列 Permutation}{section.7}% 58
-\BOOKMARK [2][-]{subsection.7.2}{全排列 Full Permutation}{section.7}% 59
-\BOOKMARK [2][-]{subsection.7.3}{组合与组合恒等式}{section.7}% 60
-\BOOKMARK [2][-]{subsection.7.4}{鸽笼原理与Ramsey数}{section.7}% 61
-\BOOKMARK [2][-]{subsection.7.5}{容斥原理}{section.7}% 62
-\BOOKMARK [2][-]{subsection.7.6}{母函数 Generating Function}{section.7}% 63
-\BOOKMARK [2][-]{subsection.7.7}{整数拆分和Ferrers图}{section.7}% 64
-\BOOKMARK [2][-]{subsection.7.8}{递归关系}{section.7}% 65
-\BOOKMARK [2][-]{subsection.7.9}{群和Polya定理}{section.7}% 66
-\BOOKMARK [2][-]{subsection.7.10}{线性规划Linear Programming}{section.7}% 67
-\BOOKMARK [1][-]{section.8}{字符串}{}% 68
-\BOOKMARK [2][-]{subsection.8.1}{KMP以及扩展KMP}{section.8}% 69
-\BOOKMARK [2][-]{subsection.8.2}{回文串 palindrome}{section.8}% 70
-\BOOKMARK [2][-]{subsection.8.3}{哈希算法 Hash}{section.8}% 71
-\BOOKMARK [2][-]{subsection.8.4}{后缀数组 Suffix Array}{section.8}% 72
-\BOOKMARK [2][-]{subsection.8.5}{字典树Trie}{section.8}% 73
-\BOOKMARK [2][-]{subsection.8.6}{字符串循环同构的最小表示法}{section.8}% 74
-\BOOKMARK [2][-]{subsection.8.7}{字符串问题汇总}{section.8}% 75
-\BOOKMARK [1][-]{section.9}{计算几何}{}% 76
-\BOOKMARK [2][-]{subsection.9.1}{计算几何基础}{section.9}% 77
-\BOOKMARK [2][-]{subsection.9.2}{三角形 Triangle}{section.9}% 78
-\BOOKMARK [2][-]{subsection.9.3}{多边形 Polygon}{section.9}% 79
-\BOOKMARK [2][-]{subsection.9.4}{圆Circle}{section.9}% 80
-\BOOKMARK [2][-]{subsection.9.5}{凸包 ConvexHull}{section.9}% 81
-\BOOKMARK [2][-]{subsection.9.6}{半平面交 Half-plane Cross}{section.9}% 82
-\BOOKMARK [2][-]{subsection.9.7}{立体几何}{section.9}% 83
-\BOOKMARK [2][-]{subsection.9.8}{格点 Lattice Point}{section.9}% 84
-\BOOKMARK [1][-]{section.10}{搜索等}{}% 85
-\BOOKMARK [1][-]{section.11}{分治}{}% 86
-\BOOKMARK [1][-]{section.12}{倍增法}{}% 87
-\BOOKMARK [1][-]{section.13}{输入输出挂}{}% 88
-\BOOKMARK [1][-]{section.14}{STL使用注意}{}% 89
-\BOOKMARK [1][-]{section.15}{Java}{}% 90
+\BOOKMARK [2][-]{subsection.5.17}{概率论}{section.5}% 54
+\BOOKMARK [1][-]{section.6}{线性代数 Linear Algebra}{}% 55
+\BOOKMARK [2][-]{subsection.6.1}{矩阵 Matrix}{section.6}% 56
+\BOOKMARK [2][-]{subsection.6.2}{矩阵的初等变换和矩阵的逆}{section.6}% 57
+\BOOKMARK [1][-]{section.7}{组合数学Combinatorial Mathematics}{}% 58
+\BOOKMARK [2][-]{subsection.7.1}{排列 Permutation}{section.7}% 59
+\BOOKMARK [2][-]{subsection.7.2}{全排列 Full Permutation}{section.7}% 60
+\BOOKMARK [2][-]{subsection.7.3}{组合与组合恒等式}{section.7}% 61
+\BOOKMARK [2][-]{subsection.7.4}{鸽笼原理与Ramsey数}{section.7}% 62
+\BOOKMARK [2][-]{subsection.7.5}{容斥原理}{section.7}% 63
+\BOOKMARK [2][-]{subsection.7.6}{母函数 Generating Function}{section.7}% 64
+\BOOKMARK [2][-]{subsection.7.7}{整数拆分和Ferrers图}{section.7}% 65
+\BOOKMARK [2][-]{subsection.7.8}{递归关系}{section.7}% 66
+\BOOKMARK [2][-]{subsection.7.9}{群和Polya定理}{section.7}% 67
+\BOOKMARK [2][-]{subsection.7.10}{线性规划Linear Programming}{section.7}% 68
+\BOOKMARK [1][-]{section.8}{字符串}{}% 69
+\BOOKMARK [2][-]{subsection.8.1}{KMP以及扩展KMP}{section.8}% 70
+\BOOKMARK [2][-]{subsection.8.2}{回文串 palindrome}{section.8}% 71
+\BOOKMARK [2][-]{subsection.8.3}{哈希算法 Hash}{section.8}% 72
+\BOOKMARK [2][-]{subsection.8.4}{后缀数组 Suffix Array}{section.8}% 73
+\BOOKMARK [2][-]{subsection.8.5}{字典树Trie}{section.8}% 74
+\BOOKMARK [2][-]{subsection.8.6}{字符串循环同构的最小表示法}{section.8}% 75
+\BOOKMARK [2][-]{subsection.8.7}{字符串问题汇总}{section.8}% 76
+\BOOKMARK [1][-]{section.9}{计算几何}{}% 77
+\BOOKMARK [2][-]{subsection.9.1}{计算几何基础}{section.9}% 78
+\BOOKMARK [2][-]{subsection.9.2}{三角形 Triangle}{section.9}% 79
+\BOOKMARK [2][-]{subsection.9.3}{多边形 Polygon}{section.9}% 80
+\BOOKMARK [2][-]{subsection.9.4}{圆Circle}{section.9}% 81
+\BOOKMARK [2][-]{subsection.9.5}{凸包 ConvexHull}{section.9}% 82
+\BOOKMARK [2][-]{subsection.9.6}{半平面交 Half-plane Cross}{section.9}% 83
+\BOOKMARK [2][-]{subsection.9.7}{立体几何}{section.9}% 84
+\BOOKMARK [2][-]{subsection.9.8}{格点 Lattice Point}{section.9}% 85
+\BOOKMARK [1][-]{section.10}{搜索等}{}% 86
+\BOOKMARK [1][-]{section.11}{分治}{}% 87
+\BOOKMARK [1][-]{section.12}{倍增法}{}% 88
+\BOOKMARK [1][-]{section.13}{输入输出挂}{}% 89
+\BOOKMARK [1][-]{section.14}{STL使用注意}{}% 90
+\BOOKMARK [1][-]{section.15}{Java}{}% 91

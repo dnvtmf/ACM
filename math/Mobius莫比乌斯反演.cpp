@@ -33,21 +33,23 @@
 */
 
 ///积性函数
-//定义在正整数集上的函数$f(n)$(称为算术函数), 若$\gcd(a, b) = 1$时有$f(a) \cdot f(b) = f(a\cdot b)$, 则称$f(x)$为积性函数。
-//一个显然的性质: (非恒等于零的) 积性函数$f(n)$必然满足$f(1)=1$.
-//定义逐点加法$(f + g)(n) = f(x) + g(x), f(x\cdot g) = f(x) \cdot g(x)$.
-//一个比较显然的性质: 若$f,g$均为积性函数，则$f\cdot g$也是积性函数。
-//积性函数的求值: $n = \prod{p_i^{a_i}}$ 则$f(n) = \prod{f(p_i^{a_i})}$, 所以只要解决$n = p^a$时$f(n)$的值即可.
+/*
+定义在正整数集上的函数$f(n)$(称为算术函数), 若$\gcd(a, b) = 1$时有$f(a) \cdot f(b) = f(a\cdot b)$, 则称$f(x)$为积性函数。
+一个显然的性质: (非恒等于零的) 积性函数$f(n)$必然满足$f(1)=1$.
+定义逐点加法$(f + g)(n) = f(x) + g(x), f(x\cdot g) = f(x) \cdot g(x)$.
+一个比较显然的性质: 若$f,g$均为积性函数，则$f\cdot g$也是积性函数。
+积性函数的求值: $n = \prod{p_i^{a_i}}$ 则$f(n) = \prod{f(p_i^{a_i})}$, 所以只要解决$n = p^a$时$f(n)$的值即可.
 
-//常见积性函数有:
-//恒为1的常函数$1(n) = 1$,
-//恒等函数$id(n) = n$,
-//单位函数$\varepsilon(n) = (n==1)$, (这三个都是显然为积性)
-//欧拉函数$\phi(n)$(只要证两个集合相等就能证明积性)
-//莫比乌斯函数$\mu(n)$ (由定义也是显然的)
-//因子个数函数$\tau$
-//因子和函数$\sigma$
-//$\mu \cdot id = \phi$
+常见积性函数有:
+恒为1的常函数$1(n) = 1$,
+恒等函数$id(n) = n$,
+单位函数$\varepsilon(n) = (n==1)$, (这三个都是显然为积性)
+欧拉函数$\phi(n)$(只要证两个集合相等就能证明积性)
+莫比乌斯函数$\mu(n)$ (由定义也是显然的)
+因子个数函数$\tau$
+因子和函数$\sigma$
+$\mu \cdot id = \phi$
+*/
 void pre_mobius()
 {
     mu[1] = 1;
@@ -65,4 +67,31 @@ void pre_mobius()
                 }
         }
         else if(mu[i] == 2 || mu[i] == -2) mu[i] = 0;
+}
+
+///Dirichlet卷积
+/*
+对两个算术函数$f, g$, 定义其Dirichlet卷积为新函数$f*g$. 满足
+$$(f*g)(n) = \sum_{d|n}{f(d)g(\frac{n}{d})} = \sum_{ab = b}{f(a)f(b)}$$
+一些性质:
+交换律, $f * g = g * f$
+结合律, $(f * g) * h = f * (g * h)$
+单位元, $f * \varepsilon = f$
+对逐点加法的分配律, $f * (g + h) = f * g + f * h$
+
+重要性质: 若$f, g$均为积性函数, 则$f * g$也是积性函数. (展开式子即可证明)
+n的约数个数$d(n)$可以写成$d(n) = (1*1)(n)$; 约数和$\sigma(n)$可以写成$\sigma(n) = (1 * id)(n)$, 由上面的性质可知这两个函数均是积性函数.
+
+重要性质: $\displaystyle \sum_{d|n}{\mu(d)} = [n == 1]$, 即$1 * \mu = \varepsilon$. (可用二项式定理证明)
+重要性质: $\displaystyle \sum_{d|n}{\phi(d)} = n$, 即$1 * \phi = id$. (n是质数时显然成立, 再由积性得证)
+*/
+//$O(n\log{n})$预处理Dirichlet卷积
+//若已知$f(i), g(i), i = 1, 2, \dots, n$的值，则可以在$O(n\log{n})$时间内计算出$(f * g)(i), i = 1, 2, \dots, n$.
+void dirichlet(int f[], int g[], int fg[], int n)
+{
+	//for(int i = 1; i <= n; ++i) fg[i] = 0;
+    for(int i = 1; i * i <= n; ++i)
+        for(int j = i; i * j <= n; ++j)
+            if(i == j) fg[i * j] += f[i] * g[i];
+            else fg[i * j] += f[i] * g[j] + f[j] * g[i];
 }

@@ -47,3 +47,9 @@ void Out(double a)
     if(strcmp(buf, "-0.00") == 0) printf("0.00");
     else printf("%s", buf);
 }
+
+/*多项式$x^n - 1$的因式分解(正系数)
+	$\phi(1) = x - 1$
+	$\displaystyle \phi(n) = \frac{x^n - 1}{\prod_{d|n, d < n}{\phi(d)}} (n > 1)$
+	$\displaystyle x^n-1 = \prod_{d|n}{\phi(d)}$
+*/

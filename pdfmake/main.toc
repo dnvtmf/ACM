@@ -23,12 +23,12 @@
 \contentsline {subsection}{\numberline {3.8}最大流 maximum flow}{38}{subsection.3.8}
 \contentsline {subsection}{\numberline {3.9}最小割 minimum cut}{42}{subsection.3.9}
 \contentsline {subsection}{\numberline {3.10}分数规划 Fractional Programming}{44}{subsection.3.10}
-\contentsline {subsection}{\numberline {3.11}最大闭权图 maximum weight closure of a graph}{45}{subsection.3.11}
+\contentsline {subsection}{\numberline {3.11}最大闭权图 maximum weight closure of a graph}{44}{subsection.3.11}
 \contentsline {subsection}{\numberline {3.12}最大密度子图Maximum Density Subgraph}{45}{subsection.3.12}
 \contentsline {subsection}{\numberline {3.13}二分图的最小点权覆盖集与最大点权独立集}{45}{subsection.3.13}
 \contentsline {subsection}{\numberline {3.14}最小费用最大流 minimum cost flow}{46}{subsection.3.14}
 \contentsline {subsection}{\numberline {3.15}有上下界的网络流}{49}{subsection.3.15}
-\contentsline {section}{\numberline {4}树及树的分治}{49}{section.4}
+\contentsline {section}{\numberline {4}树及树的分治}{50}{section.4}
 \contentsline {subsection}{\numberline {4.1}最小生成树Minimum Spanning Tree}{51}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}树的重心}{55}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}树的直径}{56}{subsection.4.3}
@@ -45,46 +45,47 @@
 \contentsline {subsection}{\numberline {5.8}模运算 Module}{70}{subsection.5.8}
 \contentsline {subsection}{\numberline {5.9}幂p的原根}{72}{subsection.5.9}
 \contentsline {subsection}{\numberline {5.10}中国剩余定理和线性同余方程组}{73}{subsection.5.10}
-\contentsline {subsection}{\numberline {5.11}伪随机数的生成--梅森旋转算法}{73}{subsection.5.11}
+\contentsline {subsection}{\numberline {5.11}伪随机数的生成--梅森旋转算法}{74}{subsection.5.11}
 \contentsline {subsection}{\numberline {5.12}位运算}{74}{subsection.5.12}
-\contentsline {subsection}{\numberline {5.13}博弈论 Game Theory}{75}{subsection.5.13}
-\contentsline {subsection}{\numberline {5.14}快速傅里叶变换和数论变换(FFT和NTT)}{76}{subsection.5.14}
-\contentsline {subsection}{\numberline {5.15}快速沃尔什变换(FWT)}{80}{subsection.5.15}
+\contentsline {subsection}{\numberline {5.13}博弈论 Game Theory}{76}{subsection.5.13}
+\contentsline {subsection}{\numberline {5.14}快速傅里叶变换和数论变换(FFT和NTT)}{77}{subsection.5.14}
+\contentsline {subsection}{\numberline {5.15}快速沃尔什变换(FWT)}{81}{subsection.5.15}
 \contentsline {subsection}{\numberline {5.16}一些数学知识}{81}{subsection.5.16}
-\contentsline {section}{\numberline {6}线性代数 Linear Algebra}{82}{section.6}
-\contentsline {subsection}{\numberline {6.1}矩阵 Matrix}{82}{subsection.6.1}
+\contentsline {subsection}{\numberline {5.17}概率论}{83}{subsection.5.17}
+\contentsline {section}{\numberline {6}线性代数 Linear Algebra}{83}{section.6}
+\contentsline {subsection}{\numberline {6.1}矩阵 Matrix}{83}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}矩阵的初等变换和矩阵的逆}{85}{subsection.6.2}
-\contentsline {section}{\numberline {7}组合数学Combinatorial Mathematics}{87}{section.7}
-\contentsline {subsection}{\numberline {7.1}排列 Permutation}{87}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}全排列 Full Permutation}{88}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}组合与组合恒等式}{90}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}鸽笼原理与Ramsey数}{92}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}容斥原理}{92}{subsection.7.5}
-\contentsline {subsection}{\numberline {7.6}母函数 Generating Function}{93}{subsection.7.6}
-\contentsline {subsection}{\numberline {7.7}整数拆分和Ferrers图}{93}{subsection.7.7}
-\contentsline {subsection}{\numberline {7.8}递归关系}{94}{subsection.7.8}
-\contentsline {subsection}{\numberline {7.9}群和Polya定理}{97}{subsection.7.9}
-\contentsline {subsection}{\numberline {7.10}线性规划Linear Programming}{98}{subsection.7.10}
-\contentsline {section}{\numberline {8}字符串}{102}{section.8}
-\contentsline {subsection}{\numberline {8.1}KMP以及扩展KMP}{102}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}回文串 palindrome}{103}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}哈希算法 Hash}{103}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}后缀数组 Suffix Array}{104}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}字典树Trie}{107}{subsection.8.5}
-\contentsline {subsection}{\numberline {8.6}字符串循环同构的最小表示法}{108}{subsection.8.6}
-\contentsline {subsection}{\numberline {8.7}字符串问题汇总}{108}{subsection.8.7}
-\contentsline {section}{\numberline {9}计算几何}{110}{section.9}
-\contentsline {subsection}{\numberline {9.1}计算几何基础}{110}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}三角形 Triangle}{111}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}多边形 Polygon}{115}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}圆Circle}{116}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}凸包 ConvexHull}{118}{subsection.9.5}
-\contentsline {subsection}{\numberline {9.6}半平面交 Half-plane Cross}{119}{subsection.9.6}
-\contentsline {subsection}{\numberline {9.7}立体几何}{121}{subsection.9.7}
-\contentsline {subsection}{\numberline {9.8}格点 Lattice Point}{122}{subsection.9.8}
-\contentsline {section}{\numberline {10}搜索等}{123}{section.10}
-\contentsline {section}{\numberline {11}分治}{123}{section.11}
-\contentsline {section}{\numberline {12}倍增法}{123}{section.12}
-\contentsline {section}{\numberline {13}输入输出挂}{124}{section.13}
-\contentsline {section}{\numberline {14}STL使用注意}{125}{section.14}
-\contentsline {section}{\numberline {15}Java}{126}{section.15}
+\contentsline {section}{\numberline {7}组合数学Combinatorial Mathematics}{88}{section.7}
+\contentsline {subsection}{\numberline {7.1}排列 Permutation}{88}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}全排列 Full Permutation}{89}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}组合与组合恒等式}{92}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}鸽笼原理与Ramsey数}{93}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}容斥原理}{94}{subsection.7.5}
+\contentsline {subsection}{\numberline {7.6}母函数 Generating Function}{94}{subsection.7.6}
+\contentsline {subsection}{\numberline {7.7}整数拆分和Ferrers图}{95}{subsection.7.7}
+\contentsline {subsection}{\numberline {7.8}递归关系}{96}{subsection.7.8}
+\contentsline {subsection}{\numberline {7.9}群和Polya定理}{98}{subsection.7.9}
+\contentsline {subsection}{\numberline {7.10}线性规划Linear Programming}{100}{subsection.7.10}
+\contentsline {section}{\numberline {8}字符串}{104}{section.8}
+\contentsline {subsection}{\numberline {8.1}KMP以及扩展KMP}{104}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}回文串 palindrome}{105}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}哈希算法 Hash}{107}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}后缀数组 Suffix Array}{107}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}字典树Trie}{110}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}字符串循环同构的最小表示法}{111}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}字符串问题汇总}{111}{subsection.8.7}
+\contentsline {section}{\numberline {9}计算几何}{113}{section.9}
+\contentsline {subsection}{\numberline {9.1}计算几何基础}{113}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}三角形 Triangle}{114}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}多边形 Polygon}{118}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}圆Circle}{119}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}凸包 ConvexHull}{121}{subsection.9.5}
+\contentsline {subsection}{\numberline {9.6}半平面交 Half-plane Cross}{122}{subsection.9.6}
+\contentsline {subsection}{\numberline {9.7}立体几何}{124}{subsection.9.7}
+\contentsline {subsection}{\numberline {9.8}格点 Lattice Point}{125}{subsection.9.8}
+\contentsline {section}{\numberline {10}搜索等}{126}{section.10}
+\contentsline {section}{\numberline {11}分治}{126}{section.11}
+\contentsline {section}{\numberline {12}倍增法}{127}{section.12}
+\contentsline {section}{\numberline {13}输入输出挂}{127}{section.13}
+\contentsline {section}{\numberline {14}STL使用注意}{128}{section.14}
+\contentsline {section}{\numberline {15}Java}{129}{section.15}

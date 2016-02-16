@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  2 NOV 2015 20:09
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2015.6.12)  16 FEB 2016 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1318,18 +1318,13 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 [1
 
 ] (./main.toc [2] [3]
-Overfull \hbox (2.69981pt too wide) detected at line 69
- []\EU1/DejaVuSansMono(0)/m/n/10.54 102
- []
-
-
 Overfull \hbox (2.69981pt too wide) detected at line 70
- []\EU1/DejaVuSansMono(0)/m/n/10.54 103
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 101
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 71
- []\EU1/DejaVuSansMono(0)/m/n/10.54 103
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 102
  []
 
 
@@ -1339,12 +1334,12 @@ Overfull \hbox (2.69981pt too wide) detected at line 72
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 73
- []\EU1/DejaVuSansMono(0)/m/n/10.54 107
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 104
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 74
- []\EU1/DejaVuSansMono(0)/m/n/10.54 108
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 107
  []
 
 
@@ -1353,42 +1348,47 @@ Overfull \hbox (2.69981pt too wide) detected at line 75
  []
 
 
-Overfull \hbox (2.69981pt too wide) detected at line 77
- []\EU1/DejaVuSansMono(0)/m/n/10.54 110
+Overfull \hbox (2.69981pt too wide) detected at line 76
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 108
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 78
- []\EU1/DejaVuSansMono(0)/m/n/10.54 111
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 110
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 79
- []\EU1/DejaVuSansMono(0)/m/n/10.54 115
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 111
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 80
- []\EU1/DejaVuSansMono(0)/m/n/10.54 116
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 115
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 81
- []\EU1/DejaVuSansMono(0)/m/n/10.54 118
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 116
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 82
- []\EU1/DejaVuSansMono(0)/m/n/10.54 119
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 118
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 83
- []\EU1/DejaVuSansMono(0)/m/n/10.54 121
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 119
  []
 
 
 Overfull \hbox (2.69981pt too wide) detected at line 84
+ []\EU1/DejaVuSansMono(0)/m/n/10.54 121
+ []
+
+
+Overfull \hbox (2.69981pt too wide) detected at line 85
  []\EU1/DejaVuSansMono(0)/m/n/10.54 122
  []
 
@@ -1412,43 +1412,54 @@ nput line 5.
 (../graph/ShortestPath最短路.cpp [30] [31] [32] [33]) (../graph/差分约束系统.cpp
 [34]) (../graph/BipartiteGraph二分图.cpp [35] [36] [37])
 (../graph/MaximumFlow最大流.cpp [38] [39] [40] [41]) (../graph/MinimumCut最小割.cpp
-[42] [43]) (../graph/FractionalProgramming分数规划.cpp) [44]
-(../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp)
+[42] [43]) (../graph/FractionalProgramming分数规划.cpp)
+(../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp [44])
 (../graph/MaximumDensitySubgraph最大密度子图.cpp) (../graph/二分图的最小点权覆盖和最大点权独立集.cpp
 [45]) (../graph/MincostFlow最小费用流.cpp [46] [47] [48]) (../graph/有上下界的网络流.cpp)
-(../graph/树及树的分治.cpp [49] [50]) (../graph/MinimumSpanningTree最小生成树.cpp [51]
+[49] (../graph/树及树的分治.cpp [50]) (../graph/MinimumSpanningTree最小生成树.cpp [51]
 [52] [53] [54]) (../graph/树的重心.cpp [55]) (../graph/树的直径.cpp)
 (../graph/树的最小支配集,最小覆盖集,最大独立集.cpp [56] [57]) (../graph/LCA最近公共祖先.cpp [58]
 [59])) (../math/pdf_math.tex [60] (../math/Prime素数.cpp [61])
 (../math/Factorization因式分解和约数.cpp [62] [63]) [64] (../math/Euler欧拉函数.cpp)
 (../math/QuickPow快速幂快速乘.cpp [65]) (../math/gcd以及扩展gcd.cpp [66])
-(../math/Mobius莫比乌斯反演.cpp [67]) [68] (../math/Inverse逆元.cpp [69])
+(../math/Mobius莫比乌斯反演.cpp [67] [68]) (../math/Inverse逆元.cpp [69])
 (../math/Module模运算.cpp [70] [71]) (../math/幂模p与原根.cpp [72])
-(../math/中国剩余定理和线性同余方程组.cpp) (../math/伪随机数生成--梅森旋转算法.cpp [73]) (../math/位运算.cpp
-[74]) (../math/GameTheory博弈论.cpp [75]) (../math/FFT快速傅里叶变换和NTT数论变换.cpp [76]
-[77] [78] [79]) (../math/FWT快速沃尔什变换.cpp [80]) (../math/数学知识.cpp [81]
+(../math/中国剩余定理和线性同余方程组.cpp [73]) (../math/伪随机数生成--梅森旋转算法.cpp) (../math/位运算.cpp
+[74] [75]) (../math/GameTheory博弈论.cpp [76]) (../math/FFT快速傅里叶变换和NTT数论变换.cpp
+[77] [78] [79] [80]) (../math/FWT快速沃尔什变换.cpp) (../math/数学知识.cpp [81]
 LaTeX Font Info:    Font shape `EU1/DejaVuSansMono(0)/m/sl' in size <7.53> not 
 available
 (Font)              Font shape `EU1/DejaVuSansMono(0)/m/it' tried instead on in
 put line 46.
-)
-(../math/LinearAlgebra线性代数/pdf_LinearAlgebra.tex
-(../math/LinearAlgebra线性代数/Matrix矩阵.cpp [82] [83]) [84]
-(../math/LinearAlgebra线性代数/矩阵的初等变换和矩阵的逆.cpp [85] [86]))
+ [82])
+(../math/概率论.cpp) (../math/LinearAlgebra线性代数/pdf_LinearAlgebra.tex
+(../math/LinearAlgebra线性代数/Matrix矩阵.cpp [83] [84])
+(../math/LinearAlgebra线性代数/矩阵的初等变换和矩阵的逆.cpp [85] [86] [87]))
 (../math/CombinatorialMathematics组合数学/pdf_CombinatorialMathematics.tex
-(../math/CombinatorialMathematics组合数学/Permutation排列.cpp [87])
-(../math/CombinatorialMathematics组合数学/FullPermutation全排列.cpp [88] [89])
-(../math/CombinatorialMathematics组合数学/组合与组合恒等式.cpp [90]) [91]
-(../math/CombinatorialMathematics组合数学/鸽笼原理与Ramsey数.cpp)
-(../math/CombinatorialMathematics组合数学/容斥原理.cpp) [92]
-(../math/CombinatorialMathematics组合数学/GeneratingFunction母函数.cpp)
-(../math/CombinatorialMathematics组合数学/整数拆分和Ferrers图.cpp [93])
-(../math/CombinatorialMathematics组合数学/递归关系.cpp [94] [95]) [96]
-(../math/CombinatorialMathematics组合数学/群和Polya定理.cpp [97])
-(../math/CombinatorialMathematics组合数学/LinearProgramming线性规划.cpp [98] [99]
-[100]))) (../string/pdf_string.tex [101] (../string/KMP以及扩展KMP.cpp [102])
-(../string/palindrome回文串.cpp) (../string/Hash哈希算法.cpp [103])
-(../string/SuffixArray后缀数组.cpp [104] [105]
+(../math/CombinatorialMathematics组合数学/Permutation排列.cpp [88])
+(../math/CombinatorialMathematics组合数学/FullPermutation全排列.cpp [89] [90])
+[91] (../math/CombinatorialMathematics组合数学/组合与组合恒等式.cpp [92])
+(../math/CombinatorialMathematics组合数学/鸽笼原理与Ramsey数.cpp [93])
+(../math/CombinatorialMathematics组合数学/容斥原理.cpp)
+(../math/CombinatorialMathematics组合数学/GeneratingFunction母函数.cpp [94])
+(../math/CombinatorialMathematics组合数学/整数拆分和Ferrers图.cpp [95])
+(../math/CombinatorialMathematics组合数学/递归关系.cpp [96] [97])
+(../math/CombinatorialMathematics组合数学/群和Polya定理.cpp [98] [99])
+(../math/CombinatorialMathematics组合数学/LinearProgramming线性规划.cpp [100] [101]
+[102]))) (../string/pdf_string.tex [103] (../string/KMP以及扩展KMP.cpp [104])
+(../string/palindrome回文串.cpp
+Missing character: There is no 字 in font cmmi7!
+Missing character: There is no 符 in font cmmi7!
+Missing character: There is no 集 in font cmmi7!
+Missing character: There is no 大 in font cmmi7!
+Missing character: There is no 小 in font cmmi7!
+Missing character: There is no 字 in font cmmi7!
+Missing character: There is no 符 in font cmmi7!
+Missing character: There is no 集 in font cmmi7!
+Missing character: There is no 大 in font cmmi7!
+Missing character: There is no 小 in font cmmi7!
+ [105]) [106] (../string/Hash哈希算法.cpp)
+(../string/SuffixArray后缀数组.cpp [107] [108] [109]
 Missing character: There is no 答 in font cmmi7!
 Missing character: There is no 案 in font cmmi7!
 Missing character: There is no 为 in font cmmi7!
@@ -1487,16 +1498,16 @@ Missing character: There is no 连 in font cmmi7!
 Missing character: There is no 接 in font cmmi7!
 Missing character: There is no 两 in font cmmi7!
 Missing character: There is no 串 in font cmmi7!
- [106]) (../string/Trie字典树.cpp
-[107]) (../string/最小表示法.cpp) (../string/string问题汇总.txt [108]))
-(../geometry/pdf_geometry.tex [109] (../geometry/计算几何基础.cpp [110])
-(../geometry/Triangle三角形.cpp [111] [112] [113] [114])
-(../geometry/Polygon多边形.cpp [115]) (../geometry/Circle圆.cpp [116] [117])
-(../geometry/ConvexHull凸包.cpp [118]) (../geometry/HalfPlaneCross半平面交.cpp
-[119]) [120] (../geometry/立体几何.cpp [121]) (../geometry/LatticePoint格点上的几何.cpp))
-(../other/pdf_other.tex [122] (../other/二分查找,三分查找.cpp) (../other/分治.cpp)
-(../other/倍增法.cpp [123]) (../other/输入输出挂.cpp [124]) (../other/STL使用注意.cpp))
-(../Java/pdf_java.tex [125]
+) (../string/Trie字典树.cpp
+[110]) (../string/最小表示法.cpp) (../string/string问题汇总.txt [111]))
+(../geometry/pdf_geometry.tex [112] (../geometry/计算几何基础.cpp [113])
+(../geometry/Triangle三角形.cpp [114] [115] [116] [117])
+(../geometry/Polygon多边形.cpp [118]) (../geometry/Circle圆.cpp [119] [120])
+(../geometry/ConvexHull凸包.cpp [121]) (../geometry/HalfPlaneCross半平面交.cpp
+[122]) [123] (../geometry/立体几何.cpp [124]) (../geometry/LatticePoint格点上的几何.cpp))
+(../other/pdf_other.tex [125] (../other/二分查找,三分查找.cpp) (../other/分治.cpp)
+[126] (../other/倍增法.cpp) (../other/输入输出挂.cpp [127]) (../other/STL使用注意.cpp))
+(../Java/pdf_java.tex [128]
 (/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
@@ -1507,7 +1518,7 @@ LaTeX Font Warning: Font shape `EU1/微软雅黑(0)/m/it' undefined
 
 ))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 26.
- [126]
+ [129]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 26.
  (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 26.
@@ -1518,12 +1529,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 29876 strings out of 493724
- 542915 string characters out of 6145899
- 794089 words of memory out of 5000000
- 32637 multiletter control sequences out of 15000+600000
+ 29942 strings out of 493724
+ 543912 string characters out of 6145899
+ 813139 words of memory out of 5000000
+ 32700 multiletter control sequences out of 15000+600000
  13322 words of font info for 86 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  65i,15n,69p,10428b,1798s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (126 pages).
+Output written on main.pdf (129 pages).

@@ -1,40 +1,35 @@
 ///最大流 maximum flow
-//最大流最小割定理 : 最大流 = 最小割
+//最大流最小割定理: 最大流 = 最小割
+//常数比较: 高标推进 < SAP(gap) < dinic < sap < bfs + ek
 ///FF算法 Ford-Fulkerson算法 $O(F|E|)$ F为最大流量
 //1. 初始化：原边容量不变，回退边容量为0，max_flow = 0
 //2. 在残留网络中找到一条从源S到汇T的增广路，找不到得到最大流max_flow
 //3. 增广路中找到瓶颈边，max_flow加上其容量
 //4. 增广路中每条边减去瓶颈边容量，对应回退边加上其容量
-struct edge
-{
-    int to, cap, rev;
-};
 
-vector <edge> G[MAXV];
-bool used[MAXV];
-
-void add_edge(int from, int to, int cap)
+struct edge {int next, to, cap;} e[MAXE];
+int head[MAXV], tot;
+void gInit() {memset(head, -1, sizeof(head)); tot = 0;}
+void add_edge(int u, int v, int cap)
 {
-    G[from].push_back((edge) {to, cap, G[to].size()});
-    G[to].push_back((edge) {from, 0, G[from].size() - 1});
+    e[tot] = (edge) {head[u], v, cap}; head[u] = tot++;
+    e[tot] = (edge) {head[v], u, 0}; head[v] = tot++;
 }
-
-//dfs寻找增广路
-int dfs(int v, int t, int f)
+int used[MAXV], time_stamp;
+int dfs(int u, int t, int f)
 {
-    if(v == t)
-        return f;
-    used[v] = true;
-    for(int i = 0; i < G[v].size(); i++)
+    if(u == t) return f;
+    used[u] = time_stamp;
+    for(int i = head[u]; ~i; i = e[i].next)
     {
-        edge &e = G[v][i];
-        if(!used[e.to] && e.cap > 0)
+        int v = e[i].to;
+        if(used[v] != time_stamp && e[i].cap > 0)
         {
-            int d = dfs(e.to, t , min(f, e.cap));
+            int d = dfs(v, t, min(f, e[i].cap));
             if(d > 0)
             {
-                e.cap -= d;
-                G[e.to][e.rev].cap += d;
+                e[i].cap -= d;
+                e[i ^ 1].cap += d;
                 return d;
             }
         }
@@ -42,17 +37,17 @@ int dfs(int v, int t, int f)
     return 0;
 }
 
-//求解从s到t的最大流
 int max_flow(int s, int t)
 {
-    int flow = 0;
+    int flow = 0, cur_flow;
+    memset(used, 0, sizeof(used));
+    time_stamp = 0;
     for(;;)
     {
-        memset(used, 0, sizeof(used));
-        int f = dfs(s, t, INF);
-        if(f == 0)
+        ++time_stamp;
+        if((cur_flow = dfs(s, t, INF)) == 0)
             return flow;
-        flow += f;
+        flow += cur_flow;
     }
 }
 ///Dinic算法 $O(|E| \cdot |V|^2)$
@@ -61,7 +56,7 @@ struct edge {int to, cap, rev;};
 vector <edge> G[MAXV];
 int level[MAXV];
 int iter[MAXV];
-void init()
+void gInit()
 {
     for(int i = 0; i < MAXV; i++)
         G[i].clear();
@@ -83,7 +78,7 @@ bool bfs(int s, int t)
         que.pop();
         for(int i = 0; i < (int)G[v].size(); i++)
         {
-            edge &e = G[v][i];
+            edge& e = G[v][i];
             if(e.cap > 0 && level[e.to] < 0)
             {
                 level[e.to] = level[v] + 1;
@@ -97,9 +92,9 @@ bool bfs(int s, int t)
 int dfs(int v, int t, int f)
 {
     if(v == t) return f;
-    for(int &i = iter[v]; i < (int)G[v].size(); i++)
+    for(int& i = iter[v]; i < (int)G[v].size(); i++)
     {
-        edge &e = G[v][i];
+        edge& e = G[v][i];
         if(e.cap > 0 && level[v] < level[e.to])
         {
             int d = dfs(e.to, t, min(f, e.cap));
@@ -124,7 +119,7 @@ int max_flow(int s, int t)
     }
     return flow;
 }
-///SAP算法 $O(|E| \cdot |V|^2)$
+///SAP(Shortest Augmenting Paths)算法 $O(|E| \cdot |V|^2)$
 #define MAXV 1000
 #define MAXE 10000
 struct edge
@@ -132,7 +127,7 @@ struct edge
     int cap, next, to;
 } e[MAXE * 2];
 int head[MAXV], tot_edge;
-void init()
+void gInit()
 {
     memset(head, -1, sizeof(head));
     tot_edge = 0;
@@ -160,7 +155,7 @@ int SAP_max_flow(int s, int t)
     {
         if(u == t)
         {
-            cur_flow = INT_MAX;
+            cur_flow = INF;
             for(i = s; i != t; i = e[pree[i]].to)
             {
                 if(cur_flow > e[pree[i]].cap)
@@ -191,8 +186,7 @@ int SAP_max_flow(int s, int t)
         {
             if(0 == --numh[h[u]])break;//GAP优化
             pree[u] = head[u];
-            for(tmp = V, i = head[u]; i != -1; i = e[i].next)
-                if(e[i].cap)
+            for(tmp = V, i = head[u]; i != -1; i = e[i].next) if(e[i].cap)
                     tmp = min(tmp, h[e[i].to]);
             h[u] = tmp + 1;
             ++numh[h[u]];
@@ -202,29 +196,27 @@ int SAP_max_flow(int s, int t)
     return flow;
 }
 
-///EK算法 $O(|V| \cdot |E|^2)$
+///EK(Edmonds_Karp)算法 $O(|V| \cdot |E|^2)$
 //bfs寻找增广路
 const int MAXV = 210;
-int g[MAXV][MAXV], pre[MAXV];
-int n;
+int n, m, g[MAXV][MAXV], prev[MAXV];
 bool vis[MAXV];
 bool bfs(int s, int t)
 {
-    queue <int> que;
-    memset(pre, -1, sizeof(pre));
+    std::queue<int> que;
+    memset(prev, -1, sizeof(prev));
     memset(vis, 0, sizeof(vis));
     que.push(s);
     vis[s] = true;
     while(!que.empty())
     {
-        int u = que.front();
+        int u = que.front(); que.pop();
         if(u == t) return true;
-        que.pop();
-        for(int i = 1; i <= n; i++)
-            if(g[u][i] && !vis[i])
+        for(int i = 1; i <= n; ++i)
+            if(!vis[i] && g[u][i])
             {
                 vis[i] = true;
-                pre[i] = u;
+                prev[i] = u;
                 que.push(i);
             }
     }
@@ -232,24 +224,17 @@ bool bfs(int s, int t)
 }
 int EK_max_flow(int s, int t)
 {
-    int u, max_flow = 0, minv;
+    int u, flow = 0, minv;
     while(bfs(s, t))
     {
-        minv = INF;
-        u = t;
-        while(pre[u] != -1)
+        for(minv = INF, u = t; prev[u] != -1; u = prev[u])
+            minv = std::min(minv, g[prev[u]][u]);
+        flow += minv;
+        for(u = t; prev[u] != -1; u = prev[u])
         {
-            minv = min(minv, g[pre[u]][u]);
-            u = pre[u];
-        }
-        ans += minv;
-        u = t;
-        while(pre[u] != -1)
-        {
-            g[pre[u]][u] -= minv;
-            g[u][pre[u]] += minv;
-            u = pre[u];
+            g[prev[u]][u] -= minv;
+            g[u][prev[u]] += minv;
         }
     }
-    return max_flow;
+    return flow;
 }

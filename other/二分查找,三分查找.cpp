@@ -21,6 +21,7 @@ int binary_search(int l, int r)
 }
 ///三分搜索
 //对于满足抛物线性质的数列或函数, 可以三分答案, 在$O(\log{n})$ 时间内求解
+//或者二分f(n) > f(n - 1)的n
 //方便于求(抛物线)的最值
 //注意: l % 3 == 0, r = l + 1 | l + 2时, (l + l + r) / 3 == l 容易出现死循环
 int three_search(int l, int r)
@@ -35,6 +36,10 @@ int three_search(int l, int r)
         else
             l = ll;
     }
-    return min(f(l), f(r), f(l + 1));
+    int ans = l;
+    for(int i = l + 1; i <= r; ++i)
+        if(f(ans) > f(i))
+            ans = i;
+    return ans;
 }
 

@@ -43,7 +43,7 @@ extend[i]: $y[i \cdots n - 1]$与$x[0 \cdots m - 1]$的最长公共前缀
 */
 void pre_exkmp(const char x[], int m, int next[])
 {
-    for(int i = 0, j = -1, k, p; i < m; i++, j--)
+    for(int i = 1, j = -1, k, p; i < m; i++, j--)//i 从1开始, next[0] = m
         if(j < 0 || i + next[i - k] >= p)
         {
             if(j < 0) j = 0, p = i;
@@ -61,7 +61,7 @@ void exkmp(char x[], int m, char y[], int n, int next[], int extend[])
         if(j < 0 || i + next[i - k] >= p)
         {
             if(j < 0) j = 0, p = i;
-            while(p < n && j < m && x[p] == y[j]) j++, p++;
+            while(p < n && j < m && y[p] == x[j]) j++, p++;
             extend[k = i] = j;
         }
         else
