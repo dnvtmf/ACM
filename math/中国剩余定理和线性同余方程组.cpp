@@ -19,7 +19,7 @@ pair<int, int> linear_congruence(const vector<int> &A, const vector<int> &B, con
     for(int i = 0; i < A.size(); i++)
     {
         int a = A[i] * m, b = B[i] - A[i] * x, d = gcd(M[i], a);
-        if(b % d == 0) return make_pair(0, -1);//无解
+        if(b % d != 0) return make_pair(0, -1);//无解
         int t = b / d * getInv(a / d, M[i] / d) % (M[i] / d);
         x = x + m * t;
         m *= M[i] / d;

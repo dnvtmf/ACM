@@ -110,3 +110,11 @@ Point Point_to_Segment(Point p, Line seg)
     else
         return seg.e;
 }
+
+//求向量vA与vB的夹角(<= PI)
+double angle(Point vA, Point vB)
+{
+    double tmp = vA.norm() * vB.norm();
+    if(sgn(tmp) != 0) return acos((vA * vB) / tmp);
+    else return 0.0;
+}

@@ -120,80 +120,76 @@ int max_flow(int s, int t)
     return flow;
 }
 ///SAP(Shortest Augmenting Paths)算法 $O(|E| \cdot |V|^2)$
-#define MAXV 1000
-#define MAXE 10000
-struct edge
-{
-    int cap, next, to;
-} e[MAXE * 2];
-int head[MAXV], tot_edge;
-void gInit()
-{
-    memset(head, -1, sizeof(head));
-    tot_edge = 0;
-}
+const int MAXV = 1000 + 10, MAXE = MAXV * MAXV;
+struct edge {int next, to, cap;} e[MAXE];
+int head[MAXV], tot, V;
+void gInit() {memset(head, -1, sizeof(head)); tot = 0; V = 0;}
 void add_edge(int u, int v, int cap)
 {
-    e[tot_edge] = (edge) {cap, head[u], v};
-    head[u] = tot_edge++;
+    e[tot] = (edge) {head[u], v, cap}; head[u] = tot++;
+    e[tot] = (edge) {head[v], u, 0}; head[v] = tot++;
 }
-int V;
-int numh[MAXV];//用于GAP优化的统计高度数量数组
+
 int h[MAXV];//距离标号数组
-int pree[MAXV], prev[MAXV];//前驱边与结点
-int SAP_max_flow(int s, int t)
+int numh[MAXV];//用于GAP优化的统计高度数量数组
+int iter[MAXV];//当前弧优化
+int Prev[MAXV];//前驱结点
+int sap(int s, int t)
 {
-    int i, flow = 0, u, cur_flow, neck = 0, tmp;
     memset(h, 0, sizeof(h));
     memset(numh, 0, sizeof(numh));
-    memset(prev, -1, sizeof(prev));
-    for(i = 1; i <= V; i++)//从1开始的图，初识化为当前弧的第一条临接边
-        pree[i] = head[i];
+    memset(Prev, -1, sizeof(Prev));
+    for(int i = 0; i < V; ++i) iter[i] = head[i];//从0开始的图，初始化为第一条邻接边
     numh[0] = V;
-    u = s;
+    int u = s, max_flow = 0, i;
     while(h[s] < V)
     {
-        if(u == t)
+        if(u == t)//增广成功
         {
-            cur_flow = INF;
-            for(i = s; i != t; i = e[pree[i]].to)
+            int flow = INF, neck = -1;
+            for(u = s; u != t; u = e[iter[u]].to)
             {
-                if(cur_flow > e[pree[i]].cap)
+                if(flow > e[iter[u]].cap)
                 {
-                    neck = i;
-                    cur_flow = e[pree[i]].cap;
+                    neck = u;
+                    flow = e[iter[u]].cap;
                 }
-            }//增广成功，寻找"瓶颈"边
-            for(i = s; i != t; i = e[pree[i]].to)
+            }//寻找"瓶颈"边
+            for(u = s; u != t; u = e[iter[u]].to)
             {
-                tmp = pree[i];
-                e[tmp].cap -= cur_flow;
-                e[tmp ^ 1].cap += cur_flow;
+                e[iter[u]].cap -= flow;
+                e[iter[u] ^ 1].cap += flow;
             }//修改路径上的边容量
-            flow += cur_flow;
-            u = neck;//下次增广从瓶颈边开始
+            max_flow += flow;
+            u = neck;//下次增广从瓶颈边之前的结点开始
         }
-        for(i = pree[u]; i != -1; i = e[i].next)
-            if(e[i].cap && h[u] == h[e[i].to] + 1)
-                break;//寻找可行弧
+        //寻找可行弧
+        for(i = iter[u]; ~i; i = e[i].next)
+            if(e[i].cap > 0 && h[u] == h[e[i].to] + 1)
+                break;
         if(i != -1)
         {
-            pree[u] = i;
-            prev[e[i].to] = u;
+            iter[u] = i;
+            Prev[e[i].to] = u;
             u = e[i].to;
         }
         else
         {
-            if(0 == --numh[h[u]])break;//GAP优化
-            pree[u] = head[u];
-            for(tmp = V, i = head[u]; i != -1; i = e[i].next) if(e[i].cap)
-                    tmp = min(tmp, h[e[i].to]);
-            h[u] = tmp + 1;
+            if(0 == --numh[h[u]]) break;//GAP优化
+            iter[u] = head[u];
+            for(h[u] = V, i = head[u]; ~i; i = e[i].next)
+            {
+                if(e[i].cap > 0)
+                {
+                    h[u] = min(h[u], h[e[i].to]);
+                }
+            }
+            ++h[u];
             ++numh[h[u]];
-            if(u != s) u = prev[u];//从标号并且从当前结点的前驱重新增广
+            if(u != s) u = Prev[u];//从标号并且从当前结点的前驱重新增广
         }
     }
-    return flow;
+    return max_flow;
 }
 
 ///EK(Edmonds_Karp)算法 $O(|V| \cdot |E|^2)$

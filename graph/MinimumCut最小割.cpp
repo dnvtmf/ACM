@@ -32,7 +32,7 @@ int max_flow(int s, int t) {}
 int getST(int s, int t, int vis[])
 {
     int mincap = max_flow(s, t);
-    memset(nd, 0, sizeof(nd));
+    memset(vis, 0, sizeof(vis));
     queue<int> que;
     que.push(s);
     vis[s] = 1;

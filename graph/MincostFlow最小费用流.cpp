@@ -6,7 +6,6 @@
 const int MAXV = 11000, MAXE = 41000;
 struct edge {int next, to, cap, cost;} e[MAXE << 1];
 int head[MAXV], htot;
-int V;
 void init()
 {
     memset(head, -1, sizeof(head));
@@ -20,7 +19,7 @@ void add_edge(int u, int v, int cap, int cost)
     head[v] = htot++;
 }
 int dist[MAXV];
-int prev[MAXV], pree[MAXV];
+int Prev[MAXV], pree[MAXV];
 int h[MAXV], V;
 void dijkstra(int s)
 {
@@ -37,7 +36,7 @@ void dijkstra(int s)
             if(e[i].cap > 0 && dist[e[i].to] > dist[u] + e[i].cost + h[u] - h[e[i].to])
             {
                 dist[e[i].to] = dist[u] + e[i].cost + h[u] - h[e[i].to];
-                prev[e[i].to] = u;
+                Prev[e[i].to] = u;
                 pree[e[i].to] = i;
                 que.push(P(dist[e[i].to], e[i].to));
             }
@@ -61,11 +60,11 @@ int min_cost_flow(int s, int t, int flow)
         if(dist[t] == INF) return -1;
         for(int i = 0; i < V; i++) h[i] += dist[t];
         int now_flow = flow;
-        for(int u = t; u != s; u = prev[u])//寻找瓶颈边
+        for(int u = t; u != s; u = Prev[u])//寻找瓶颈边
             now_flow = min(now_flow, e[pree[u]].cap);
         flow -= now_flow;
         min_cost += now_flow * (dist[t] - h[s] + h[t]);
-        for(int u = t; u != s; u = prev[u])
+        for(int u = t; u != s; u = Prev[u])
         {
             e[pree[u]].cap -= now_flow;
             e[pree[u] ^ 1].cap += now_flow;
@@ -108,7 +107,7 @@ bool spfa(int s, int t)
     }
     return dist[t] != 0x3f3f3f3f;
 }
-void min_cost_flow(int s, int t, int flow)
+int min_cost_flow(int s, int t, int flow)
 {
     int ans = 0;
     while(flow > 0 && spfa(s, t))

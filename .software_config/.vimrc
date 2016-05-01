@@ -15,7 +15,7 @@ set foldenable							"允许折叠
 set foldmethod=manual					"手动折叠
 set foldcolumn=0
 set foldlevel=3
-"set background=dark					"黑色背景
+set background=dark						"黑色背景
 set nocompatible						"去掉vi一致性模式
 "set lines=40 columns=155				"设置窗口大小
 set magic
@@ -26,18 +26,18 @@ set clipboard+=unnamed					"共享剪贴板
 "colorscheme=elflord					"配色方案
 "colorscheme=ron						"配色方案
 """字符编码"""
-"set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
-"set enc=utf-8
-"set termencoding=utf-8
-"set encoding=utf-8
-"set fileencodings=utf-8,ucs-bom,cp936
-"set fileencoding=utf-8
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set enc=utf-8
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,cp936
+set fileencoding=utf-8
 """语言"""
 set helplang=cn
 set langmenu=zh_CN.UTF-8
 set showcmd								"显示输入的命令
 set cmdheight=1							"命令行高度为1
-set laststatus=1						"启动显示状态行(1),总是显示(2)
+set laststatus=2						"启动显示状态行(1),总是显示(2)
 """缩进"""
 set autoindent
 set cindent
@@ -68,6 +68,14 @@ set ignorecase							"搜索忽略大小写
 "set hlsearch							"搜索字符高亮
 set incsearch
 set gdefault							"行内替换
+
+"自动跳转到上次退出的位置
+"Uncomment the following to have Vim jump to the last position when reopening a file
+if has("autocmd")
+ au BufReadPost * if line("`\"") > 1 && line("`\"") <= line("$") | exe normal! g`\"" | endif
+" for simplicity, "  au BufReadPost * exe "normal! g`\"", is Okay.
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 "默认代码
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -77,15 +85,15 @@ func DefaultCode()
 		call setline(1, "\#!/bin/bash")
 		call append(line("."), "")
 	endif
-	if &filetype == 'cpp'
-		exec ":r ~/E/acm/template.cpp"
-		exec ":1d"
-		exec ":$-10"
-		exec ":normal zz"
-	elseif &filetype == 'c'
-		call append(line(".")+4, "#include <stdio.h>")
-		call append(line(".")+5, "")
-	endif
+"	if &filetype == 'cpp'
+"		exec ":r ~/E/acm/template.cpp"
+"		exec ":1d"
+"		exec ":$-10"
+"		exec ":normal zz"
+"	elseif &filetype == 'c'
+"		call append(line(".")+4, "#include <stdio.h>")
+"		call append(line(".")+5, "")
+"	endif
 endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""
 "自动补全
@@ -126,26 +134,45 @@ nnoremap <F2> :g/^\s*$/d<cr>
 "map <F3> :tabnew .<CR>
 "打开树状文件目录
 "map <C-F3> \be
-""C,C++ 编译运行
-map <F5> :call Compile()<CR>
-imap <F5> <ESC> :call Compile()<CR>
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""
+"编译 运行 调试
+"""""""""""""""""""""""""""""""""""""""""""""""""
+"编译并运行 F5
+map <F5> :call CompileAndRun()<CR>
+imap <F5> <ESC> :call CompileAndRun()<CR>
+func CompileAndRun()
+	exec "w"
+	if &filetype == 'c'
+		exec "!gcc % -o %< -DACM_TEST"
+		exec "!./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %< -DACM_TEST"
+		exec "!./%<"
+	elseif &filetype == 'java'
+		exec "!javac %"
+		exec "!java %<"
+	endif
+endfunc
+
+"编译 F6
+map <F6> :call Compile()<CR>
+imap <F6> <ESC> :call Compile()<CR>
 func Compile()
 	exec "w"
 	if &filetype == 'c'
-		exec "!g++ % -o %< -DACM_TEST"
-		"exec "!./%<"
+		exec "!gcc % -o %< -DACM_TEST"
 	elseif &filetype == 'cpp'
 		exec "!g++ % -o %< -DACM_TEST"
-		"exec "!./%<"
 	elseif &filetype == 'java'
 		exec "!javac %"
-		"exec "!java %<"
 	endif
 endfunc
-"run with inputfile
+"用in.txt作输入运行 Ctrl+F5
 map <C-F5> :!./%< < in.txt<cr>
-"run
-map <C-r> :call Run() <cr>
+
+"运行  <F4>
+map <F4> :call Run() <cr>
 func Run()
 	if &filetype == 'java'
 		exec ":!java %<"
@@ -155,9 +182,9 @@ func Run()
 		exec ":./%<"
 	endif
 endfunc
-"edit in
+"编辑in.txt文件
 map <F3> :!vim in.txt <cr>
-""C,C++ 调试
+""C,C++ 调试 F8
 map <F8> :call Rungdb()<CR>
 func Rungdb()
 	exec "w"

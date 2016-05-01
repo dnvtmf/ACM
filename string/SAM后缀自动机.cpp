@@ -69,7 +69,6 @@ struct SAM
     int r[NUM * 2];
     int deg[NUM * 2];
     int sz, root, last;
-    char* s;
     void init()
     {
         //memset(ch, 0, sizeof(ch));
@@ -80,6 +79,7 @@ struct SAM
     {
         int p = last, np = ++sz;
         val[np] = val[p] + 1;
+        r[np] = 1;
         for(; p && !ch[p][w]; p = par[p])
             ch[p][w] = np;
         if(p == 0) par[np] = root;
@@ -100,9 +100,8 @@ struct SAM
         }
         last = np;
     }
-    void build(char ss[])
+    void build(char s[])
     {
-        s = ss;
         init();
         for(int i = 0; s[i]; ++i)
             insert(s[i] - 'a');
@@ -110,11 +109,6 @@ struct SAM
     void Right()
     {
         int p = root;
-        for(int i = 0; s[i]; ++i)
-        {
-            p = ch[p][s[i] - 'a'];
-            r[p] = 1;
-        }
         for(int i = root + 1; i <= sz; ++i) ++deg[par[i]];
         queue<int> que;
         for(int i = 1; i <= sz; ++i)
@@ -146,5 +140,5 @@ struct SAM
 /*题目:
 1. SPOJ NSUBSTR
     题意: 给一个字符串S, 求长度为$i(1 \leq i \leq |S|)$的子串出现的最多的次数.
-    分析: 令 $f_i$ 为长度为i的子串出现的最多的次数. 首先建立后缀自动机, 对于每一个节点s, 假设控制的子串长度为 $[\min{(s)}, \{max(s)}]$, Right集合个数为r, 那么它可以去更新$f_{max(s)} = \max{(f_{max(s)}, r)}. 但是最后不要忘记用 $f_i$ 去更新 $f_{i−1}$.
+    分析: 令 $f_i$ 为长度为i的子串出现的最多的次数. 首先建立后缀自动机, 对于每一个节点s, 假设控制的子串长度为 $[\min{(s)}, \max{(s)}]$, Right集合个数为r, 那么它可以去更新$f_{max(s)} = \max{(f_{max(s)}, r)}$. 但是最后不要忘记用 $f_i$ 去更新 $f_{i−1}$.
 */

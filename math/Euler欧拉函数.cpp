@@ -8,9 +8,9 @@ $\phi(p) = p-1, p$为素数
 欧拉函数是积性函数——若m, n互质, $\phi(mn)=\phi(m) \phi(n)$.
 当n为奇数时, $\phi(2n) = \phi(n)$.
 */
-///欧拉定理: 对任何两个互质的正整数$a, m, m \geq 2$有 $a^\phi(m) \equiv 1(\% m)$
+///欧拉定理: 对任何两个互质的正整数$a, m, m \geq 2$有 $a^{\phi(m)} \equiv 1(\% m)$
 ///费马小定理(Fermat's little theorem): 当p是质数时, 为: $a^{p-1} \equiv 1(\% p)$
-///降幂公式: $A^x = A^{x \% \phi(C) + \phi(C)} \% C$, $(x > \phi(C))$
+///(广义欧拉定理)降幂公式: $A^x = A^{x \% \phi(C) + \phi(C)} \% C$, $(x > \phi(C))$
 
 //求欧拉函数
 int Euler(int n)

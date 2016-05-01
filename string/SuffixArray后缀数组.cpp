@@ -5,35 +5,32 @@
 //计算后缀数组
 //朴素做法 将所有后缀进行排序$O(n^2\log{n})$采用快排 适用于m比较大的时候
 ///Manber-Myers $O(n\log^2{n})$
-int rk;
-int sa[NUM], rk[NUM], height[NUM];
-int cmp(int i, int j)
+int sa[NUM], rk[NUM], height[NUM], dam;
+bool cmp(int i, int j)
 {
     if(rk[i] != rk[j])
         return rk[i] < rk[j];
-    else
-    {
-        int ri = i + rk <= n ? rk[i + rk] : -1;
-        int rj = i + rk <= n ? rk[j + rk] : -1;
-        return ri < rj;
-    }
+    int ri = i + dam <= n ? rk[i + dam] : -1;
+    int rj = j + dam <= n ? rk[j + dam] : -1;
+    return ri < rj;
 }
-void da(int *a, int n)
+
+void da(int r[], int n)
 {
-    int i;
-    a[n] = -1;
-    for(i = 0; i <= n; i++)
+    int *tmp = height;
+    r[n] = -1;
+    for(int i = 0; i <= n; ++i)
     {
         sa[i] = i;
-        rk[i] = a[i];
+        rk[i] = r[i];
     }
-    for(m = 1; rk[n] < n; m <<= 1)
+    for(dam = 1; dam != 0 && rk[sa[n]] < n; dam <<= 1)
     {
         sort(sa, sa + n + 1, cmp);
         tmp[sa[0]] = 0;
-        for(i = 1; i <= n; i++)
-            tmp[sa[i]] = tmp[sa[i - 1]] + (cmp(sa[i], sa[i - 1] || cmp(sa[i - 1], sa[i])));
-        for(i = 0; i <= n; i++)
+        for(int i = 1; i <= n; ++i)
+            tmp[sa[i]] = tmp[sa[i - 1]] + (cmp(sa[i], sa[i - 1]) || cmp(sa[i - 1], sa[i]));
+        for(int i = 0; i <= n; ++i)
             rk[i] = tmp[i];
     }
 }
@@ -148,8 +145,62 @@ void cal_height(char *r, int *sa, int n)
 //连续重复子串: 字符串L是有字符串S重复R次得到的.
 //给定L, 求R的最大值: O(n), 枚举S的长度k, 先判断L的长度是否能被k整除, 在看lcp(suffix(1), suffix(k+1))是否等于n - k. 求解时只需预处理height数组中的每一个数到height[rk[1]]的最小值即可
 //给定字符串, 求重复次数最多的连续重复子串$O(n\log{n})$: 先穷举长度L, 然后求长度为L的子串最多能连续出现几次. 首先连续出现1次是肯定可以的, 所以这里只考虑至少2次的情况. 假设在原字符串中连续出现2次, 记这个子字符串为S, 那么S肯定包括了字符r[0], r[L], r[L*2], r[L*3], $\cdots$中的某相邻的两个. 所以只须看字符r[L*i]和r[L*(i+1)]往前和往后各能匹配到多远, 记这个总长度为K, 那么这里连续出现了K/L+1次. 最后看最大值是多少.
-//字符串A和B最长公共前缀O(|A|+|B|): 新串: A+特殊字符$+B, 答案为排名相邻且属于不同的字符串的height的最大值
-//长度不小于k的公共子串的个数: 连接两串A+$+B, 对后缀数组分组(每组height值都不小于k), 每组中扫描到B时, 统计与前面的A的后缀能产生多少个长度不小于k的公共子串, 统计得结果.
+//字符串A和B最长公共前缀O(|A|+|B|): 新串: A+特殊字符#+B, 答案为排名相邻且属于不同的字符串的height的最大值
+//长度不小于k的公共子串的个数: 连接两串A+#+B, 对后缀数组分组(每组height值都不小于k), 每组中扫描到B时, 统计与前面的A的后缀能产生多少个长度不小于k的公共子串, 统计得结果.
 //给定n个字符串, 求出现在不小于k个字符串中的最长子串$O(n\log{n})$: 连接所有字符串, 二分答案, 然后分组, 判断每组后缀是否出现在至少k个不同的原串中.
 //给定n个字符串, 求在每个字符串中至少出现两次且不重叠的最长子串$O(n\log{n})$: 做法同上, 也是先将n个字符串连起来, 中间用不相同的且没有出现在字符串中的字符隔开, 求后缀数组. 然后二分答案, 再将后缀分组. 判断的时候, 要看是否有一组后缀在每个原来的字符串中至少出现两次, 并且在每个原来的字符串中, 后缀的起始位置的最大值与最小值之差是否不小于当前答案(判断能否做到不重叠, 如果题目中没有不重叠的要求, 那么不用做此判断).
 //给定n个字符串, 求出现或反转后出现在每个字符串中的最长子串: 只需要先将每个字符串都反过来写一遍, 中间用一个互不相同的且没有出现在字符串中的字符隔开, 再将n个字符串全部连起来, 中间也是用一个互不相同的且没有出现在字符串中的字符隔开, 求后缀数组. 然后二分答案, 再将后缀分组. 判断的时候, 要看是否有一组后缀在每个原来的字符串或反转后的字符串中出现. 这个做法的时间复杂度为$O(n\log{n})$.
+
+/**
+ * 利用后缀数组和ST表得到与第pos个后缀有长度为len的公共前缀的后缀范围[getL(pos, val), getR(pos, val)]
+ */
+struct ST
+{
+    int st[NUM][22], Lg[NUM];
+    void init(const int a[], int n)
+    {
+        Lg[1] = 0;
+        for(int i = 2; i <= n; ++i) Lg[i] = Lg[i >> 1] + 1;
+        for(int i = n - 1; i >= 0; --i)
+        {
+            st[i][0] = a[i];
+            for(int j = 1; i + (1 << j) <= n; ++j)
+                st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
+        }
+    }
+    int Min(int l, int r)
+    {
+        int k = Lg[r - l + 1];
+        return min(st[l][k], st[r - (1 << k) + 1][k]);
+    }
+    int getL(int pos, int val)
+    {
+        int l = 0, r = pos - 1, mid, ans = pos;
+        while(l <= r)
+        {
+            mid = (l + r) >> 1;
+            if(Min(mid + 1, pos) >= val)
+            {
+                ans = mid;
+                r = mid - 1;
+            }
+            else l = mid + 1;
+        }
+        return ans;
+    }
+    int getR(int pos, int val)
+    {
+        int l = pos + 1, r = N, mid, ans = pos;
+        while(l <= r)
+        {
+            mid = (l + r) >> 1;
+            if(Min(pos + 1, mid) >= val)
+            {
+                ans = mid;
+                l = mid + 1;
+            }
+            else r = mid - 1;
+        }
+        return ans;
+    }
+} st;
