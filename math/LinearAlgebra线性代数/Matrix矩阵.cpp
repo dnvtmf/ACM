@@ -39,6 +39,7 @@
 		A^1 = A\\
 		A^{k+1} = A^k A , &k = 1, 2, \cdots
 	\end{array}\right.$$@
+	对于n阶任意方阵A, 对于很大的整数t, 想在$Z_p$下求 $A^t$(就是求$A^t$的各项模p, 其中p为素数), 即$W(n, p) = \prod_{i = 0}^{n - 1}{p^n - p^i}$, 则有: $A^t \equiv A^{t \mod W(n, p)}$.
 方阵的幂的性质:
 	1. $A^m A^k = A^{m + k}$
 	2. $(A^m)^k = A^{mk}$

@@ -16,29 +16,27 @@ Notice: 数组a的大小要为2的幂
 */
 void fwt(int a[], int l, int r)
 {
-    if(l == r) return ;
-    int mid = (l + r) >> 1, len = mid - l + 1;
-    fwt(a, l, mid);
-    fwt(a, mid + 1, r);
-    for(int i = l; i <= mid; ++i)
-    {
-        int u = a[i], v = a[i + len];
-        a[i] = u - v;
-        a[i + len] = u + v;
-    }
+	if(l == r) return ;
+	int mid = (l + r) >> 1, len = mid - l + 1;
+	fwt(a, l, mid);
+	fwt(a, mid + 1, r);
+	for(int i = l; i <= mid; ++i) {
+		int u = a[i], v = a[i + len];
+		a[i] = u - v;
+		a[i + len] = u + v;
+	}
 }
 void ifwt(int a[], int l, int r)
 {
-    if(l == r) return ;
-    int mid = (l + r) >> 1, len = mid - l + 1;
-    for(int i = l; i <= mid; ++i)
-    {
-        int u = a[i], v = a[i + len];
-        a[i] = (v + u) / 2;
-        a[i + len] = (v - u) / 2;
-    }
-    ifwt(a, l, mid);
-    ifwt(a, mid + 1, r);
+	if(l == r) return ;
+	int mid = (l + r) >> 1, len = mid - l + 1;
+	for(int i = l; i <= mid; ++i) {
+		int u = a[i], v = a[i + len];
+		a[i] = (v + u) / 2;
+		a[i + len] = (v - u) / 2;
+	}
+	ifwt(a, l, mid);
+	ifwt(a, mid + 1, r);
 }
 /*
 题意: 求 $\displaystyle \mbox{XOR} _{i=1}^{2n+1}{(a_i + x)} = 0 (0 \leq a_i \leq m, L \leq x \leq R) $的方案数 (对1000000007取模)

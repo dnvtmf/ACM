@@ -8,30 +8,30 @@
     如果n是一个合数, 并且$a ^ {n - 1} \equiv 1 (\mod n)$, 则说n是一个基为a的伪素数.
 */
 ///涮素数
-int prim[NUM], prim_num;
+int prime[NUM], prime_num;
 //$O(n\log{n})$
 void pre_prime()
 {
-    prim_num = 0;
+    prime_num = 0;
     for(int i = 2; i < NUM; ++i)
     {
-        if(prim[i]) continue;
-        prim[prim_num++] = i;
-        for(int j = i + i; j < NUM; j += i) prim[j] = 1;
+        if(prime[i]) continue;
+        prime[prime_num++] = i;
+        for(int j = i + i; j < NUM; j += i) prime[j] = 1;
     }
 }
 
 //$O(n)$
 void pre_prime()
 {
-    prim_num = 0;
+    prime_num = 0;
     for(int i = 2; i < NUM; ++i)
     {
-        if(!prim[i]) prim[prim_num++] = i;
-        for(int j = 0; j < prim_num && i * prim[j] < NUM; ++j)
+        if(!prime[i]) prime[prime_num++] = i;
+        for(int j = 0; j < prime_num && i * prime[j] < NUM; ++j)
         {
-            prim[i * prim[j]] = 1;
-            if(i % prim[j] == 0) break;
+            prime[i * prime[j]] = 1;
+            if(i % prime[j] == 0) break;
         }
     }
 }

@@ -1,9 +1,0 @@
-{
-	"server":"45.32.251.0",
-	"server_port":8901,
-	"local_address":"127.0.0.1",
-	"local_port":1080,
-	"password":"vpn_wandiwen",
-	"method":"rc4-md5",
-	"timeout":300
-}

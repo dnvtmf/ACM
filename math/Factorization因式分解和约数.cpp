@@ -15,21 +15,21 @@
 */
 ///分解质因数
 //暴力试除法, $O(\sqrt{N})$
-int prim[NUM], tot;//素数表
+int prime[NUM], prime_num;//素数表
 vector<P> FAC(int n)
 {
     vector<P> fac;
     fac.clear();
-    for(int i = 0; i < tot && prim[i] * prim[i] <= n; ++i)
+    for(int i = 0; i < prime_num && prime[i] * prime[i] <= n; ++i)
     {
-        if(n % prim[i]) continue;
+        if(n % prime[i]) continue;
         int cnt = 0;
-        while(n % prim[i] == 0)
+        while(n % prime[i] == 0)
         {
             ++cnt;
-            n /= prim[i];
+            n /= prime[i];
         }
-        fac.push_back(P(prim[i], cnt));
+        fac.push_back(P(prime[i], cnt));
     }
     if(n > 1) fac.push_back(P(n, 1));
     return fac;
@@ -53,18 +53,45 @@ int find_fac(int n)
 }
 ///预处理1~n间所有数的约数 $O(n\log{n})$
 vector<int> facs[NUM];
-int prim[NUM], tot;
+int prime[NUM], prime_num;
 void pre_fac()
 {
     for(int i = 2; i < NUM; ++i)
     {
-        if(prim[i]) continue;
-        prim[tot++] = i;
+        if(prime[i]) continue;
+        prime[prime_num++] = i;
         facs[i].push_back(i);
         for(int j = i + i; j < NUM; j += i)
         {
-            prim[j] = 1;
+            prime[j] = 1;
             facs[j].push_back(i);
+        }
+    }
+}
+//$O(N)$
+int prime[NUM], prime_num, tau[NUM];
+void pre_tau(const int &N)
+{
+    prime_num = 0;
+    for(int i = 2; i <= N; ++i)
+    {
+        if(prime[i] == 0)
+        {
+            prime[prime_num++] = i;
+            tau[i] = 2;
+        }
+        for(int j = 0, k; j < prime_num && (k = i * prime[j]) <= N; ++j)
+        {
+            prime[k] = 1;
+            if(i % prime[j] == 0)
+            {
+                int x = i, y = 1;
+                while(x % prime[j] == 0) x /= prime[j], ++y;
+                tau[k] = tau[i] / y * (y + 1);
+                break;
+            }
+            else
+                tau[k] = tau[i] << 1;
         }
     }
 }

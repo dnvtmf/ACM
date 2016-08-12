@@ -1,16 +1,24 @@
+///反演与卷积
+/*
+反演: 如果有两个函数 $f$ 和 $g$ 满足 $$ f(n) = \sum_k{a_{n,k} g(k)} $$, 则已知 $f$ 求 $g$ 的过程称为反演.
+*/
+
+///二项式反演
+//$$ f(n) = \sum_{i=0}^{n}{C_n^i g(i)} ~\Leftrightarrow ~ g(n) = \sum_{i = 0}^{n} { (-1)^{n-i} C_n^i f(i) }$$
 ///莫比乌斯反演 Mobius
 //mobius函数
-/*@$$ \mu(x) = \left\{ \begin{array}{l l}
+/**$$ \mu(x) = \left\{ \begin{array}{l l}
 		1 & x= 1\\
 		(-1)^r & x = p_1 \cdot p_2 \cdots p_r, \mbox{其中}p_i(i = 1, 2, \cdots r)\mbox{是素数}\\
 		0 &\mbox{其他}
-		\end{array} \right.$$@
+		\end{array} \right.$$
 */
-//莫比乌斯反演
-//@$$ F(n) = \sum_{d|n}{f(d)} \Leftrightarrow f(n) = \sum_{d|n}{\mu (d) F(\frac{n}{d})}	$$@
-//@$$\sum_{d|n}{\mu(d)} = \left\{ \begin{array}{l l} 1 &n=1 \\ 0 & n \neq 1\end{array} \right. $$@
-//$\displaystyle\sum_{d|n}{\phi(d)} = n, \phi(d)$为欧拉函数
-//$\displaystyle \frac{\phi(n)}{n} = \sum_{d|n}{\frac{\mu(d)}{d}}$
+/**莫比乌斯反演
+形式一: $$ F(n) = \sum_{d|n}{f(d)} \Leftrightarrow f(n) = \sum_{d|n}{\mu (d) F(\frac{n}{d})}	$$
+形式二: $$ F(n) = \sum_{n|d}{f(d)} \Leftrightarrow f(n) = \sum_{n|d}{\mu (\frac{d}{n}) F(d)} $$
+$$\sum_{d|n}{\mu(d)} = \left\{ \begin{array}{l l} 1 &n=1 \\ 0 & n \neq 1\end{array} \right. $$
+$\displaystyle\sum_{d|n}{\phi(d)} = n, \phi(d)$为欧拉函数
+$\displaystyle \frac{\phi(n)}{n} = \sum_{d|n}{\frac{\mu(d)}{d}}$ */
 
 //使用1
 /*
@@ -51,29 +59,30 @@
 因子和函数$\sigma$
 $\mu \cdot id = \phi$
 */
-void pre_mobius()
+void pre_mobius(int mu[], int prime[], int &cnt)
 {
-    mu[1] = 1;
-    for(int i = 2; i < NUM; i++)
-        if(!mu[i])
-        {
-            mu[i] = -1;
-            for(int j = i + i; j < NUM; j += i)
-                if((j / i) % i == 0)
-                    mu[j] = 2;
-                else
-                {
-                    if(mu[j] == 0) mu[j] = -1;
-                    else mu[j] = -mu[j];
-                }
-        }
-        else if(mu[i] == 2 || mu[i] == -2) mu[i] = 0;
+	mu[1] = 1;
+	cnt = 0;
+	for(int i = 2; i < NUM; ++i) {
+		if(!prime[i]) {
+			prime[cnt++] = i;
+			mu[i] = -1;
+		}
+		for(int j = 0; j < cnt && i * prime[j] < NUM; ++j) {
+			prime[i * prime[j]] = 1;
+			if(i % prime[j]) mu[i * prime[j]] = -mu[i];
+			else {
+				mu[i * prime[j]] = 0;
+				break;
+			}
+		}
+	}
 }
 
 ///Dirichlet卷积
 /*
-对两个算术函数$f, g$, 定义其Dirichlet卷积为新函数$f*g$. 满足
-$$(f*g)(n) = \sum_{d|n}{f(d)g(\frac{n}{d})} = \sum_{ab = b}{f(a)f(b)}$$
+对两个算术函数$f, g$, 定义其Dirichlet卷积为新函数 $ f * g $. 满足
+$$ (f * g)(n) = \sum_{d|n}{ f(d) g( \frac{n}{d} ) } = \sum_{ab = n}{ f(a) g(b) } $$
 一些性质:
 交换律, $f * g = g * f$
 结合律, $(f * g) * h = f * (g * h)$
@@ -86,13 +95,13 @@ n的约数个数$d(n)$可以写成$d(n) = (1*1)(n)$; 约数和$\sigma(n)$可以�
 重要性质: $\displaystyle \sum_{d|n}{\mu(d)} = [n == 1]$, 即$1 * \mu = \varepsilon$. (可用二项式定理证明)
 重要性质: $\displaystyle \sum_{d|n}{\phi(d)} = n$, 即$1 * \phi = id$. (n是质数时显然成立, 再由积性得证)
 */
-//$O(n\log{n})$预处理Dirichlet卷积
+//$O(n\log{n})$ 预处理Dirichlet卷积
 //若已知$f(i), g(i), i = 1, 2, \dots, n$的值，则可以在$O(n\log{n})$时间内计算出$(f * g)(i), i = 1, 2, \dots, n$.
 void dirichlet(int f[], int g[], int fg[], int n)
 {
 	//for(int i = 1; i <= n; ++i) fg[i] = 0;
-    for(int i = 1; i * i <= n; ++i)
-        for(int j = i; i * j <= n; ++j)
-            if(i == j) fg[i * j] += f[i] * g[i];
-            else fg[i * j] += f[i] * g[j] + f[j] * g[i];
+	for(int i = 1; i * i <= n; ++i)
+		for(int j = i; i * j <= n; ++j)
+			if(i == j) fg[i * j] += f[i] * g[i];
+			else fg[i * j] += f[i] * g[j] + f[j] * g[i];
 }
