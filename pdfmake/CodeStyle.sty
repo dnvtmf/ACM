@@ -5,12 +5,13 @@
 
 %基本设置
 \lstset{
-	language=C++,				%语言设置
+	language=[11]C++,			%语言设置
 %	columns=fixed,				%
-	numbers=left,				%行号位置
-	numbersep=5pt,				%行号距离代码宽度
+	numbers=left,				%行号位置(none, left, right)
+	numbersep=10pt,				%行号距离代码宽度
+	numberblanklines=false,		%空白行时候打印行号
 	stepnumber=1,				%行号显示间隔(=2, 显示1, 3, 5, ...)
-	frame=sigle,				%背景边框 none, sigle, shadowbox, topline, leftline, bottomline, lines(top and bottom), tlBL
+	frame=sigle,				%背景边框 none, sigle, shadowbox, topline, leftline, bottomline, lines(top and bottom), subset of trblTRBL
 	frameround=tttt,			%边框转角 圆的t， 方的f（从右上角顺时针）
 	showstringspaces=false,		%不显示字符串中的空格
 	basicstyle=\footnotesize,	%基本样式
@@ -23,9 +24,9 @@
 %	texcl=true,					%注释行间是latex代码
 	mathescape=true,			%$$间的是数学公式
 	extendedchars=true,			%在非UTF8编码文件中使用非ASCII字符
-	keepspaces=true,				%keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-	showspaces=false,			%show spaces everywhere adding particular underscores; it overrides 
-	showtabs=false,			%show tabs within strings adding particular underscores
+	keepspaces=true,			%keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	showspaces=false,			%显示空格show spaces everywhere adding particular underscores; it overrides 
+	showtabs=false,				%显示tab show tabs within strings adding particular underscores
 	tabsize=4,					%tab大小
 	%增加关键字
 	morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,

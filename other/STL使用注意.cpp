@@ -5,4 +5,5 @@ mutilset注意:
 */
 /*map使用注意:
 用map比用 vector + sort + lower_bound慢, 所以如果不是必需, 尽量用后者
+使用map[x], 如果x不在map中, 那么x会自动添加到map中, 而使用find()不会.
 */

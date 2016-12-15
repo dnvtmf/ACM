@@ -8,7 +8,7 @@
 */
 /*中国剩余定理
 	对$x \equiv a_i (\% \ m_i) (1 \leq i \leq n)$, 其中$m_1, m_2, \cdots, m_n$两两互素, $a_1, a_2, \cdots, a_n$是任意整数, 则有解:
-	$M = \prod{m_i}, b = \sum_i^n{a_i M_i^{-1} M_i} (M_i = M / m_i, M_i^{-1} 是M_i关于m_i的逆元)$
+	$M = \prod{m_i}, b = \sum_i^n{a_i M_i^{-1} M_i} (M_i = M / m_i, M_i^{-1}$ 是 $M_i$ 关于 $m_i$ 的逆元)
 */
 int gcd(int a, int b);
 int getInv(int x, int mod);

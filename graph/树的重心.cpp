@@ -28,3 +28,9 @@ void getCenter(int u, int fa = -1)
     mx_cnt[u] = max(mx_cnt[u], n - sz[u]);
     if(mx_cnt[u] < mx_cnt[root]) root = u;
 }
+/*不断加点, 维护所有点到重心的距离和
+[玲珑杯”ACM比赛 Round #5 1059 - Distance](http://www.ifrog.cc/acm/problem/1059)
+1. 向树中加叶子结点时, 如果去掉重心后, 添加的叶子所在的子树的结点总数占总结点数的一半以上(或一半), 则重心向添加叶子的方向移动一条边.
+2. 用LCT维护(以1为根)点u所在子树的结点总数, 即添加的结点到根节点1路径上所有的点加1(懒标记维护).
+3. 最初ans = 0, 每次添加结点u时, ans += dist(重心, u). 如果重心移动, ans += n - 2 * 子树结点数
+*/

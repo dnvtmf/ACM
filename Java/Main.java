@@ -17,11 +17,10 @@ public class Main{
 		a.negate();// -a
 		a.remainder(b);//a%b
 		a.abs();//|a|
-		a.pow(b);//a^b
+		a.pow(b);//$a^b$
 		//.... and other math fuction, like log();
 		a.toString();
 		a.compareTo(b);//
-		//四舍五入
 		double c = 2.3659874;
 		//小数格式化，引号中的0.000表示保留小数点后三位（第四位四舍五入）
 		DecimalFormat df = new DecimalFormat("0.000");

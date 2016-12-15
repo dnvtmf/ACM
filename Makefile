@@ -3,7 +3,7 @@ FILE=main.tex
 PDF=main.pdf
 PDFFILE=ACMtemplastes.pdf
 all:
-	(cd $(MKDIR);make;cp $(PDF) ../$(PDFFILE))
+	(cd $(MKDIR); make;cp $(PDF) ../$(PDFFILE))
 
 edit: $(MKDIR)/$(FILE)
 	vim $(MKDIR)/$(FILE)

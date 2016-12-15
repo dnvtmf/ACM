@@ -15,26 +15,44 @@ $\phi(p) = p-1, p$为素数
 //求欧拉函数
 int Euler(int n)
 {
-    int euler = n;
-    for(int i = 1; i < primen; i++)
-        if(n % prime[i])
-        {
-            euler = euler / prime[i] * (prime[i] - 1);
-        }
-    return euler;
+	int euler = n;
+	for(int i = 1; i < primen; i++)
+		if(n % prime[i]) {
+			euler = euler / prime[i] * (prime[i] - 1);
+		}
+	return euler;
 }
 //预处理 $O(N\log{N})$
 int euler[NUM];
 int Euler()
 {
-    euler[1] = 1;
-    for(int i = 2; i < NUM; ++i)
-    {
-        if(euler[i]) continue;
-        for(int j = i; j < NUM; j += i)
-        {
-            if(euler[j]) euler[j] = euler[j] / i * (i - 1);
-            else euler[j] = j / i * (i - 1);
-        }
-    }
+	euler[1] = 1;
+	for(int i = 2; i < NUM; ++i) {
+		if(euler[i]) continue;
+		for(int j = i; j < NUM; j += i) {
+			if(euler[j]) euler[j] = euler[j] / i * (i - 1);
+			else euler[j] = j / i * (i - 1);
+		}
+	}
+}
+//预处理 $O(N)$
+int euler[NUM], prime[NUM], prime_cnt;
+int Euler()
+{
+	prime_cnt = 0;
+	euler[1] = 1;
+	for(int i = 2; i < NUM; ++i) {
+		if(!euler[i]) {
+			prime[prime_cnt++] = i;
+			euler[i] = i - 1;
+		}
+		for(int j = 0; j < prime_cnt && i * prime[j] < NUM; ++j) {
+			prime[i * prime[j]] = 1;
+			if(i % prime[j] == 0) {
+				euler[i * prime[j]] = euler[i] * prime[j];
+				break;
+			}
+			euler[i * prime[j]] = euler[i] % prime[j];
+		}
+	}
 }

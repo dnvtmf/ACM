@@ -39,11 +39,13 @@
 		A^1 = A\\
 		A^{k+1} = A^k A , &k = 1, 2, \cdots
 	\end{array}\right.$$@
-	对于n阶任意方阵A, 对于很大的整数t, 想在$Z_p$下求 $A^t$(就是求$A^t$的各项模p, 其中p为素数), 即$W(n, p) = \prod_{i = 0}^{n - 1}{p^n - p^i}$, 则有: $A^t \equiv A^{t \mod W(n, p)}$.
+	对于n阶任意方阵A, 对于很大的整数t, 想在$Z_p$下求 $A^t$(就是求$A^t$的各项模p, 其中p为素数), 即$W(n, p) = \prod_{i = 0}^{n - 1}{p^n - p^i}$, 则有: $A^t \equiv A^{t \pmod{W(n, p)}}$.
 方阵的幂的性质:
 	1. $A^m A^k = A^{m + k}$
 	2. $(A^m)^k = A^{mk}$
 	3. 一般$(AB)^k \neq A^k B^k $, 当AB = BA时, $(AB)^k = A^k B^k = B^k A^k$, 其逆不真.
+n阶方阵的循环节(关于质数p):
+	$$A^{\prod_{i=0}^{n-1}{p^n - p^i}} \pmod{p} = I$$
 矩阵的转置:
 	将矩阵A的行列互换, 所得的矩阵称为A的转置, 即为$A_T$.
 	$m \times n$矩阵的转置是$n \times m$矩阵
@@ -58,91 +60,90 @@
 	将$m \times n$矩阵分为$r \times c$个子矩阵, 分块矩阵的乘法相当于将把各个子矩阵当作数是的乘法.
 */
 const int Matrix_N = 55, Matrix_M = 55;
-struct Matrix
-{
-    int a[Matrix_N][Matrix_M];
-    int n, int m;
-    Matrix(int _n = 0, int _m = 0, bool I = false) {init(_n, _m, I);}
-    void init(int _n = 0, int _m = 0, bool I = false)
-    {
-        memset(a, 0, sizeof(a));
-        n = _n;
-        m = _m;
-        if(I) for(int i = 1; i <= n; ++i) a[i][i] = 1;
-    }
-    //C = A + B
-    Matrix operator + (const Matrix& B) const
-    {
-        Matrix res(n, m);
-        for(int i = 1; i <= n; ++i)
-            for(int j = 1; j < m; ++j)
-                res.a[i][j] = a[i][j] + B.a[i][j];
-        return Matrix;
-    }
-    //C = A - B
-    Matrix operator - (const Matrix& B) const
-    {
-        Matrix res(n, m);
-        for(int i = 1; i <= n; ++i)
-            for(int j = 1; j < m; ++j)
-                res.a[i][j] = a[i][j] - B.a[i][j];
-        return Matrix;
-    }
-    //A += B
-    Matrix operator += (const Matrix& B) const
-    {
-        for(int i = 1; i <= n; ++i)
-            for(int j = 1; j < m; ++j)
-                a[i][j] += B.a[i][j];
-        return *this;
-    }
-    //C = AB
-    Matrix operator * (const Matrix& B) const
-    {
-        Matrix res(n, B.m);
-        int i, j, k;
-        for(i = 1; i <= n; ++i)
-            for(j = 1, res.a[i][j] = 0; j <= B.m; ++j)
-                for(k = 1; k <= m; ++k)
-                    res.a[i][j] = a[i][k] * B.a[k][j];
+struct Matrix {
+	int a[Matrix_N][Matrix_M];
+	int n, int m;
+	Matrix(int _n = 0, int _m = 0, bool I = false) {init(_n, _m, I);}
+	void init(int _n = 0, int _m = 0, bool I = false)
+	{
+		memset(a, 0, sizeof(a));
+		n = _n;
+		m = _m;
+		if(I) for(int i = 1; i <= n; ++i) a[i][i] = 1;
+	}
+	int *operator [](size_t _) {return a[_];}
+	//C = A + B
+	Matrix operator + (const Matrix &B) const
+	{
+		Matrix res(n, m);
+		for(int i = 1; i <= n; ++i)
+			for(int j = 1; j < m; ++j)
+				res.a[i][j] = a[i][j] + B.a[i][j];
+		return Matrix;
+	}
+	//C = A - B
+	Matrix operator - (const Matrix &B) const
+	{
+		Matrix res(n, m);
+		for(int i = 1; i <= n; ++i)
+			for(int j = 1; j < m; ++j)
+				res.a[i][j] = a[i][j] - B.a[i][j];
+		return Matrix;
+	}
+	//A += B
+	Matrix operator += (const Matrix &B) const
+	{
+		for(int i = 1; i <= n; ++i)
+			for(int j = 1; j < m; ++j)
+				a[i][j] += B.a[i][j];
+		return *this;
+	}
+	//C = AB
+	Matrix operator * (const Matrix &B) const
+	{
+		Matrix res(n, B.m);
+		int i, j, k;
+		for(i = 1; i <= n; ++i)
+			for(j = 1, res.a[i][j] = 0; j <= B.m; ++j)
+				for(k = 1; k <= m; ++k)
+					res.a[i][j] = a[i][k] * B.a[k][j];
 //                    if((res.a[i][j] += a[i][k] * B.a[k][j] % mod) >= mod)
 //                        res.a[i][j] -= mod;
-        return res;
-    }
-    //方阵的k次幂
-    Matrix operator ^(int k)
-    {
-        Matrix x = *this;
-        Matrix res(x.n, x.n, true);
-        while(k)
-        {
-            if(k & 1) res = res * x;
-            x = x * x;
-            k >>= 1;
-        }
-        return res;
-    }
-    void out()
-    {
-        printf("N = %d, M = %d\n", n, m);
-        for(int i = 1; i <= n; ++i)
-            for(int j = 1; j <= m; ++j)
-                printf("%d%c", a[i][j], j == n ? '\n' : ' ');
-    }
+		return res;
+	}
+	//方阵的k次幂
+	Matrix operator ^(int k)
+	{
+		Matrix x = *this;
+		Matrix res(x.n, x.n, true);
+		while(k) {
+			if(k & 1) res = res * x;
+			x = x * x;
+			k >>= 1;
+		}
+		return res;
+	}
+	void out()
+	{
+		printf("N = %d, M = %d\n", n, m);
+		for(int i = 1; i <= n; ++i)
+			for(int j = 1; j <= m; ++j)
+				printf("%d%c", a[i][j], j == n ? '\n' : ' ');
+	}
 };
 
 /*应用:
 1. A是$1 \times n$的行矩阵, B是n阶方阵, 则@$$
 	C_{1 \times n} = ABB \cdots B = A(B^m)$$@
 2. 设A是$n \times 1$的列矩阵, B是n阶方阵, 求$\displaystyle \sum_{k=0}^{m-1}{AB^k}$
-	做法: 令C为分块矩阵@$$\left[ \matrix{
-		B &A \cr
+	做法: 令C为分块矩阵@$$\left[ \begin{matrix}
+		B &A \\
 		O &I
-	}\right]$$@, 则@$$
-	C^m = \left[ \matrix{
-		B^m &\displaystyle \sum_{k=1}^{m-1}{AB^k} \cr
-		O &I
-	}\right]$$@
+	\end{matrix}\right]$$@, 则@$$
+	C^m = \left[ \begin{matrix}
+		B^m & \displaystyle \sum_{k=1}^{m-1}{AB^k} \\
+		O & I
+	\end{matrix}\right]$$@
 3. 若A是$n \times 1$的列矩阵, B是$1 \times n$的行矩阵, 则@$$
 	(AB)^k = A(BA)^{k-1}B $$@
 */

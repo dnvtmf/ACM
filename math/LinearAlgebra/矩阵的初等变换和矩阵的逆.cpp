@@ -27,8 +27,7 @@ VD operator + (const VD &a, const VD &b)
 		c[i] = a[i] + b[i];
 	return c;
 }
-struct Matrix
-{
+struct Matrix {
 	int n, m;
 	VD *a;
 	void Matrix(int _n = Matrix_N, int _m = Matrix_M)
@@ -72,8 +71,7 @@ struct Matrix
 	{
 		Matrix c(n, b.m);
 		for(int i = 0; i < n; i++)
-			for(int j = 0; j < b.m; j++)
-			{
+			for(int j = 0; j < b.m; j++) {
 				c[i][j] = 0;
 				for(int k = 0; k < m; k++)
 					c.a[i][j] += a[i][j] * b.a[i][j];
@@ -88,11 +86,9 @@ struct Matrix
 	{
 		Matrix c;
 		c.I();
-		for(in i = 0; i < n; i++)
-		{
+		for(in i = 0; i < n; i++) {
 			for(int j = i; j < n; j++)
-				if(fabs(a[j][i]) > 0)
-				{
+				if(fabs(a[j][i]) > 0) {
 					swap(a[i], a[j]);
 					swap(c[i], c[j]);
 					break;
@@ -100,36 +96,34 @@ struct Matrix
 			c[i] = c[i] * (1.0 / a[i][i]);
 			a[i] = a[i] * (1.0 / a[i][i]);
 			for(int j = 0; j < n; j++)
-				if(j != i && fabs(a[j][i]) > 0)
-				{
+				if(j != i && fabs(a[j][i]) > 0) {
 					c[j] = c[j] - a[i] * a[j][i];
 					a[j] = c[j] - a[i] * a[j][i];
 				}
 		}
 	}
 };
-//Guass消元
-int Guass(double a[][MAXN], bool l[], double ans[], int n)
-{//l, ans储存解, l[]表示是否是自由元
+//Gauss消元
+///解n元一次方程: $\vec{A}_{n \times m} \vec{x}_{1 \times n} = \vec{y}_{1 \times m}$
+///其中$\vec{A}$是系数矩阵, $\vec{x}$是变量, $\vec{y}$ 是方程的常数项
+int Gauss(double a[][MAXN], bool l[], double ans[], int n)
+{
+	//l, ans储存解, l[]表示是否是自由元
 	int res = 0, r = 0;
 	for(int i = 0; i < n; i++) l[i] = false;
-	for(int i = 0; i < n; i++)
-	{
+	for(int i = 0; i < n; i++) {
 		for(int j = r; j < n; j++)
-			if(fabs(a[j][i]) > EPS)
-			{
+			if(fabs(a[j][i]) > EPS) {
 				for(int k = i; k <= n; k++)
 					swap(a[j][k], a[r][k]);
 				break;
 			}
-		if(fabs(a[r][i]) < EPS)
-		{
+		if(fabs(a[r][i]) < EPS) {
 			++res;
 			continue;
 		}
 		for(int j = 0; j < n; j++)
-			if(j != r && fabs(a[j][i]) > EPS)
-			{
+			if(j != r && fabs(a[j][i]) > EPS) {
 				double tmp = a[j][i] / a[r][i];
 				for(int k = i; k <= n; k++)
 					a[j][k] -= tmp * a[r][k];
@@ -147,15 +141,15 @@ int Guass(double a[][MAXN], bool l[], double ans[], int n)
 //常系数线性齐次递推
 /*已知$f_x = a_0 f_{x-1} + a_1 f_{x-2} + \cdots a_{n-1}f_{x-n}$和$f_0, f_1, \cdots, f_{n-1}$, 给定t, 求$f_t$
 f的递推可以看做是一个$n\times n$的矩阵A乘以一个n维列向量$\beta$, 即
-@$$A = \left[ \matrix{
-0 &1 &0 &\cdots &0 \cr
-0 &0 &0 &\cdots &0 \cr
-&\vdots & &\ddots &\vdots \cr
-0 &0 &0 &\cdots &1\cr
+@$$A = \left[ \begin{matrix}
+0 &1 &0 &\cdots &0 \\
+0 &0 &0 &\cdots &0 \\
+&\vdots & &\ddots &\vdots \\
+0 &0 &0 &\cdots &1 \\
 a_{n-1} &a_{n-2} &a_{n-3} &\cdots &a_0
-}\right],
-\beta_n = \left[ \matrix{
-f_{x-n} \cr f_{x - n + 1} \cr \vdots \cr f_{x-2} \cr f_{x-1}
-}\right]$$@
+\end{matrix}\right],
+\beta_n = \left[ \begin{matrix}
+f_{x-n} \\ f_{x - n + 1} \\ \vdots \\ f_{x-2} \\ f_{x-1}
+\end{matrix}\right]$$@
 则$\beta_{t} = A^{t-n+1} \beta_{0}(t \geq n)$
 */

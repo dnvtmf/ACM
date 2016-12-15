@@ -1,4 +1,4 @@
-\documentclass[nofonts,a4paper]{ctexart}
+\documentclass[nofonts,a4paper]{ctexart}%两列twocolumn
 %页面尺寸设置
 %页边距
 \usepackage[top=10mm, bottom=20mm, left=25mm, right=20mm]{geometry}
@@ -16,16 +16,20 @@
 
 \usepackage[colorlinks,linkcolor=red]{hyperref} %超链接
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{CJK}
+
 %设置字体
 %\usepackage{xltxtra,fontspec,xunicode}
 %\usepackage[slantfont,boldfont]{XeCJK}
-\setCJKmainfont{微软雅黑}
+\setCJKmainfont{Microsoft YaHei}
 %\setCJKmainfont{STFangsong}
 %\setCJKmonofont{STFangsong}
 %\setCJKsansfont{STFangsong}
+%\setmainfont{%Times New Roman}
 \setmainfont{DejaVu Sans Mono}
-%\setmonofont{DejaVu Sans Mono}
-%\setsansfont{DejaVu Sans Mono}
+\setmonofont{DejaVu Sans Mono}
+\setsansfont{DejaVu Sans Mono}
 
 %使用自定义的代码高亮
 \usepackage{CodeStyle}
@@ -33,4 +37,4 @@
 %设置自定义符号
 \def\xor{\oplus}
 \newcommand{\lcm}{{\rm lcm}}
-\newcommand{\mod}{{\rm mod}}
+\newcommand{\disp}{\displaystyle}

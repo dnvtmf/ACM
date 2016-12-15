@@ -1,6 +1,0 @@
-斜率优化dp
-形如$dp[n] = \min{\{ f(i) + g(i) \times h(n) \}}$的dp可以使用斜率优化, 将时间复杂度从$O(n^2)$降到$O(n)$
-上述dp方程构造成另一个形式: $z = y + x \times k$, 其中$k = h(n), x = g(i), y = f(i), z = dp[n]$, 问题变为在二维平面的一系列点(x, y) 中寻找一个点使经过这个点且斜率为k的直线在y轴的截距最小. 这样的点一定在下凸壳上.
-如果x是递增或递减的, 那么可以使用 Graham 算法来维护下凸壳.
-同时如果k是有序的, 可以使用单调队列优化. [Codeforces 351 Levels and Regions](http://codeforces.com/contest/674/problem/C)
-如果k是无序的, 那么在下凸壳中二分查找答案.

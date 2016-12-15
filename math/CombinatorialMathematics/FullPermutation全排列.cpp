@@ -86,10 +86,10 @@ void unContor(int pos, int n)
 ///重集的编码与解码(拓展的康拓展开)
 /*
 给一个排列 $A=\{a_1, a_2, \cdots, a_n\}$, 求按字典序排序之后其中所有全排列的编号(从0开始)
-$$ Rank_A = \sum_{i=1}^{n}{min_i \cdot (n-i)! \cdot \prod_{j=1}^{i-1}{num_j}} $$
+@$$ Rank_A = \sum_{i=1}^{n}{min_i \cdot (n-i)! \cdot \prod_{j=1}^{i-1}{num_j}} $$@
 其中, $min_i$ 是第i个数之后有多少个数小于 $a_i$, $num_i$ 表示第i个数及以后有多少个数与 $a_i$ 相同.
 这个 $Rank_A$ 比实际值大 $\displaystyle Mul = \prod_{i=1}^{m}{cnt_i!}$, 其中 $cnt_i$表示第i种数的个数
-A所在集合的全排列个数为: $$\frac{n!}{Mul}$$
+A所在集合的全排列个数为: @$$\frac{n!}{Mul}$$@
 解码: 按照上述公式从第一位到最后一位展开即可.
 */
 int getRank(int a[], int n)

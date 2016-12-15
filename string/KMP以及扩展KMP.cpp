@@ -29,7 +29,7 @@ int KMP_Count(char x[], int m, char y[], int n, int next[])
         if(j >= m)
         {
             ans++;
-            j = next[j] + 1;//连续重复匹配
+            j = next[j];//连续重复匹配
             //j = 0;// 连续不重复匹配
             //return true;//不连续匹配
         }

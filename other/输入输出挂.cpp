@@ -62,23 +62,15 @@ struct Quick_Out {
 		for(int i = 0; s[i]; ++i) oc(s[i]);
 	}
 	template<class T>
-	inline void oi(T x)
+	inline void oi(T x, char bc = '\n')
 	{
-		if(!x) {
-			oc('0');
-			return ;
-		}
 		if(x < 0) oc('-'), x = -x;
-		char tmp[30];
-		int len = 0;
-		while(x) {
-			tmp[len++] = x % 10 + '0';
-			x /= 10;
-		}
-		while(len) {
-			--len;
-			oc(tmp[len]);
-		}
+		char tmp[30], len = 0;
+		if(!x) tmp[len++] = '0';
+		while(x) tmp[len++] = x % 10 + '0', x /= 10;
+		while(len)  oc(tmp[--len]);
+		oc(bc);
 	}
 	~Quick_Out() {write();}
 } Out;
+

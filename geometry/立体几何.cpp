@@ -41,42 +41,42 @@ struct Point {
 };
 /*点的坐标变换
 平移: 点(x, y, z)平移(tx, ty, tz)到(x + tx, y + ty, z + tz)
-    变换矩阵:   @$$\left[ \begin{matrix}{
-    1   &0  &0  &0  \cr
-    0   &1  &0  &0  \cr
-    0   &0  &1  &0  \cr
+    变换矩阵:   @$$\left[ \begin{matrix}
+    1   &0  &0  &0  \\
+    0   &1  &0  &0  \\
+    0   &0  &1  &0  \\
     tx  &ty &tz &1
-    } \end{matrix} \right]$$@
+    \end{matrix} \right]$$@
 缩放: 坐标(x, y, z)缩放为 (ax, by, cz)
-    缩放矩阵:   @$$\left[ \begin{matrix}{
-    a   &0  &0  &0  \cr
-    0   &b  &0  &0  \cr
-    0   &0  &c  &0  \cr
+    缩放矩阵:   @$$\left[ \begin{matrix}
+    a   &0  &0  &0  \\
+    0   &b  &0  &0  \\
+    0   &0  &c  &0  \\
     0   &0  &0  &1
-    } \end{matrix} \right]$$@
+    \end{matrix} \right]$$@
 旋转: 点$(x_0, y_0, z_0)$绕原点(0, 0, 0) 到 $(x, y, z)$ 的单位向量逆时针旋转 $\theta$ 弧度
-    旋转矩阵:   @$$\left[ \begin{matrix}{
+    旋转矩阵:   @$$\left[ \begin{matrix}
         \cos \theta + (1 - \cos \theta) x^2
     &   (1 - \cos \theta) y x + (\sin \theta) z
     &   (1 - \cos \theta) z x - (\sin \theta) y
     &   0
-    \cr
+    \\
 
         (1 - \cos \theta) x y - (\sin \theta) z
     &   \cos \theta + (1 - \cos \theta) y^2
     &   (1 - \cos \theta) z y + (\sin \theta) x
     &   0
-    \cr
+    \\
         (1 - \cos \theta) x z + (\sin \theta) y
     &   (1 - \cos \theta) y z - (\sin \theta) x
     &   \cos \theta + (1 - \cos \theta) z^2
     &   0
-    \cr
+    \\
         0
     &   0
     &   0
     &   1
-    } \end{matrix} \right]$$@
+    \end{matrix} \right]$$@
 使用: 行向量$[x, y, z, 1] \times A$, A为变换矩阵
 */
 //混合积
