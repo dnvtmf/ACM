@@ -104,9 +104,9 @@ struct Matrix {
 		Matrix res(n, B.m);
 		int i, j, k;
 		for(i = 1; i <= n; ++i)
-			for(j = 1, res.a[i][j] = 0; j <= B.m; ++j)
-				for(k = 1; k <= m; ++k)
-					res.a[i][j] = a[i][k] * B.a[k][j];
+			for(k = 1; k <= m; ++k)
+				for(j = 1; j <= B.m; ++j)
+					res.a[i][j] += a[i][k] * B.a[k][j];
 //                    if((res.a[i][j] += a[i][k] * B.a[k][j] % mod) >= mod)
 //                        res.a[i][j] -= mod;
 		return res;

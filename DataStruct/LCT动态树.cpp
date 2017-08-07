@@ -17,6 +17,7 @@
     Cut(x): 删除x与其父亲结点间的边.
     LCA(x, y): 返回x, y的最近公共祖先(x, y在同一颗树中)
 */
+//根不确定
 const int NUM = 100010;
 #define LC(x) ch[x][0]
 #define RC(x) ch[x][1]
@@ -126,5 +127,82 @@ struct LCT {
 	{
 		Access(x);
 		return Access(y);
+	}
+} lct;
+
+//根确定
+const int NUM = 200010;
+#define LC(x) ch[x][0]
+#define RC(x) ch[x][1]
+#define DIR(x) (x == RC(fa[x]))
+#define IsRoot(x) (!fa[x] || (x != LC(fa[x]) && x != RC(fa[x])))
+struct LCT {
+	int ch[NUM][2], fa[NUM], size;
+	inline void Change(int x, int y, int d) {ch[x][d] = y; fa[y] = x;}
+	inline int New()
+	{
+		size++;
+		LC(size) = RC(size) = fa[size] = 0;
+		return size;
+	}
+	void init(int n)
+	{
+		size = 0;
+		for(int i = 1; i <= n; ++i) New();
+	}
+	inline void Rot(int x)
+	{
+		int y = fa[x], z = fa[y], d = DIR(x);
+		if(!IsRoot(y)) Change(z, x, DIR(y));
+		else fa[x] = z;
+		Change(y, ch[x][!d], d);
+		Change(x, y, !d);
+		fa[0] = LC(0) = RC(0) = 0;
+	}
+
+	void Splay(int x)
+	{
+		int y, z;
+		while(!IsRoot(x)) {
+			y = fa[x], z = fa[y];
+			if(IsRoot(y)) {Rot(x); break;}
+			Rot(DIR(x) == DIR(y) ? y : x), Rot(x);
+		}
+	}
+	int Access(int x)
+	{
+		int p;
+		for(p = 0; x; p = x, x = fa[x]) {
+			Splay(x), RC(x) = p;
+		}
+		return p;
+	}
+
+	void Link(int x, int y)
+	{
+		Access(x);
+		Splay(y);
+		fa[x] = y;
+	}
+	void Cut(int x)
+	{
+		Splay(x);
+		if(!fa[x]) {
+			fa[ch[x][0]] = 0;
+			ch[x][0] = 0;
+		}
+		else {
+			fa[ch[x][0]] = fa[x];
+			ch[x][0] = 0;
+		}
+		fa[x] = 0;
+	}
+	int FindRoot(int x)
+	{
+		int u = x;
+		while(fa[x]) x = fa[x];
+		while(ch[x][0]) x = ch[x][0];
+		Access(u);
+		return x;
 	}
 } lct;

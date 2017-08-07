@@ -6,48 +6,42 @@
 //朴素做法 将所有后缀进行排序$O(n^2\log{n})$采用快排 适用于m比较大的时候
 ///Manber-Myers $O(n\log^2{n})$
 int sa[NUM], rk[NUM], height[NUM], dam;
-bool cmp(int i, int j)
-{
-    if(rk[i] != rk[j])
-        return rk[i] < rk[j];
-    int ri = i + dam <= n ? rk[i + dam] : -1;
-    int rj = j + dam <= n ? rk[j + dam] : -1;
-    return ri < rj;
+bool cmp(int i, int j) {
+  if (rk[i] != rk[j])
+    return rk[i] < rk[j];
+  int ri = i + dam <= n ? rk[i + dam] : -1;
+  int rj = j + dam <= n ? rk[j + dam] : -1;
+  return ri < rj;
 }
 
-void da(int r[], int n)
-{
-    int *tmp = height;
-    r[n] = -1;
-    for(int i = 0; i <= n; ++i)
-    {
-        sa[i] = i;
-        rk[i] = r[i];
-    }
-    for(dam = 1; dam != 0 && rk[sa[n]] < n; dam <<= 1)
-    {
-        sort(sa, sa + n + 1, cmp);
-        tmp[sa[0]] = 0;
-        for(int i = 1; i <= n; ++i)
-            tmp[sa[i]] = tmp[sa[i - 1]] + (cmp(sa[i], sa[i - 1]) || cmp(sa[i - 1], sa[i]));
-        for(int i = 0; i <= n; ++i)
-            rk[i] = tmp[i];
-    }
+void da(int r[], int n) {
+  int *tmp = height;
+  r[n] = -1;
+  for (int i = 0; i <= n; ++i) {
+    sa[i] = i;
+    rk[i] = r[i];
+  }
+  for (dam = 1; dam != 0 && rk[sa[n]] < n; dam <<= 1) {
+    sort(sa, sa + n + 1, cmp);
+    tmp[sa[0]] = 0;
+    for (int i = 1; i <= n; ++i)
+      tmp[sa[i]] = tmp[sa[i - 1]] + (cmp(sa[i], sa[i - 1]) || cmp(sa[i - 1], sa[i]));
+    for (int i = 0; i <= n; ++i)
+      rk[i] = tmp[i];
+  }
 }
 
 //应用
 //基于后缀数组的字符串匹配
-bool contain(string s, int *sa, string t)
-{
-    int a = 0, b = s.length();
-    while(b - a > 1)
-    {
-        int c = (a + b) / 2;
-        if(s.compare(sa[c], t.length(), t) < 0)a = c;
-        else
-            b = c;
-    }
-    return s.compare(sa[b], t.length(), t) == 0;
+bool contain(string s, int *sa, string t) {
+  int a = 0, b = s.length();
+  while (b - a > 1) {
+    int c = (a + b) / 2;
+    if (s.compare(sa[c], t.length(), t) < 0)a = c;
+    else
+      b = c;
+  }
+  return s.compare(sa[b], t.length(), t) == 0;
 }
 
 ///倍增法模板: $O(n\log{n})$采用基数排数
@@ -56,25 +50,27 @@ bool contain(string s, int *sa, string t)
 //m为最大字符值+1
 int sa[NUM];
 int rk[NUM], height[NUM], sv[NUM], sn[NUM];
-void da(char r[], int n, int m)
-{
-    int i, j, p, *x = rk, *y = height;
-    for(i = 0; i < m; i++) sn[i] = 0;
-    for(i = 0; i < n; i++) sn[x[i] = r[i]]++;
-    for(i = 1; i < m; i++) sn[i] += sn[i - 1];
-    for(i = n - 1; i >= 0; i--) sa[--sn[x[i]]] = i;
-    for(j = p = 1; p < n; j <<= 1, m = p)
-    {
-        for(p = 0, i = n - j; i < n; i++) y[p++] = i;
-        for(i = 0; i < n; i++) if(sa[i] >= j) y[p++] = sa[i] - j;
-        for(i = 0; i < n; i++) sv[i] = x[y[i]];
-        for(i = 0; i < m; i++) sn[i] = 0;
-        for(i = 0; i < n; i++) sn[sv[i]]++;
-        for(i = 1; i < m; i++) sn[i] += sn[i - 1];
-        for(i = n - 1; i >= 0; i--) sa[--sn[sv[i]]] = y[i];
-        for(swap(x, y), x[sa[0]] = 0, i = 1, p = 1; i < n; i++)
-            x[sa[i]] = (y[sa[i]] == y[sa[i - 1]] && y[sa[i] + j] == y[sa[i - 1] + j]) ? p - 1 : p++;
-    }
+void da(char r[], int n, int m) {
+  int i, j, k, *x = rk, *y = height;
+  for (i = 0; i < m; i++) sn[i] = 0;
+  for (i = 0; i < n; i++) sn[x[i] = r[i]]++;
+  for (i = 1; i < m; i++) sn[i] += sn[i - 1];
+  for (i = n - 1; i >= 0; i--) sa[--sn[x[i]]] = i;
+  for (j = k = 1; k < n; j <<= 1, m = k) {
+    for (k = 0, i = n - j; i < n; i++) y[k++] = i;
+    for (i = 0; i < n; i++) if (sa[i] >= j) y[k++] = sa[i] - j;
+    for (i = 0; i < n; i++) sv[i] = x[y[i]];
+    for (i = 0; i < m; i++) sn[i] = 0;
+    for (i = 0; i < n; i++) sn[sv[i]]++;
+    for (i = 1; i < m; i++) sn[i] += sn[i - 1];
+    for (i = n - 1; i >= 0; i--) sa[--sn[sv[i]]] = y[i];
+    for (swap(x, y), x[sa[0]] = 0, i = k = 1; i < n; i++)
+      x[sa[i]] = (y[sa[i]] == y[sa[i - 1]] &&
+                  y[sa[i] + j] == y[sa[i - 1] + j]) ? k - 1 : k++;
+  }
+  for (i = k = 0; i < n; i++) rk[sa[i]] = i;
+  for (i = 0; i < n; height[rk[i++]] = k)
+    for (k ? k-- : 0, j = sa[rk[i] - 1]; r[i + k] == r[j + k]; k++);
 }
 
 ///DC3模板: $O(3n)$
@@ -84,40 +80,37 @@ int rk[NUM], height[NUM], sn[NUM], sv[NUM];
 #define G(x) ((x) < tb ? (x) * 3 + 1 : ((x) - tb) * 3 + 2)
 int cmp0(int r[], int a, int b)
 {return r[a] == r[b] && r[a + 1] == r[b + 1] && r[a + 2] == r[b + 2];}
-int cmp12(int r[], int a, int b, int k)
-{
-    if(k == 2) return r[a] < r[b] || (r[a] == r[b] && cmp12(r, a + 1, b + 1, 1));
-    else return r[a] < r[b] || (r[a] == r[b] && sv[a + 1] < sv[b + 1]);
+int cmp12(int r[], int a, int b, int k) {
+  if (k == 2) return r[a] < r[b] || (r[a] == r[b] && cmp12(r, a + 1, b + 1, 1));
+  else return r[a] < r[b] || (r[a] == r[b] && sv[a + 1] < sv[b + 1]);
 }
-void sort(int r[], int a[], int b[], int n, int m)//基数排序
-{
-    int i;
-    for(i = 0; i < m; i++) sn[i] = 0;
-    for(i = 0; i < n; i++) sn[sv[i] = r[a[i]]]++;
-    for(i = 1; i < m; i++) sn[i] += sn[i - 1];
-    for(i = n - 1; i >= 0; i--) b[--sn[sv[i]]] = a[i];
+void sort(int r[], int a[], int b[], int n, int m) { //基数排序
+  int i;
+  for (i = 0; i < m; i++) sn[i] = 0;
+  for (i = 0; i < n; i++) sn[sv[i] = r[a[i]]]++;
+  for (i = 1; i < m; i++) sn[i] += sn[i - 1];
+  for (i = n - 1; i >= 0; i--) b[--sn[sv[i]]] = a[i];
 }
-void dc3(int r[], int sa[], int n, int m)
-{
-    int *rn = r + n, *san = sa + n, *wa = height, *wb = rk;
-    int i, j, p, ta = 0, tb = (n + 1) / 3, tbc = 0;
-    r[n] = r[n + 1] = 0;
-    for(i = 0; i < n; i++) if(i % 3 != 0) wa[tbc++] = i;
-    sort(r + 2, wa, wb, tbc, m);
-    sort(r + 1, wb, wa, tbc, m);
-    sort(r, wa, wb, tbc, m);
-    for(p = 1, rn[F(wb[0])] = 0, i = 1; i < tbc; i++)
-        rn[F(wb[i])] = cmp0(r, wb[i - 1], wb[i]) ? p - 1 : p++;
-    if(p < tbc) dc3(rn, san, tbc, p);
-    else for(i = 0; i < tbc; i++) san[rn[i]] = i;
-    for(i = 0; i < tbc; i++) if(san[i] < tb) wb[ta++] = san[i] * 3;
-    if(n % 3 == 1) wb[ta++] = n - 1;
-    sort(r, wb, wa, ta, m);
-    for(i = 0; i < tbc; i++) sv[wb[i] = G(san[i])] = i;
-    for(i = 0, j = 0, p = 0; i < ta && j < tbc; p++)
-        sa[p] = cmp12(r, wa[i], wb[j], wb[j] % 3) ? wa[i++] : wb[j++];
-    for(; i < ta; p++) sa[p] = wa[i++];
-    for(; j < tbc; p++) sa[p] = wb[j++];
+void dc3(int r[], int sa[], int n, int m) {
+  int *rn = r + n, *san = sa + n, *wa = height, *wb = rk;
+  int i, j, p, ta = 0, tb = (n + 1) / 3, tbc = 0;
+  r[n] = r[n + 1] = 0;
+  for (i = 0; i < n; i++) if (i % 3 != 0) wa[tbc++] = i;
+  sort(r + 2, wa, wb, tbc, m);
+  sort(r + 1, wb, wa, tbc, m);
+  sort(r, wa, wb, tbc, m);
+  for (p = 1, rn[F(wb[0])] = 0, i = 1; i < tbc; i++)
+    rn[F(wb[i])] = cmp0(r, wb[i - 1], wb[i]) ? p - 1 : p++;
+  if (p < tbc) dc3(rn, san, tbc, p);
+  else for (i = 0; i < tbc; i++) san[rn[i]] = i;
+  for (i = 0; i < tbc; i++) if (san[i] < tb) wb[ta++] = san[i] * 3;
+  if (n % 3 == 1) wb[ta++] = n - 1;
+  sort(r, wb, wa, ta, m);
+  for (i = 0; i < tbc; i++) sv[wb[i] = G(san[i])] = i;
+  for (i = 0, j = 0, p = 0; i < ta && j < tbc; p++)
+    sa[p] = cmp12(r, wa[i], wb[j], wb[j] % 3) ? wa[i++] : wb[j++];
+  for (; i < ta; p++) sa[p] = wa[i++];
+  for (; j < tbc; p++) sa[p] = wb[j++];
 }
 
 ///高度数组longest commest prefix
@@ -127,12 +120,11 @@ void dc3(int r[], int sa[], int n, int m)
 //任意两个suffix(j)和suffix(k)(rank[j] < rank[k])的最长公共前缀: $\displaystyle \min_{i = j + 1 \to k}{\{height[rank[i]]\}}$
 //$height[rank[i]] \geq height[rank[i - 1]] - 1$
 int rk[maxn], height[maxn];
-void cal_height(char *r, int *sa, int n)
-{
-    int i, j, k = 0;
-    for(i = 0; i < n; i++)rk[sa[i]] = i;
-    for(i = 0; i < n; height[rk[i++]] = k)
-        for(k ? k-- : 0, j = sa[rk[i] - 1]; r[i + k] == r[j + k]; k++);
+void cal_height(char *r, int *sa, int n) {
+  int i, j, k = 0;
+  for (i = 0; i < n; i++)rk[sa[i]] = i;
+  for (i = 0; i < n; height[rk[i++]] = k)
+    for (k ? k-- : 0, j = sa[rk[i] - 1]; r[i + k] == r[j + k]; k++);
 }
 ///后缀数组应用
 //询问任意两个后缀的最长公共前缀: RMQ问题, min(i=j+1-->k){height[rk[i]]}
@@ -154,53 +146,43 @@ void cal_height(char *r, int *sa, int n)
 /**
  * 利用后缀数组和ST表得到与第pos个后缀有长度为len的公共前缀的后缀范围[getL(pos, val), getR(pos, val)]
  */
-struct ST
-{
-    int st[NUM][22], Lg[NUM];
-    void init(const int a[], int n)
-    {
-        Lg[1] = 0;
-        for(int i = 2; i <= n; ++i) Lg[i] = Lg[i >> 1] + 1;
-        for(int i = n - 1; i >= 0; --i)
-        {
-            st[i][0] = a[i];
-            for(int j = 1; i + (1 << j) <= n; ++j)
-                st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
-        }
+struct ST {
+  int st[NUM][22], Lg[NUM];
+  void init(const int a[], int n) {
+    Lg[1] = 0;
+    for (int i = 2; i <= n; ++i) Lg[i] = Lg[i >> 1] + 1;
+    for (int i = n - 1; i >= 0; --i) {
+      st[i][0] = a[i];
+      for (int j = 1; i + (1 << j) <= n; ++j)
+        st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
     }
-    int Min(int l, int r)
-    {
-        int k = Lg[r - l + 1];
-        return min(st[l][k], st[r - (1 << k) + 1][k]);
+  }
+  int Min(int l, int r) {
+    int k = Lg[r - l + 1];
+    return min(st[l][k], st[r - (1 << k) + 1][k]);
+  }
+  int getL(int pos, int val) {
+    int l = 0, r = pos - 1, mid, ans = pos;
+    while (l <= r) {
+      mid = (l + r) >> 1;
+      if (Min(mid + 1, pos) >= val) {
+        ans = mid;
+        r = mid - 1;
+      }
+      else l = mid + 1;
     }
-    int getL(int pos, int val)
-    {
-        int l = 0, r = pos - 1, mid, ans = pos;
-        while(l <= r)
-        {
-            mid = (l + r) >> 1;
-            if(Min(mid + 1, pos) >= val)
-            {
-                ans = mid;
-                r = mid - 1;
-            }
-            else l = mid + 1;
-        }
-        return ans;
+    return ans;
+  }
+  int getR(int pos, int val) {
+    int l = pos + 1, r = N, mid, ans = pos;
+    while (l <= r) {
+      mid = (l + r) >> 1;
+      if (Min(pos + 1, mid) >= val) {
+        ans = mid;
+        l = mid + 1;
+      }
+      else r = mid - 1;
     }
-    int getR(int pos, int val)
-    {
-        int l = pos + 1, r = N, mid, ans = pos;
-        while(l <= r)
-        {
-            mid = (l + r) >> 1;
-            if(Min(pos + 1, mid) >= val)
-            {
-                ans = mid;
-                l = mid + 1;
-            }
-            else r = mid - 1;
-        }
-        return ans;
-    }
+    return ans;
+  }
 } st;

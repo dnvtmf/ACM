@@ -45,62 +45,56 @@ $\varphi_n = \frac{s_n } { S_n } =  \frac{ \frac{ \pi a^2}{4} \cot^2 \left(\frac
 */
 //圆与(直线)线段的相交
 //num表示圆O(o, r)与线段(s, e)的交点数, res里存储的是交点
-void Circle_cross_Segment(Point s, Point e, Point o, double r, Point res[], int &num)
-{
-    double dx = e.x - s.x, dy = e.y - s.y;
-    double A = dx * dx + dy * dy;
-    double B = 2.0 * dx * (s.x - o.x) + 2.0 * dy * (s.y - o.y);
-    double C = sqr(s.x - o.x) + sqr(s.y - o.y) - r * r;
-    double delta = B * B - 4.0 * A * C;
-    num = 0;
-    if(sgn(delta) < 0) return ;
-    delta = sqrt(max(0.0, delta));
-    double k1 = (-B - delta) / (2.0 * A);
-    double k2 = (-B + delta) / (2.0 * A);
-    //if(sgn(k1 - 1.0) <= 0 && sgn(k1) >= 0) //圆与线段相交条件判断
-    res[num++] = Point(s.x + k1 * dx, s.y + k1 * dy);
-    //if(sgn(k2 - 1.0) <= 0 && sgn(k2) >= 0)
-    res[num++] = Point(s.x + k2 * dx, s.y + k2 * dy);
+void Circle_cross_Segment(Point s, Point e, Point o, double r, Point res[], int &num) {
+  double dx = e.x - s.x, dy = e.y - s.y;
+  double A = dx * dx + dy * dy;
+  double B = 2.0 * dx * (s.x - o.x) + 2.0 * dy * (s.y - o.y);
+  double C = sqr(s.x - o.x) + sqr(s.y - o.y) - r * r;
+  double delta = B * B - 4.0 * A * C;
+  num = 0;
+  if (sgn(delta) < 0) return ;
+  delta = sqrt(max(0.0, delta));
+  double k1 = (-B - delta) / (2.0 * A);
+  double k2 = (-B + delta) / (2.0 * A);
+  //if(sgn(k1 - 1.0) <= 0 && sgn(k1) >= 0) //圆与线段相交条件判断
+  res[num++] = Point(s.x + k1 * dx, s.y + k1 * dy);
+  //if(sgn(k2 - 1.0) <= 0 && sgn(k2) >= 0)
+  res[num++] = Point(s.x + k2 * dx, s.y + k2 * dy);
 }
 
 //三角形ABO与圆(O, r)的面积交
-double Triangel_cross_Circle(Point a, Point b, Point o, double r)
-{
-    double r2 = r * r;
-    a = a - o;
-    b = b - o;
-    o = Point(0.0, 0.0);
-    bool bAInC = sgn((a * a) - r2) < 0;
-    bool bBInC = sgn((b * b) - r2) < 0;
-    double sg = 0.5 * sgn(a ^ b), res = 0.0;
-    Point tmp[2];
-    int num;
-    if(bAInC && bBInC) res = abs(a ^ b);
-    else if(bAInC || bBInC)
-    {
-        if(bBInC) swap(a, b);
-        Circle_cross_Segment(a, b, 0, r, tmp, num);
-        res = fabs(a ^ tmp[0]) + r2 * angle(tmp[0], b);
+double Triangel_cross_Circle(Point a, Point b, Point o, double r) {
+  double r2 = r * r;
+  a = a - o;
+  b = b - o;
+  o = Point(0.0, 0.0);
+  bool bAInC = sgn((a * a) - r2) < 0;
+  bool bBInC = sgn((b * b) - r2) < 0;
+  double sg = 0.5 * sgn(a ^ b), res = 0.0;
+  Point tmp[2];
+  int num;
+  if (bAInC && bBInC) res = abs(a ^ b);
+  else if (bAInC || bBInC) {
+    if (bBInC) swap(a, b);
+    Circle_cross_Segment(a, b, 0, r, tmp, num);
+    res = fabs(a ^ tmp[0]) + r2 * angle(tmp[0], b);
+  }
+  else {
+    Circle_cross_Segment(a, b, o, r, tmp, num);
+    res = r2 * angle(a, b);
+    if (num == 2) {
+      res -= r2 * angle(tmp[0], tmp[1]);
+      res += fabs(tmp[0] ^ tmp[1]);
     }
-    else
-    {
-        Circle_cross_Segment(a, b, o, r, tmp, num);
-        res = r2 * angle(a, b);
-        if(num == 2)
-        {
-            res -= r2 * angle(tmp[0], tmp[1]);
-            res += fabs(tmp[0] ^ tmp[1]);
-        }
-    }
-    return sg * res;
+  }
+  return sg * res;
 }
 
 //多边形与圆的面积交
-double Polygon_intersect_Circle(Point ploy[], int n, Point O, double r)
-{
-	ploy[n] = ploy[0];
-	double res = 0.0;
-	for(int i = 0; i < n; ++i)
-		res += Triangel_cross_Circle(ploy[i], ploy[i + 1], O, r);
-	return fabs(res);
+double Polygon_intersect_Circle(Point ploy[], int n, Point O, double r) {
+  ploy[n] = ploy[0];
+  double res = 0.0;
+  for (int i = 0; i < n; ++i)
+    res += Triangel_cross_Circle(ploy[i], ploy[i + 1], O, r);
+  return fabs(res);
 }

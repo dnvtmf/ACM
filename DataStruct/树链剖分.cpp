@@ -16,79 +16,59 @@ len[p]: 链p的长度
 total: 划分链的数量
 dfn: 树中结点的遍历顺序
 */
-struct edge
-{
-    int next, to;
-} e[NUM << 1];
+struct edge {int next, to; } e[NUM << 1];
 int head[NUM], tot;
-void init()
-{
-    memset(head, -1, sizeof(head));
-    tot = 0;
-}
-void add_edge(int u, int v)
-{
-    e[tot] = (edge) {head[u], v};
-    head[u] = tot++;
-}
+void gInit() {memset(head, -1, sizeof(head)); tot = 0;}
+void add_edge(int u, int v) {e[tot] = (edge) {head[u], v}; head[u] = tot++;}
 int sz[NUM], fa[NUM], dep[NUM];
 int belong[NUM], id[NUM];
 int start[NUM], len[NUM], total;
 int dfn[NUM];
-bool vis[NUM];
 void split()
 {
-    int tail = 0,  top = 0;
-    dep[dfn[top++] = 1] = 0;
-    fa[1] = 0;
-    while(tail < top)
-    {
-        int u = dfn[tail++];
-        for(int i = head[u]; ~i; i = e[i].next)
-            if(e[i].to != fa[u])
-            {
-                dep[dfn[top++] = e[i].to] = dep[u] + 1;
-                fa[e[i].to] = u;
-            }
-    }
-    memset(vis, 0, sizeof(vis));
-    total = 0;
-    while(top)
-    {
-        int u = dfn[--top], v = -1;
-        sz[u] = 1;
-        for(int i = head[u]; ~i; i = e[i].next)
-            if(vis[e[i].to])
-            {
-                sz[u] += sz[e[i].to];
-                if(v == -1 || sz[e[i].to] > sz[v])
-                    v = e[i].to;
-            }
-        if(v == -1)
-        {
-            id[u] = len[++total] = 1;
-            belong[start[total] = u] = total;
-        }
-        else
-        {
-            id[u] = ++len[belong[u] = belong[v]];
-            start[belong[u]] = u;
-        }
-        vis[u] = true;
-    }
+	int tail = 0, top = 0, u, v;
+	dep[dfn[top++] = 1] = 0;
+	fa[1] = 0;
+	while(tail < top) {
+		u = dfn[tail++];
+		for(int i = head[u]; ~i; i = e[i].next) {
+			if(e[i].to != fa[u]) {
+				dep[dfn[top++] = e[i].to] = dep[u] + 1;
+				fa[e[i].to] = u;
+			}
+		}
+	}
+	total = 0;
+	while(top) {
+		sz[u = dfn[--top]] = 1, v = -1;
+		for(int i = head[u]; ~i; i = e[i].next) {
+			if(e[i].to != fa[u]) {
+				sz[u] += sz[e[i].to];
+				if(v == -1 || sz[e[i].to] > sz[v])
+					v = e[i].to;
+			}
+		}
+		if(v == -1) {
+			id[u] = len[++total] = 1;
+			belong[start[total] = u] = total;
+		}
+		else {
+			id[u] = ++len[belong[u] = belong[v]];
+			start[belong[u]] = u;
+		}
+	}
 }
 void Query(int u, int v)
 {
-    int x = belong[u], y = belong[v];
-    while(x != y)
-    {
-        int& w = dep[start[x]] > dep[start[y]] ? u : v;
-        int& z = dep[start[x]] > dep[start[y]] ? x : y;
-        //query[z][id[w]-->len[z]]
-        w = fa[start[z]];
-        z = belong[w];
-    }
-    u = id[u], v = id[v];
-    if(u > v) swap(u, v);
-    //query [x][u-->v]
+	int x = belong[u], y = belong[v];
+	while(x != y) {
+		int &w = dep[start[x]] > dep[start[y]] ? u : v;
+		int &z = dep[start[x]] > dep[start[y]] ? x : y;
+		//query[z][id[w]-->len[z]]
+		w = fa[start[z]];
+		z = belong[w];
+	}
+	u = id[u], v = id[v];
+	if(u > v) swap(u, v);
+	//query [x][u-->v]
 }

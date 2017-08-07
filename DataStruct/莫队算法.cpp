@@ -10,30 +10,28 @@
 		2. 转移的时候注意先加减l, r, 后加减l, r的问题.
 */
 int qst;//每块的大小
-struct Query
-{
-    int l, r, id;
+struct Query {
+	int l, r, id;
 } qry[NUM];
 LL ans[NUM];
 bool operator < (const Query &a, const Query &b)
 {
-    if((a.l / sqt) == (b.l / sqt)) return a.r < b.r;
-    return a.l < b.l;
+	if((a.l / sqt) == (b.l / sqt)) return a.r < b.r;
+	return a.l < b.l;
 }
 int update(int l, int r);//转移[l, r]到答案的改变
 void solve(int n)
 {
-    sqt = sqrt(1.0 * n);
-    sort(qry, qry + Q);
-    int l = 0, r = 0;
-    int res = a[0];
-    for(i = 0; i < Q; i++)
-    {
-        while(l > qry[i].l) res += update(--l, r);
-        while(r < qry[i].r) res += update(l, ++r);
-        while(r > qry[i].r) res -= update(l, r--);
-        while(l < qry[i].l) res -= update(l++, r);
-        ans[qry[i].id] = res;
-    }
+	sqt = sqrt(1.0 * n);
+	sort(qry, qry + Q);
+	int l = 0, r = 0;
+	int res = a[0];
+	for(i = 0; i < Q; i++) {
+		while(l > qry[i].l) res += update(--l, r);
+		while(r < qry[i].r) res += update(l, ++r);
+		while(r > qry[i].r) res -= update(l, r--);
+		while(l < qry[i].l) res -= update(l++, r);
+		ans[qry[i].id] = res;
+	}
 }
 //分块 $O(N\sqrt{N})$

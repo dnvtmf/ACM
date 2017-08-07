@@ -16,113 +16,105 @@ val: Max(x)
 */
 ///指针版
 const int NUM = 250000 + 10;
-struct SamNode
-{
-    SamNode* par, *ch[26];
-    int val;
-    SamNode()
-    {
-        val = 0;
-        par = 0;
-        memset(ch, 0, sizeof(ch));
-    }
+struct SamNode {
+	SamNode *par, *ch[26];
+	int val;
+	SamNode()
+	{
+		val = 0;
+		par = 0;
+		memset(ch, 0, sizeof(ch));
+	}
 };
-struct SAM
-{
-    SamNode node[NUM * 2], *last, *root;
-    int size;
-    void init() {last = root = &node[size = 0];}
-    void insert(int w)
-    {
-        SamNode* p = last, *np = &node[++size];
-        np->val = p->val + 1;
-        while(p && !p->ch[w])
-            p->ch[w] = np, p = p->par;
-        if(!p) np->par = root;
-        else
-        {
-            SamNode* q = p->ch[w];
-            if(q->val == p->val + 1) np->par = q;
-            else
-            {
-                SamNode* nq = &node[++size];
-                memcpy(nq->ch, q->ch, sizeof(q->ch));
-                nq->val = p->val + 1;
-                nq->par = q->par;
-                q->par = np->par = nq;
-                while(p && p->ch[w] == q)
-                    p->ch[w] = nq, p = p->par;
-            }
-        }
-        last = np;
-    }
+struct SAM {
+	SamNode node[NUM * 2], *last, *root;
+	int size;
+	void init() {last = root = &node[size = 0];}
+	void insert(int w)
+	{
+		SamNode *p = last, *np = &node[++size];
+		np->val = p->val + 1;
+		while(p && !p->ch[w])
+			p->ch[w] = np, p = p->par;
+		if(!p) np->par = root;
+		else {
+			SamNode *q = p->ch[w];
+			if(q->val == p->val + 1) np->par = q;
+			else {
+				SamNode *nq = &node[++size];
+				memcpy(nq->ch, q->ch, sizeof(q->ch));
+				nq->val = p->val + 1;
+				nq->par = q->par;
+				q->par = np->par = nq;
+				while(p && p->ch[w] == q)
+					p->ch[w] = nq, p = p->par;
+			}
+		}
+		last = np;
+	}
 } sam;
 //数组版
 /*
 build(s): 建立字符串s的后缀自动机
 Right(): 计算每个状态的|Right|
 */
-struct SAM
-{
-    int par[NUM * 2], ch[NUM * 2][26];
-    int val[NUM * 2];
-    int r[NUM * 2];
-    int deg[NUM * 2];
-    int sz, root, last;
-    void init()
-    {
-        //memset(ch, 0, sizeof(ch));
-        //memset(r, 0, sizeof(r));
-        root = last = sz = 1;
-    }
-    void insert(int w)
-    {
-        int p = last, np = ++sz;
-        val[np] = val[p] + 1;
-        r[np] = 1;
-        for(; p && !ch[p][w]; p = par[p])
-            ch[p][w] = np;
-        if(p == 0) par[np] = root;
-        else
-        {
-            int q = ch[p][w];
-            if(val[q] == val[p] + 1) par[np] = q;
-            else
-            {
-                int nq = ++sz;
-                memcpy(ch[nq], ch[q], sizeof(ch[q]));
-                val[nq] = val[p] + 1;
-                par[nq] = par[q];
-                par[q] = par[np] = nq;
-                for(; p && ch[p][w] == q; p = par[p])
-                    ch[p][w] = nq;
-            }
-        }
-        last = np;
-    }
-    void build(char s[])
-    {
-        init();
-        for(int i = 0; s[i]; ++i)
-            insert(s[i] - 'a');
-    }
-    void Right()
-    {
-        int p = root;
-        for(int i = root + 1; i <= sz; ++i) ++deg[par[i]];
-        queue<int> que;
-        for(int i = 1; i <= sz; ++i)
-            if(!deg[i])
-                que.push(i);
-        while(!que.empty())
-        {
-            p = que.front();
-            que.pop();
-            if(!par[p]) continue;
-            r[par[p]] += r[p];
-            if((--deg[par[p]]) == 0) que.push(par[p]);
-        }
-    }
+struct SAM {
+	int par[NUM * 2], ch[NUM * 2][26];
+	int val[NUM * 2];
+	int r[NUM * 2];
+	int deg[NUM * 2];
+	int sz, root, last;
+	void init()
+	{
+		//memset(ch, 0, sizeof(ch));
+		//memset(r, 0, sizeof(r));
+		root = last = sz = 1;
+	}
+	void insert(int w)
+	{
+		int p = last, np = ++sz;
+		val[np] = val[p] + 1;
+		r[np] = 1;
+		for(; p && !ch[p][w]; p = par[p])
+			ch[p][w] = np;
+		if(p == 0) par[np] = root;
+		else {
+			int q = ch[p][w];
+			if(val[q] == val[p] + 1) par[np] = q;
+			else {
+				int nq = ++sz;
+				memcpy(ch[nq], ch[q], sizeof(ch[q]));
+				val[nq] = val[p] + 1;
+				par[nq] = par[q];
+				par[q] = par[np] = nq;
+				for(; p && ch[p][w] == q; p = par[p])
+					ch[p][w] = nq;
+			}
+		}
+		last = np;
+	}
+	void build(char s[])
+	{
+		init();
+		for(int i = 0; s[i]; ++i)
+			insert(s[i] - 'a');
+	}
+	void Right()
+	{
+		int p = root;
+		for(int i = root + 1; i <= sz; ++i) ++deg[par[i]];
+		queue<int> que;
+		for(int i = 1; i <= sz; ++i)
+			if(!deg[i])
+				que.push(i);
+		while(!que.empty()) {
+			p = que.front();
+			que.pop();
+			if(!par[p]) continue;
+			r[par[p]] += r[p];
+			if((--deg[par[p]]) == 0) que.push(par[p]);
+		}
+	}
 } sam;
 /*应用:
 求Right集合的大小:

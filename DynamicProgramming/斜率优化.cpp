@@ -8,47 +8,43 @@
 */
 P stk[NUM];
 int top;
-LL cross(P a, P b, P c)
-{
-	return (b.FI - a.FI) * (b.SE - c.SE) - (b.SE - a.SE) * (b.FI - c.FI);
+LL cross(P a, P b, P c) {
+  return (b.FI - a.FI) * (b.SE - c.SE) - (b.SE - a.SE) * (b.FI - c.FI);
 }
-inline LL calc(P &a, int x)
-{
-	return a.FI * x + a.SE;
+inline LL calc(P &a, int x) {
+  return a.FI * x + a.SE;
 }
-int main()
-{
-	for(int i = 0; i < n; ++i) {
-		LL dp = c(i);
-		//二分查找答案
-		if(top != 0) {
-			if(top == 1) {
-				dp += calc(stk[0], h(i));
-			}
-			else {
-				int l = 1, r = p - 1, mid, res = 1;
-				while(l <= r) {
-					mid = (l + r) >> 1;
-					LL tmp = calc(stk[mid], h[i]) - calc(stk[mid-1], h[i]);
-					if(tmp >= 0) {
-						res = mid;
-						l = mid + 1;
-					}
-					else
-						r = mid - 1;
-				}
-				if(res == 1) {
-					dp += min(calc(stk[1], h[i]), calc(stk[i], h[i]));
-
-				}
-				else {
-					dp += calc(stk[res], h[i]);
-				}
-			}
-		}
-		P tmp(g(i), f(i));//要求第一维x递增, 第二维y有序
-		while(top > 1 && cross(stk[top - 2], tmp, stk[top - 1]) >= 0) --top;
-		stk[top++] = tmp;
-	}
-	return 0;
+int main() {
+  for (int i = 0; i < n; ++i) {
+    LL dp = c(i);
+    //二分查找答案
+    if (top != 0) {
+      if (top == 1) {
+        dp += calc(stk[0], h(i));
+      }
+      else {
+        int l = 1, r = top - 1, mid, res = 1;
+        while (l <= r) {
+          mid = (l + r) >> 1;
+          LL tmp = calc(stk[mid], h[i]) - calc(stk[mid - 1], h[i]);
+          if (tmp >= 0) {
+            res = mid;
+            l = mid + 1;
+          }
+          else
+            r = mid - 1;
+        }
+        if (res == 1) {
+          dp += min(calc(stk[1], h[i]), calc(stk[0], h[i]));
+        }
+        else {
+          dp += calc(stk[res], h[i]);
+        }
+      }
+    }
+    P tmp(g(i), f(i));//要求第一维x递增, 第二维y有序
+    while (top > 1 && cross(stk[top - 2], tmp, stk[top - 1]) >= 0) --top;
+    stk[top++] = tmp;
+  }
+  return 0;
 }

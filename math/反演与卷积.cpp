@@ -54,16 +54,16 @@ $\displaystyle \frac{\phi(n)}{n} = \sum_{d|n}{\frac{\mu(d)}{d}}$ */
 定义逐点加法$(f + g)(n) = f(x) + g(x), f(x\cdot g) = f(x) \cdot g(x)$.
 一个比较显然的性质: 若$f,g$均为积性函数，则$\displaystyle f\cdot g, (f/g)(n) = \frac{f(n)}{g(n)}$也是积性函数。
 
-定义$F(n)=\sum_{d|n}{f(d)} 称为 $f$ 的和型函数(summatory function).
+定义$F(n)=\sum_{d|n}{f(d)}$ 称为 $f$ 的和型函数(summatory function).
 如果 $f(n)$是积性函数, 那么$ F(n)$ 也是积性函数
 
 常见积性函数有:
 元函数$\varepsilon(n) = [n==1]$, (完全积性) (对于狄利克雷卷积的乘法单位)
 恒等函数 $1(n) = 1$, (完全积性)
-单位函数$Id(n) = n$, (完全积性)
-幂函数 $Id_k(n) = n^k$, k为任意复数、实数.  (完全积性) ($Id_0(n) = 1(n), Id_1(n) = Id(n))
-欧拉函数$\phi(n)$
-莫比乌斯函数$\mu(n)$,
+单位函数 $Id(n) = n$, (完全积性)
+幂函数 $Id_k(n) = n^k$, k为任意复数、实数.  (完全积性) ($Id_0(n) = 1(n), Id_1(n) = Id(n)$)
+欧拉函数 $\phi(n)$
+莫比乌斯函数 $\mu(n)$,
 除数函数 $\sigma_k(n) = \sum_{d|n}{d^k}$, n的所有正因数的k次幂之和,当中k可为任何复数.
 n的正因数数目$d(n) = \sigma_0 (n)$,
 n的所有正因数之和$\sigma(n) = \sigma_1 (n)$,
@@ -121,6 +121,17 @@ void dirichlet(int f[], int g[], int fg[], int n)
 	给数组f, 求@$$g[i] = \sum_{i_1 | i}{\sum_{i_2|i_1}{\cdots \sum_{i_k | i_{k-1}}{f(i_k)}}} \pmod{1000000007} (1 \leq i \leq n, i_j > 0)$$@
 	解法1: $g = f \cdot 1^{(k-1)}$, 而 $1^{k}$ 有关于mod=1000000007的循环节, 所以用快速幂求 $1^{(k-1)\pmod{mod}} $,然后求 $f\cdot 1^{(k-1) \pmod{mod}}$
 	时间复杂度：$O(n\log{n} \log{k})$
+*/
+/**$1^{r}$的解释:
+若求: $f(n) = 1^{r}(n)$, 相当于求经过 $r$ 次转化, $n$多少种方法变到约数$d$.
+令 $\disp n = \prod_{i=1}^{m}{p_i ^ {k_i}}, d = \prod_{i=1}^{m}{p_i^{k'_i}}$,
+则 方法数有 $\prod_{i=1}^{m}{F_{r}^{k_i - k'_i}} = \prod_{i=1}^{m}{C_{k_i - k'_i + r - 1}^{k_i - k'_i}}$
+再结合约数的性质, 有@$$
+	f(n)
+= \prod_{i=1}^{m}{\sum_{j=0}^{k_i}{F_{r}^{k_i - j}}}
+= \prod_{i=1}^{m}{\sum_{j=0}^{k_i}{C_{r + k_i - j - 1}^{k_i - j}}}
+= \prod_{i=1}^{m}{C_{r + k_i}^{k_i}}
+$$@
 */
 //线性筛求$1^{k}$ (利用完全积性函数性质)
 void const_equal_fk(int k, int prime[], int tot, int n, int g[])

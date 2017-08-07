@@ -4,8 +4,7 @@
 空间复杂度: $O(n)$
 */
 //单点更新和区间[1, L]求和
-struct BIT
-{
+struct BIT {
 	vector<int> sum;
 	int N;
 	void init(int n)
@@ -33,8 +32,7 @@ struct BIT
 	}
 };
 //区间更新和单点查询
-struct BIT
-{
+struct BIT {
 	vector<int> v;
 	int N;
 	void init(int n)
@@ -66,8 +64,7 @@ struct BIT
 int sum[NUM][NUM];
 void update(int x, int y, int val)
 {
-	for(;x < NUM; x += x & -x)
-	{
+	for(; x < NUM; x += x & -x) {
 		for(int y1 = y; y1 < NUM; y1 += y1 & -y1)
 			sum[x][y1] += val;
 	}

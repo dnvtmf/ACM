@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.12.15)  15 DEC 2016 15:20
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.8.7)  7 AUG 2017 19:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1306,31 +1306,39 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
-\g__fontspec_family_MicrosoftYaHei_int=\count163
+*************************************************
+* fontspec warning: "script-not-exist"
+* 
+* Font 'WenQuanYi Zen Hei Mono' does not contain script 'CJK'.
+*************************************************
+\g__fontspec_family_WenQuanYiZenHeiMono_int=\count163
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Microsoft YaHei/I (it probably doesn't exist).
+. Could not resolve font WenQuanYi Zen Hei Mono/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "no-font-shape"
 . 
-. Could not resolve font Microsoft YaHei/I (it probably doesn't exist).
+. Could not resolve font WenQuanYi Zen Hei Mono/BI (it probably doesn't
+. exist).
+.................................................
+.................................................
+. fontspec info: "no-font-shape"
+. 
+. Could not resolve font WenQuanYi Zen Hei Mono/I (it probably doesn't exist).
 .................................................
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'MicrosoftYaHei(0)' created for font 'Microsoft YaHei' with
-. options [Script={CJK},AutoFakeBold={4}].
+. Font family 'WenQuanYiZenHeiMono(0)' created for font 'WenQuanYi Zen Hei
+. Mono' with options [Script={CJK},AutoFakeBold={4}].
 . 
 . This font family consists of the following NFSS series/shapes:
-. - 'normal' (m/n) with NFSS spec.: <->"Microsoft
-. YaHei/OT:script=hani;language=DFLT;"
+. - 'normal' (m/n) with NFSS spec.: <->"WenQuanYi Zen Hei Mono/OT:"
 . - 'small caps'  (m/sc) with NFSS spec.: - 'bold' (bx/n) with NFSS spec.:
-. <->"Microsoft YaHei/OT:script=hani;language=DFLT;embolden=4;"
-. - 'bold small caps'  (bx/sc) with NFSS spec.: - 'bold italic' (bx/it) with
-. NFSS spec.: <->"Microsoft YaHei/BI/OT:script=hani;language=DFLT;"
-. - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
+. <->"WenQuanYi Zen Hei Mono/OT:embolden=4;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
 .................................................
 \g__fontspec_family_DejaVuSansMono_int=\count164
 .................................................
@@ -1384,7 +1392,6 @@ LaTeX Info: Redefining \] on input line 2740.
 . \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
 . \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
 .................................................
-
 (./CodeStyle.sty
 Package: CodeStyle 
 
@@ -1611,234 +1618,266 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 8.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] (./main.toc [2] [3] [4])
+] (./main.toc [2] [3]
+Overfull \hbox (2.69966pt too wide) detected at line 64
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 101
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 65
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 103
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 67
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 104
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 68
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 106
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 69
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 108
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 70
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 110
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 71
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 110
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 72
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 111
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 73
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 112
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 74
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 113
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 75
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 115
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 76
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 116
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 78
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 119
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 79
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 120
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 80
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 121
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 82
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 122
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 83
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 123
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 84
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 125
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 85
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 125
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 86
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 129
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 87
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 131
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 88
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 132
+ []
+
+[4]
+Overfull \hbox (2.69966pt too wide) detected at line 89
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 136
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 90
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 136
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 92
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 138
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 93
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 140
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 94
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 143
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 95
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 145
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 96
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 146
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 97
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 147
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 98
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 149
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 99
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 152
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 100
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 155
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 102
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 156
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 103
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 157
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 104
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 157
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 105
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 158
+ []
+
+
+Overfull \hbox (2.69966pt too wide) detected at line 106
+ []\EU1/DejaVuSansMono(0)/m/n/10.53937 158
+ []
+
+)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
  (../DataStruct/pdf_dataStruct.tex [5]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 5.
- (../DataStruct/BIT树状数组.cpp
-[6]) (../DataStruct/主席树(可持久化线段树).cpp [7]) (../DataStruct/树链剖分.cpp [8] [9])
-(../DataStruct/Splay伸展树.cpp [10] [11]) (../DataStruct/Treap.cpp [12])
+ (../DataStruct/BIT树状数组.cpp [6])
+(../DataStruct/主席树(可持久化线段树).cpp [7]) (../DataStruct/树链剖分.cpp [8])
+(../DataStruct/Splay伸展树.cpp [9] [10]) (../DataStruct/Treap.cpp [11]) [12]
 (../DataStruct/AVL树.cpp [13] [14] [15] [16]
 LaTeX Font Info:    Font shape `EU1/DejaVuSansMono(0)/m/sl' in size <7.52812> n
 ot available
 (Font)              Font shape `EU1/DejaVuSansMono(0)/m/it' tried instead on in
 put line 267.
 ) (../DataStruct/LCT动态树.cpp [17]
-[18] [19]) (../DataStruct/ST表.cpp) (../DataStruct/莫队算法.cpp [20])
-(../DataStruct/DisjointSet并查集.cpp) (../DataStruct/数据结构经典题目.cpp [21]))
-(../DynamicProgramming/pdf_DP.tex [22] (../DynamicProgramming/斜率优化.cpp)
-[23] (../DynamicProgramming/LIS最长上升子序列.cpp) (../DynamicProgramming/多重背包及优化.cpp
-[24]) (../DynamicProgramming/重集划分数(限制子集极差和).cpp [25])
-(../DynamicProgramming/problems.tex)) (../graph/pdf_graph.tex [26]
-(../graph/TopologicalSorting拓扑排序.cpp) (../graph/Euler欧拉回路,哈密顿回路.cpp [27]
-[28] [29]) (../graph/无向图的桥,割点,双连通分量.cpp [30] [31] [32])
-(../graph/无向图判环的长度的奇偶.cpp) (../graph/有向图强连通分量,缩点.cpp [33] [34] [35])
-(../graph/ShortestPath最短路.cpp [36] [37] [38] [39]) (../graph/差分约束系统.cpp
-[40]) (../graph/BipartiteGraph二分图.cpp [41] [42] [43]) (../graph/2-SAT.cpp
-[44] [45]) [46] (../graph/MaximumFlow最大流.cpp [47] [48] [49])
-(../graph/MinimumCut最小割.cpp [50] [51]) (../graph/FractionalProgramming分数规划.cpp)
-(../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp [52])
-(../graph/MaximumDensitySubgraph最大密度子图.cpp) (../graph/二分图的最小点权覆盖和最大点权独立集.cpp
-[53]) (../graph/MincostFlow最小费用流.cpp [54] [55] [56]) (../graph/有上下界的网络流.cpp
-[57]) (../graph/树及树的分治.cpp [58]) (../graph/MinimumSpanningTree最小生成树.cpp
-[59] [60] [61] [62] [63]) (../graph/树的重心.cpp [64]) (../graph/树的直径.cpp)
-(../graph/树的最小支配集,最小覆盖集,最大独立集.cpp [65] [66]) (../graph/LCA最近公共祖先.cpp [67]
-[68])) (../math/pdf_math.tex [69] (../math/Prime.cpp [70] [71])
-(../math/Factorization因式分解和约数.cpp [72] [73] [74]) (../math/EulerFunction.cpp
-[75]) (../math/QuickPow快速幂快速乘.cpp [76]) (../math/gcd以及扩展gcd.cpp [77])
-(../math/反演与卷积.cpp [78]
-Missing character: There is no 称 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 为 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 的 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 和 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 型 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 如 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 果 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 是 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 那 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 么 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 也 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 是 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 常 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 见 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 有 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 元 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 完 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 全 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 对 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 于 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 狄 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 利 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 克 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 雷 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 卷 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 的 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 乘 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 法 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 单 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 位 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 恒 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 等 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 完 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 全 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 单 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 位 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 完 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 全 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 幂 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 函 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 为 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 任 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 意 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 复 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 、 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 实 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 数 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 完 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 全 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 积 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
-Missing character: There is no 性 in font DejaVu Sans Mono/OT:script=latn;langua
-ge=DFLT;mapping=tex-text;!
- [79] [80]) (../math/Inverse逆元.cpp [81])
-(../math/Module模运算.cpp [82] [83]) (../math/幂模p与原根.cpp [84])
-(../math/中国剩余定理和线性同余方程组.cpp [85]) (../math/BabyStepGiantStep.cpp)
-(../math/伪随机数生成--梅森旋转算法.cpp [86]) (../math/位运算.cpp [87] [88])
-(../math/GameTheory.cpp [89] [90]) (../math/FFT_NTT.cpp [91] [92] [93])
-[94] (../math/FWT快速沃尔什变换.cpp [95]) (../math/数学知识.cpp [96]) (../math/概率论.cpp)
+[18] [19]) (../DataStruct/ST表.cpp [20]) (../DataStruct/莫队算法.cpp)
+(../DataStruct/DisjointSet并查集.cpp [21]) (../DataStruct/数据结构经典题目.cpp [22]))
+(../DynamicProgramming/pdf_DP.tex [23] (../DynamicProgramming/斜率优化.cpp)
+(../DynamicProgramming/四边形优化.cpp) [24] (../DynamicProgramming/LIS最长上升子序列.cpp)
+(../DynamicProgramming/多重背包及优化.cpp [25])
+(../DynamicProgramming/重集划分数(限制子集极差和).cpp [26])
+(../DynamicProgramming/problems.tex)) (../graph/pdf_graph.tex [27]
+(../graph/TopologicalSorting拓扑排序.cpp) (../graph/Euler欧拉回路,哈密顿回路.cpp [28]
+[29] [30]) (../graph/无向图的桥,割点,双连通分量.cpp [31] [32] [33])
+(../graph/无向图判环的长度的奇偶.cpp) (../graph/有向图强连通分量,缩点.cpp [34] [35] [36])
+(../graph/ShortestPath最短路.cpp [37] [38] [39] [40]) (../graph/差分约束系统.cpp
+[41]) (../graph/BipartiteGraph二分图.cpp [42] [43] [44]) (../graph/2-SAT.cpp
+[45] [46] [47]) (../graph/MaximumFlow最大流.cpp [48] [49] [50])
+(../graph/MinimumCut最小割.cpp [51] [52]) (../graph/FractionalProgramming分数规划.cpp
+[53]) (../graph/Maximum Weight Closure of a Graph最大权闭合图.cpp)
+(../graph/MaximumDensitySubgraph最大密度子图.cpp) [54]
+(../graph/二分图的最小点权覆盖和最大点权独立集.cpp) (../graph/MincostFlow最小费用流.cpp [55] [56]
+[57]) (../graph/有上下界的网络流.cpp) [58] (../graph/树及树的分治.cpp [59])
+(../graph/MinimumSpanningTree最小生成树.cpp [60] [61] [62] [63] [64])
+(../graph/树的重心.cpp) (../graph/树的直径.cpp [65]) (../graph/树的最小支配集,最小覆盖集,最大独立集.cpp
+[66] [67]) (../graph/LCA最近公共祖先.cpp [68])) (../math/pdf_math.tex [69]
+(../math/Prime.cpp [70] [71]) (../math/Factorization因式分解和约数.cpp [72] [73]
+[74]) (../math/EulerFunction.cpp [75]) (../math/QuickPow快速幂快速乘.cpp [76])
+(../math/gcd以及扩展gcd.cpp [77]) (../math/反演与卷积.cpp [78] [79] [80])
+(../math/Inverse逆元.cpp [81]) (../math/Module模运算.cpp [82] [83])
+(../math/幂模p与原根.cpp [84]) (../math/中国剩余定理和线性同余方程组.cpp [85])
+(../math/BabyStepGiantStep.cpp) (../math/伪随机数生成--梅森旋转算法.cpp [86])
+(../math/位运算.cpp [87] [88] [89]) (../math/GameTheory.cpp [90])
+(../math/FFT_NTT.cpp [91] [92] [93] [94]) [95] (../math/FWT快速沃尔什变换.cpp [96])
+(../math/数学知识.cpp [97]) (../math/概率论.cpp)
 (../math/LinearAlgebra/pdf_LinearAlgebra.tex
-(../math/LinearAlgebra/Matrix矩阵.cpp [97] [98] [99])
-(../math/LinearAlgebra/矩阵的初等变换和矩阵的逆.cpp [100] [101]))
+(../math/LinearAlgebra/Matrix矩阵.cpp [98] [99] [100])
+(../math/LinearAlgebra/矩阵的初等变换和矩阵的逆.cpp [101] [102])
+(../math/LinearAlgebra/线性递推.cpp [103]))
 (../math/CombinatorialMathematics/pdf_CombinatorialMathematics.tex
-(../math/CombinatorialMathematics/Permutation排列.cpp [102])
-(../math/CombinatorialMathematics/FullPermutation全排列.cpp [103] [104] [105])
-(../math/CombinatorialMathematics/组合与组合恒等式.cpp [106] [107])
+(../math/CombinatorialMathematics/Permutation排列.cpp [104]) [105]
+(../math/CombinatorialMathematics/FullPermutation全排列.cpp [106] [107])
+(../math/CombinatorialMathematics/组合与组合恒等式.cpp [108] [109])
 (../math/CombinatorialMathematics/鸽笼原理与Ramsey数.cpp)
-(../math/CombinatorialMathematics/容斥原理.cpp [108])
-(../math/CombinatorialMathematics/GeneratingFunction母函数.cpp)
-(../math/CombinatorialMathematics/整数拆分和Ferrers图.cpp [109])
-(../math/CombinatorialMathematics/递归关系.cpp [110]
+(../math/CombinatorialMathematics/容斥原理.cpp [110])
+(../math/CombinatorialMathematics/GeneratingFunction母函数.cpp) [111]
+(../math/CombinatorialMathematics/整数拆分和Ferrers图.cpp) [112]
+(../math/CombinatorialMathematics/递归关系.cpp
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 35.
 
-[111] [112]) (../math/CombinatorialMathematics/群和Polya定理.cpp [113])
-(../math/CombinatorialMathematics/LinearProgramming线性规划.cpp [114] [115]
-[116])) (../math/NumericalAnalysis/pdf_NumericalAnalysis.tex [117]
-(../math/NumericalAnalysis/积分.cpp) (../math/NumericalAnalysis/拉格朗日插值法.cpp
-[118]))) (../string/pdf_string.tex [119] (../string/KMP以及扩展KMP.cpp [120])
-(../string/palindrome回文串.cpp
+[113] [114]) (../math/CombinatorialMathematics/群和Polya定理.cpp [115])
+(../math/CombinatorialMathematics/LinearProgramming线性规划.cpp [116] [117]
+[118])) (../math/NumericalAnalysis/pdf_NumericalAnalysis.tex
+(../math/NumericalAnalysis/积分.cpp [119]) (../math/NumericalAnalysis/拉格朗日插值法.cpp
+) [120] (../math/NumericalAnalysis/泰勒展开.cpp))) (../string/pdf_string.tex
+[121] (../string/KMP以及扩展KMP.cpp [122]) (../string/palindrome回文串.cpp
 Missing character: There is no 字 in font DejaVu Sans Mono/OT:script=latn;langua
 ge=DFLT;mapping=tex-text;!
 Missing character: There is no 符 in font DejaVu Sans Mono/OT:script=latn;langua
@@ -1859,31 +1898,32 @@ Missing character: There is no 大 in font DejaVu Sans Mono/OT:script=latn;langu
 ge=DFLT;mapping=tex-text;!
 Missing character: There is no 小 in font DejaVu Sans Mono/OT:script=latn;langua
 ge=DFLT;mapping=tex-text;!
- [121]) [122] (../string/Hash哈希算法.cpp)
-(../string/SuffixArray后缀数组.cpp [123] [124] [125] [126]) (../string/SAM后缀自动机.cpp
-[127] [128]) (../string/Trie字典树.cpp [129]) (../string/AC自动机.cpp [130] [131]
-[132] [133]) (../string/最小表示法.cpp) [134] (../string/string问题汇总.txt))
-(../geometry/pdf_geometry.tex [135] (../geometry/计算几何基础.cpp [136]) [137]
-(../geometry/Triangle三角形.cpp [138] [139] [140]) (../geometry/Polygon多边形.cpp
-[141]) [142] (../geometry/Circle圆.cpp [143]) (../geometry/ConvexHull凸包.cpp
-[144]) [145] (../geometry/HalfPlaneCross半平面交.cpp [146]) (../geometry/立体几何.cpp
-[147] [148] [149]) (../geometry/ThreeDimensionalGraphics.tex [150] [151]
-[152]) (../geometry/LatticePoint格点上的几何.cpp)) (../other/pdf_other.tex [153]
-(../other/二分查找,三分查找.cpp) (../other/分治.cpp) [154] (../other/倍增法.cpp)
-(../other/输入输出挂.cpp [155]) (../other/STL使用注意.cpp) (../other/扩栈.cpp))
-(../Java/pdf_java.tex [156]
+ [123])
+[124] (../string/Hash哈希算法.cpp) (../string/SuffixArray后缀数组.cpp [125] [126]
+[127]) [128] (../string/SAM后缀自动机.cpp [129] [130]) (../string/Trie字典树.cpp
+[131]) (../string/AC自动机.cpp [132] [133] [134] [135]) (../string/最小表示法.cpp)
+(../string/string问题汇总.txt [136])) (../geometry/pdf_geometry.tex [137]
+(../geometry/计算几何基础.cpp [138]) [139] (../geometry/Triangle三角形.cpp [140]
+[141] [142]) (../geometry/Polygon多边形.cpp [143]) [144] (../geometry/Circle圆.cpp
+[145]) (../geometry/ConvexHull凸包.cpp [146]) (../geometry/HalfPlaneCross半平面交.cpp
+[147] [148]) (../geometry/立体几何.cpp [149] [150])
+(../geometry/ThreeDimensionalGraphics.tex [151] [152] [153] [154])
+(../geometry/LatticePoint格点上的几何.cpp)) (../other/pdf_other.tex [155]
+(../other/二分查找,三分查找.cpp) (../other/分治.cpp) [156] (../other/倍增法.cpp)
+(../other/输入输出挂.cpp [157]) (../other/STL使用注意.cpp) (../other/扩栈.cpp))
+(../Java/pdf_java.tex [158]
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (../Java/Main.java
 
-LaTeX Font Warning: Font shape `EU1/MicrosoftYaHei(0)/m/it' undefined
-(Font)              using `EU1/MicrosoftYaHei(0)/m/n' instead on input line 25.
+LaTeX Font Warning: Font shape `EU1/WenQuanYiZenHeiMono(0)/m/it' undefined
+(Font)              using `EU1/WenQuanYiZenHeiMono(0)/m/n' instead on input lin
+e 25.
 
-
-) (../Java/java输入输出挂.java [157]))
+) (../Java/java输入输出挂.java [159]))
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 26.
- [158]
+ [160]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 26.
  (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 26.
@@ -1895,12 +1935,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 26.
  ) 
 Here is how much of TeX's memory you used:
- 32578 strings out of 493591
- 593719 string characters out of 6143545
- 818130 words of memory out of 5000000
- 35355 multiletter control sequences out of 15000+600000
- 13444 words of font info for 89 fonts, out of 8000000 for 9000
+ 32654 strings out of 493591
+ 595417 string characters out of 6143547
+ 814568 words of memory out of 5000000
+ 35425 multiletter control sequences out of 15000+600000
+ 13428 words of font info for 87 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  67i,17n,72p,10493b,1918s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (158 pages).
+Output written on main.pdf (160 pages).

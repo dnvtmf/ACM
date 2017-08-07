@@ -52,7 +52,7 @@ int Euler()
 				euler[i * prime[j]] = euler[i] * prime[j];
 				break;
 			}
-			euler[i * prime[j]] = euler[i] % prime[j];
+			euler[i * prime[j]] = euler[i] * (prime[j] - 1);
 		}
 	}
 }

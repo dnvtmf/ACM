@@ -32,65 +32,131 @@ DFT变换满足cyclic convolution的性质, 即
     FFT算法限制, n必须是2的幂
     FFT是定义在复数上的, 因此与整数变换可能有精度误差
 */
+///二维FFT/NTT
+///先对每行进行FFT，再对每列进行FFT(即转置后对每行进行FFT再转置回来)
 //FFT常被用来为多项式乘法加速, 即在$O(n\log{n})$复杂度内完成多项式乘法
 //也需要用FFT算法来解决需要构造多项式相乘来进行计数的问题
 //#incldue <complex>
 //typedef std::complex<double> Complex;
+const double PI = acos(-1.);
 struct Complex { //复数类, 可以直接用STL库中的complex<double>
-	double r, i;
-	Complex(double _r = 0.0, double _i = 0.0) {r = _r, i = _i;}
-	Complex operator + (const Complex &b) const {return Complex(r + b.r, i + b.i);}
-	Complex operator - (const Complex &b) const {return Complex(r - b.r, i - b.i);}
-	Complex operator * (const Complex &b) const
-	{
-		return Complex(r * b.r - i * b.i, r * b.i + i * b.r);
-	}
-	double real() {return r;}
-	double image() {return i;}
-};
-void brc(vector<Complex> &p, int N)//蝶形变换, 交换位置i与逆序i, 如N=2^3, 交换p[011=3]与p[110=6]
-{
-	int i, j, k;
-	for(i = 1, j = N >> 1; i < N - 2; i++) {
-		if(i < j) swap(p[i], p[j]);
-		for(k = N >> 1; j >= k; k >>= 1) j -= k;
-		if(j < k) j += k;
-	}
-}
-void FFT(vector<Complex> &p, int N, int op)//op = 1表示DFT傅里叶变换, op=-1表示傅里叶逆变换
-{
-	brc(p, N);
-	double p0 = PI * op;
-	for(int h = 2; h <= N; h <<= 1, p0 *= 0.5) {
-		int hf = h >> 1;
-		Complex unit(cos(p0), sin(p0));
-		for(int i = 0; i < N; i += h) {
-			Complex w(1.0, 0.0);
-			for(int j = i; j < i + hf; j++) {
-				Complex u = p[j], t = w * p[j + hf];
-				p[j] = u + t;
-				p[j + hf] = u - t;
-				w = w * unit;
-			}
-		}
-	}
-}
-//Polynomial multiplication多项式相乘$\overrightarrow{X} \times \overrightarrow{Y} = \overrightarrow{Z}$
-void polynomial_multi(const vector<int> &a, const vector<int> &b, vector<int> &res, int n)
-{
-	int N = 1;
-	int i = 0;
-	while(N < n + n) N <<= 1;//FFT的项数必须是2的幂
-	vector<Complex> A(N, Complex(0.0)), B(N, Complex(0.0)), D(N);
-	for(i = 0; i < (int)a.size(); i++)A[i] = Complex(a[i], 0.0);
-	for(i = 0; i < (int)b.size(); i++) B[i] = Complex(b[i], 0.0);
-	FFT(A, N, 1);
-	FFT(B, N, 1);
-	for(i = 0; i < N; i++) D[i] = A[i] * B[i];
-	FFT(D, N, -1);
-	for(i = 0, res.clear(); i < N; i++) res.PB(round(D[i].real() / N));
+  double r, i;
+  Complex(double _r = 0.0, double _i = 0.0) {r = _r, i = _i;}
+  Complex operator + (const Complex &b) const {
+    return Complex(r + b.r, i + b.i);
+  }
+  Complex operator - (const Complex &b) const {
+    return Complex(r - b.r, i - b.i);
+  }
+  Complex operator * (const Complex &b) const {
+    return Complex(r * b.r - i * b.i, r * b.i + i * b.r);
+  }
+  double real() {return r;}
+  double image() {return i;}
+} FFT_A[NUM << 2], FFT_B[NUM << 2];
+void FFT(Complex p[], int N, int op) { //op = 1表示DFT傅里叶变换, op=-1表示傅里叶逆变换
+  //蝶形变换, 交换位置i与逆序i, 如N=2^3, 交换p[011=3]与p[110=6]
+  for (int i = 0, j = 0; i < N; i++) {
+    if (i > j) swap(p[i], p[j]);
+    for (int l = N >> 1; (j ^= l) < l; l >>= 1);
+  }
+  double p0 = PI * op;
+  for (int h = 2; h <= N; h <<= 1, p0 *= 0.5) {
+    int hf = h >> 1;
+    Complex unit(cos(p0), sin(p0));
+    for (int i = 0; i < N; i += h) {
+      Complex w(1.0, 0.0);
+      for (int j = i; j < i + hf; j++) {
+        Complex u = p[j], t = w * p[j + hf];
+        p[j] = u + t;
+        p[j + hf] = u - t;
+        w = w * unit;
+      }
+    }
+  }
+  if (op == 1) return ;
+  for (int i = 0; i < N; ++i) p[i].r /= N;
 }
 
+//Polynomial multiplication多项式相乘$\overrightarrow{X} \times \overrightarrow{Y} = \overrightarrow{Z}$
+void polynomial_multi(const int a[], const int an, const int b[], const int bn,
+                      int res[], int &n) {
+  int N = 1;
+  int i = 0;
+  n = max(an, bn);
+  while (N < n + n) N <<= 1; //FFT的项数必须是2的幂
+  for (i = 0; i < an; ++i) FFT_A[i] = Complex(a[i], 0.0);
+  for (; i < N; ++i) FFT_A[i] = Complex(0, 0);
+  for (i = 0; i < bn; ++i) FFT_B[i] = Complex(b[i], 0.0);
+  for (; i < N; ++i) FFT_B[i] = Complex(0, 0);
+  FFT(FFT_A, N, 1);
+  FFT(FFT_B, N, 1);
+  for (i = 0; i < N; i++) FFT_A[i] = FFT_A[i] * FFT_B[i];
+  FFT(FFT_A, N, -1);
+  for (i = 0, n = N; i < N; i++) res[i] = round(FFT_A[i].real());
+}
+
+//Polynomial multiplication多项式相乘$\overrightarrow{X} \times \overrightarrow{Y} = \overrightarrow{Z}$
+void polynomial_multi(const int a[], const int an, const int b[], const int bn,
+                      int &res, int &n) {
+  int N = 1;
+  int i = 0;
+  n = max(an, bn);
+  while (N < n + n) N <<= 1; //FFT的项数必须是2的幂
+  for (i = 0; i < an; ++i)FFT_A[i] = Complex(a[i], 0.0);
+  for (; i < N; ++i) FFT_A[i] = Complex(0, 0);
+  for (i = 0; i < bn; i++) FFT_B[i] = Complex(b[i], 0.0);
+  for (; i < N; ++i) FFT_B[i] = Complex(0, 0);
+  FFT(FFT_A, N, 1);
+  FFT(FFT_B, N, 1);
+  for (i = 0; i < N; i++) FFT_A[i] = FFT_A[i] * FFT_B[i];
+  FFT(FFT_A, N, -1);
+  for (i = 0, n = N; i < N; i++) res[i] = round(FFT_A[i].real());
+}
+
+//写法二
+Complex PW[NUM * 4], IPW[NUM * 4], CPW[NUM * 4];
+int N;
+void initFFT(int n) {
+  if (N == n) return ;
+  for (N = 1; n + n > N; N <<= 1);
+  for (int i = 0; i < N; ++i) {
+    double ang = i * 2. * PI / N;
+    double co = cos(ang);
+    double si = sin(ang);
+    PW[i] = Complex(co, si);
+    IPW[i] = Complex(co, -si);
+  }
+}
+void fft(Complex *a, bool inv) {
+  for (int i = 0, j = 0; i < N; i++) {
+    if (i > j) swap(a[i], a[j]);
+    for (int l = N >> 1; (j ^= l) < l; l >>= 1);
+  }
+  for (int len = 2, shift = N >> 1; len <= N; len <<= 1, shift >>= 1) {
+    int len2 = len >> 1;
+    for (int j = 0; j < len2; ++j) {
+      CPW[j] = inv ? IPW[j * shift] : PW[j * shift];
+    }
+    for (int i = 0; i < N; i += len) {
+      for (int j = 0; j < len2; ++j) {
+        const Complex u = a[i + j];
+        const Complex v = a[i + j + len2] * CPW[j];
+        a[i + j] = u + v;
+        a[i + j + len2] = u - v;
+      }
+    }
+  }
+  if (!inv) return ;
+  for (int i = 0; i < N; ++i) a[i] = a[i] * (1. / N);
+}
+//二维FFT
+void FFT2D(Complex(&a)[mxn][mxn], bool rev) {
+  for (int i = 0; i < CN; i++) FFT(a[i], rev);
+  for (int i = 0; i < CN; i++) for (int j = i; j < CN; j++) swap(a[i][j], a[j][i]);
+  for (int i = 0; i < CN; i++) FFT(a[i], rev);
+  for (int i = 0; i < CN; i++) for (int j = i; j < CN; j++) swap(a[i][j], a[j][i]);
+};
 /*
 应用1: 给一个01串S, 求有多少对(i, j, k)$(i < j < k)$使$S_i = S_j = S_k = 1$, 且j - i = k - j
 */
@@ -140,64 +206,52 @@ p = 985661441, 3是p的原根, $(p-1)= 2^{20} * i + 1$
 //来源: 2015多校第三场, 1007标程
 LL qpow(LL x, LL k, LL mod);
 const LL mod = 998244353;
-class NTT
-{
+class NTT {
 public:
-	void solve(vector<int> &A, vector<int> &B, int n)
-	{
-		int N = 1;
-		while(N < n + n) N <<= 1;
-		A.resize(N, 0);
-		B.resize(N, 0);
-		Ntt(A, N, 1);
-		Ntt(B, N, 1);
-		for(int i = 0; i < N; ++i)
-			A[i] = 1ll * A[i] * B[i] % mod;
-		Ntt(A, N, -1);
-	}
-	NTT(int n = 100000)
-	{
-		N = 1;
-		while(N < n + n) N <<= 1;
-		wi[0] = 1, wi[1] = qpow(wroot, (mod - 1) / N, mod);
-		for(int i = 2; i < N; i++)
-			wi[i] = 1LL * wi[i - 1] * wi[1] % mod;
-	}
+  void solve(vector<int> &A, vector<int> &B, int n) {
+    int N = 1;
+    while (N < n + n) N <<= 1;
+    A.resize(N, 0);
+    B.resize(N, 0);
+    Ntt(A, N, 1);
+    Ntt(B, N, 1);
+    for (int i = 0; i < N; ++i)
+      A[i] = 1ll * A[i] * B[i] % mod;
+    Ntt(A, N, -1);
+  }
+  NTT(int n = 100000) {
+    N = 1;
+    while (N < n + n) N <<= 1;
+    wi[0] = 1, wi[1] = qpow(wroot, (mod - 1) / N, mod);
+    for (int i = 2; i < N; i++)
+      wi[i] = 1LL * wi[i - 1] * wi[1] % mod;
+  }
 private:
-	static const int wroot = 3;
-	int N;
-	int wi[NUM << 2];
-	//蝶形变换, 交换位置i与逆序i, 如N=2^3, 交换p[011=3]与p[110=6]
-	inline void brc(vector<int> &p, int n)
-	{
-		int i, j, k;
-		for(i = 1, j = n >> 1; i < n - 2; i++) {
-			if(i < j) swap(p[i], p[j]);
-			for(k = n >> 1; j >= k; k >>= 1) j -= k;
-			if(j < k) j += k;
-		}
-	}
-	void Ntt(vector<int> &a, int n, int op)
-	{
-		brc(a, n);
-		for(int h = 2; h <= n; h <<= 1) {
-			int unit = op == -1 ? N - N / h : N / h;
-			int hf = h >> 1;
-			for(int i = 0; i < n; i += h) {
-				int w = 0;
-				for(int j = i; j < i + hf; j++) {
-					int u = a[j], t = 1LL * wi[w] * a[j + hf] % mod;
-					if((a[j] = u + t) >= mod) a[j] -= mod;
-					if((a[j + hf] = u - t) < 0) a[j + hf] += mod;
-					if((w += unit) >= N) w -= N;
-				}
-			}
-		}
-		if(op == -1) {
-			int inv = qpow(n, mod - 2, mod);
-			for(int i = 0; i < n; i++) a[i] = 1LL * a[i] * inv % mod;
-		}
-	}
+  static const int wroot = 3;
+  int N;
+  int wi[NUM << 2];
+  void Ntt(vector<int> &a, int n, int op) {
+    for (int i = 0, j = 0; i < n; ++i) { //蝶形变换
+      if (i < j) swap(a[i], a[j]);
+      for (int l = n >> 1; (j ^= l) < l; l >>= 1);
+    }
+    for (int h = 2, hf = 1; h <= n; hf = h, h <<= 1) {
+      int unit = op == -1 ? N - N / h : N / h;
+      for (int i = 0; i < n; i += h) {
+        int w = 0;
+        for (int j = i; j < i + hf; j++) {
+          int u = a[j], t = 1LL * wi[w] * a[j + hf] % mod;
+          if ((a[j] = u + t) >= mod) a[j] -= mod;
+          if ((a[j + hf] = u - t) < 0) a[j + hf] += mod;
+          if ((w += unit) >= N) w -= N;
+        }
+      }
+    }
+    if (op == -1) {
+      int inv = qpow(n, mod - 2, mod);
+      for (int i = 0; i < n; i++) a[i] = 1LL * a[i] * inv % mod;
+    }
+  }
 } ntt;
 /*分治ntt
 有递推关系式: $\displaystyle a_n = \sum_{k=0}^{n-1}{k! \cdot a_{n-k}}$

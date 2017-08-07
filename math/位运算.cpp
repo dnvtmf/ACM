@@ -95,7 +95,7 @@ void kSubSet(int n, int k)
 结果, 我们就可以很方便地得到任意一段的奇偶性: 如果想要得到 k1~k2 位中 true 个数的
 奇偶性, 直接计算(x>>k1^x>>(k2+1))&1 即可.
 (2)统计 1 的数目:*/
-int bit_count(unsigned x)//__builtin_popcount(unsigned x);
+int bit_count(unsigned x)//__builtin_popcount(unsigned x);  __builtin_popcountll();
 {
 	x -= ((x & 0xAAAAAAAAu) >> 1);
 	x = ((x & 0xCCCCCCCCu) >> 2) + (x & 0x33333333u);
@@ -146,4 +146,5 @@ int countTrailingZeros_1(unsigned x)
 	if(!(x & 1u)) x >>= 1, ans |= 1;
 	return ans + !x;
 }
+//__builtin_ffs (unsigned int x) 返回x的最后一位1的是从后向前第几位，比如7368（1110011001000）返回4。
 

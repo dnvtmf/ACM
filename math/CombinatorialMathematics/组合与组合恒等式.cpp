@@ -11,7 +11,7 @@
 	推论1: $C_n^r = C_n^{n-r}$
 	推论2(Pascal公式): $C_n^r = C_{n-1}^r + C_{n-1}^{r-1}$
 	推论3: $\displaystyle \sum_{k=0}^{n}{C_k^r} = \sum_{k=r}^{n}{C_k^r} = C_{n+1}^{r+1}$
-	推论4: $\displaystyle \sum_{k=0}^{r}{C_{n + k}^{k}} = C_{n + r + 1}^{r+1}$
+	推论4: $\displaystyle \sum_{k=0}^{r}{C_{n + k}^{k}} = C_{n + r + 1}^{r}$
 	推论5: $C_n^k C_k^r = C_n^r C_{n-r}^{k-r} (k \geq r)$.
 2. 从重集$B=\{\infty \cdot b_1, \infty \cdot b_2, \dots , \infty \cdot b_n\}$的r-组合数F(n,r)为$F(n,r)=C_{n+r-1}^{r}$
 

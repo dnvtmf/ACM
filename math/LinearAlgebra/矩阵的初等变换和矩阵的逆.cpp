@@ -138,18 +138,4 @@ int Gauss(double a[][MAXN], bool l[], double ans[], int n)
 					ans[i] = a[j][n] / a[j][i];
 	return res;//返回解空间的维数
 }
-//常系数线性齐次递推
-/*已知$f_x = a_0 f_{x-1} + a_1 f_{x-2} + \cdots a_{n-1}f_{x-n}$和$f_0, f_1, \cdots, f_{n-1}$, 给定t, 求$f_t$
-f的递推可以看做是一个$n\times n$的矩阵A乘以一个n维列向量$\beta$, 即
-@$$A = \left[ \begin{matrix}
-0 &1 &0 &\cdots &0 \\
-0 &0 &0 &\cdots &0 \\
-&\vdots & &\ddots &\vdots \\
-0 &0 &0 &\cdots &1 \\
-a_{n-1} &a_{n-2} &a_{n-3} &\cdots &a_0
-\end{matrix}\right],
-\beta_n = \left[ \begin{matrix}
-f_{x-n} \\ f_{x - n + 1} \\ \vdots \\ f_{x-2} \\ f_{x-1}
-\end{matrix}\right]$$@
-则$\beta_{t} = A^{t-n+1} \beta_{0}(t \geq n)$
-*/
+
